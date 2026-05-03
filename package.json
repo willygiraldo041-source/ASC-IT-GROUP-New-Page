@@ -3,13 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "pnpm --parallel --filter frontend --filter studio dev",
-    "dev:frontend": "pnpm --filter frontend dev",
-    "dev:studio": "pnpm --filter studio dev",
-    "build": "pnpm --filter frontend build",
-    "build:studio": "pnpm --filter studio build",
-    "deploy": "pnpm --filter frontend deploy",
-    "deploy:studio": "pnpm --filter studio deploy"
+    "dev": "cd frontend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:studio": "cd studio && npm run dev",
+    "build": "cd frontend && npm install && npm run build",
+    "build:studio": "cd studio && npm run build",
+    "deploy": "cd frontend && npm run deploy",
+    "deploy:studio": "cd studio && npm run deploy"
   },
   "engines": {
     "node": ">=18.0.0",
