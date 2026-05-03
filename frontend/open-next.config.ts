@@ -1,0 +1,11 @@
+export default {
+  default: {
+    override: {
+      wrapper: 'cloudflare-node',
+      converter: 'edge',
+      incrementalCache: 'cloudflare-kv',
+      tagCache: 'cloudflare-kv',
+      queue: 'cloudflare-queue',
+    },
+  },
+}

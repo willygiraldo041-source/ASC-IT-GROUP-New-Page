@@ -1,0 +1,69 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "asc-it-group"
+compatibility_date = "2024-04-23"
+pages_build_output_dir = ".vercel/output/static"
+
+# ========================================
+# Cloudflare Pages Configuration
+# ========================================
+
+[env.production]
+name = "asc-it-group-production"
+routes = [
+  { pattern = "ascitgroup.com", zone_name = "ascitgroup.com" },
+  { pattern = "www.ascitgroup.com", zone_name = "ascitgroup.com" }
+]
+
+[env.preview]
+name = "asc-it-group-preview"
+
+# ========================================
+# Build Configuration
+# ========================================
+[build]
+command = "npm run pages:build"
+cwd = ""
+watch_dirs = ["src"]
+
+# ========================================
+# Environment Variables (Secrets)
+# ========================================
+# Configura estos en Cloudflare Dashboard:
+# - NEXT_PUBLIC_SANITY_PROJECT_ID
+# - NEXT_PUBLIC_SANITY_DATASET
+# - SANITY_API_TOKEN
+# - RESEND_API_KEY
+# - NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+# - RECAPTCHA_SECRET_KEY
+
+# ========================================
+# Workers Configuration (Optional)
+# ========================================
+# Si necesitas workers adicionales para API routes
+# workers_dev = true
+# compatibility_flags = ["nodejs_compat"]
+
+# ========================================
+# Custom Domain (Opcional)
+# ========================================
+# Agrega tu dominio custom aquí después de verificarlo
+# route = "ascitgroup.com/*"
+# route = "www.ascitgroup.com/*"
+
+# ========================================
+# Performance Optimization
+# ========================================
+# [placement]
+# mode = "smart"  # Distribuye tu app globalmente
+
+# ========================================
+# Cache Rules
+# ========================================
+# [site]
+# bucket = ".vercel/output/static"
+
+# ========================================
+# Limits & Configuration
+# ========================================
+# limits = { cpu_ms = 50 }
+# usage_model = "bundled"  # o "unbound" para más recursos

@@ -1,0 +1,107 @@
+import {createClient} from '@sanity/client'
+
+const client = createClient({
+  projectId: '4z0gk085',
+  dataset: 'production',
+  useCdn: false,
+  token: process.env.SANITY_WRITE_TOKEN || '', // Obtendremos el token
+  apiVersion: '2024-01-01',
+})
+
+const services = [
+  {
+    _type: 'service',
+    title: 'Penetration Testing',
+    slug: {
+      _type: 'slug',
+      current: 'penetration-testing',
+    },
+    description:
+      'Evaluación exhaustiva de seguridad para identificar vulnerabilidades en tu infraestructura antes de que los atacantes las encuentren.',
+    features: ['Network Pentesting', 'Web App Testing', 'Mobile App Testing'],
+    icon: 'Shield',
+    order: 1,
+  },
+  {
+    _type: 'service',
+    title: 'Red Team Operations',
+    slug: {
+      _type: 'slug',
+      current: 'red-team-operations',
+    },
+    description:
+      'Simulamos ataques reales para probar tu postura de seguridad y capacidades de respuesta a incidentes.',
+    features: ['Social Engineering', 'Physical Security', 'Advanced Threats'],
+    icon: 'Target',
+    order: 2,
+  },
+  {
+    _type: 'service',
+    title: 'Security Audits',
+    slug: {
+      _type: 'slug',
+      current: 'security-audits',
+    },
+    description:
+      'Análisis en profundidad de tus controles de seguridad, políticas y requisitos de cumplimiento.',
+    features: ['Code Review', 'Configuration Audit', 'Compliance Check'],
+    icon: 'Search',
+    order: 3,
+  },
+  {
+    _type: 'service',
+    title: 'Intelligent Process Automation',
+    slug: {
+      _type: 'slug',
+      current: 'intelligent-process-automation',
+    },
+    description:
+      'Automatización de workflows y desarrollo de bots RPA. Optimizamos operaciones y liberamos recursos para tareas de mayor valor.',
+    features: ['Workflow Automation', 'RPA & Scripts', 'CI/CD Automation'],
+    icon: 'Settings',
+    order: 4,
+  },
+  {
+    _type: 'service',
+    title: 'DevOps & Cloud Security',
+    slug: {
+      _type: 'slug',
+      current: 'devops-cloud-security',
+    },
+    description:
+      'Integración de seguridad en pipelines DevOps con DevSecOps y protección cloud nativa.',
+    features: ['CI/CD Security', 'IaC Security', 'Kubernetes Security'],
+    icon: 'Cloud',
+    order: 5,
+  },
+  {
+    _type: 'service',
+    title: 'Security Training',
+    slug: {
+      _type: 'slug',
+      current: 'security-training',
+    },
+    description:
+      'Empodera a tu equipo con capacitación práctica en ciberseguridad y programas de concientización.',
+    features: ['Developer Training', 'Security Awareness', 'Custom Workshops'],
+    icon: 'GraduationCap',
+    order: 6,
+  },
+]
+
+async function importServices() {
+  console.log('🚀 Importando servicios...')
+
+  for (const service of services) {
+    try {
+      const result = await client.create(service)
+      console.log(`✅ Creado: ${service.title}`)
+    } catch (error) {
+      console.error(`❌ Error creando ${service.title}:`, error)
+    }
+  }
+
+  console.log('🎉 ¡Importación completada!')
+}
+
+importServices()
