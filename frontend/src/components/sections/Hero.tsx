@@ -71,7 +71,7 @@ export function Hero() {
           className="text-primary/80 text-xs font-light mt-4 md:mt-6 opacity-0 animate-fade-up"
           style={{ animationDelay: '0.85s' }}
         >
-          Expertos en pentesting y ciberseguridad. Sub-clones personalizadas para tu empresa.
+          Expertos en pentesting, Ciberseguridad y consultoría para tu empresa.
         </p>
       </div>
     </section>
