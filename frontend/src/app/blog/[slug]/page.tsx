@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { client } from '@/sanity/client'
 import { POST_BY_SLUG_QUERY, RELATED_POSTS_QUERY } from '@/lib/sanity/queries'
 import type { BlogPost, BlogPostPreview } from '@/types/blog'
@@ -10,10 +10,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, User, ArrowLeft, ArrowRight, Tag } from 'lucide-react'
 
-export const revalidate = 60
+export const dynamicParams = false
 
 interface PageProps {
   params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  const posts = await client.fetch(`*[_type == "blogPost"]{ "slug": slug.current }`)
+  return posts.map((post: { slug: string }) => ({ slug: post.slug }))
 }
 
 async function getPost(slug: string): Promise<BlogPost | null> {
@@ -83,7 +88,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await getPost(slug)
 
   if (!post) {
-    notFound()
+    redirect('/blog')
   }
 
   const categoryNames = post.categories?.map((cat) => cat.slug.current) || []

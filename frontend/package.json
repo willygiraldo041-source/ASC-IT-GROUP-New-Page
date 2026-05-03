@@ -5,9 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cloudflare": "npx @opennextjs/cloudflare build",
-    "preview": "npx @opennextjs/cloudflare dev",
-    "deploy": "npm run build && wrangler pages deploy .vercel/output/static --project-name=asc-it-group",
+    "build:cloudflare": "next build",
+    "deploy": "npx wrangler deploy",
     "start": "next start",
     "lint": "eslint"
   },

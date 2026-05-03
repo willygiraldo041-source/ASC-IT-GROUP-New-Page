@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   description: 'Últimas noticias, artículos y recursos sobre ciberseguridad, pentesting y tecnología.',
 }
 
-export const revalidate = 60 // Revalidar cada 60 segundos
 
 async function getBlogPosts(): Promise<BlogPostPreview[]> {
   try {

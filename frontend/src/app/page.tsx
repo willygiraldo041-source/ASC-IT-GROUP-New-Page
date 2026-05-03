@@ -12,7 +12,6 @@ import { client } from '@/sanity/client'
 import { SERVICES_QUERY, SETTINGS_QUERY } from '@/sanity/queries'
 import type { Service, SiteSettings } from '@/types/sanity'
 
-export const revalidate = 60 // Revalidar cada 60 segundos
 
 export default async function Home() {
   // Fetch data from Sanity
