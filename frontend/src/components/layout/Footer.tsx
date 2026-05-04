@@ -99,20 +99,9 @@ export function Footer({ settings }: FooterProps) {
         <div className="grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <Link href="/" className="group flex items-center gap-3 mb-4">
-              <div className="relative transition-transform duration-300 group-hover:scale-110">
-                <Image
-                  src="/01-02.png"
-                  alt="ASC IT GROUP Logo"
-                  width={50}
-                  height={50}
-                  className="object-contain"
-                />
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-lg bg-primary/40 opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100" />
-              </div>
-              <span className="text-xl font-bold transition-colors duration-300 group-hover:text-primary">
-                {settings?.siteName || 'ASC IT GROUP'}
+            <Link href="/" className="group mb-4 inline-block">
+              <span className="text-2xl font-bold transition-colors duration-300 group-hover:text-primary">
+                ASC IT GROUP
               </span>
             </Link>
             <p className="text-sm text-foreground/60 mb-6">

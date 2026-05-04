@@ -93,19 +93,20 @@ export function NavbarClient({ settings }: NavbarClientProps) {
       transition={{ duration: 0.5 }}
     >
       <Container>
-        <nav className="flex items-center justify-between py-4">
+        <nav className="flex items-center justify-between py-2">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-4 group"
+            className="flex items-center group -my-2"
           >
-            <div className="relative transition-transform duration-500 group-hover:scale-110">
+            <div className="relative transition-transform duration-500 group-hover:scale-105">
               <Image
-                src="/01-02.png"
+                src="/logo_asc.png"
                 alt="ASC IT GROUP Logo"
-                width={70}
-                height={70}
-                className="relative z-10 object-contain transition-all duration-500 group-hover:brightness-110"
+                width={600}
+                height={300}
+                className="relative z-10 object-contain h-16 md:h-20 w-auto transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
+                style={{ mixBlendMode: 'screen' }}
                 priority
               />
               
@@ -115,10 +116,6 @@ export function NavbarClient({ settings }: NavbarClientProps) {
               
               <div className="absolute inset-0 rounded-2xl bg-primary/40 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
             </div>
-            
-            <span className="text-2xl font-bold transition-colors duration-300 group-hover:text-primary">
-              ASC IT GROUP
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
