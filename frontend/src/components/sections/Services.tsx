@@ -129,7 +129,7 @@ export function Services({ services }: ServicesProps) {
   console.log('Display services:', displayServices)
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   })
 
   return (

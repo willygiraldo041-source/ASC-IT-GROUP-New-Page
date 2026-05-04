@@ -8,12 +8,11 @@ import type { SiteSettings } from '@/types/sanity'
 
 const footerLinks = {
   services: [
-    { label: 'Penetration Testing', href: '/#services' },
-    { label: 'Red Team Operations', href: '/#services' },
-    { label: 'Blue Team Defense', href: '/#services' },
-    { label: 'Security Audits', href: '/#services' },
-    { label: 'Incident Response', href: '/#services' },
-    { label: 'Security Training', href: '/#services' },
+    { label: 'Application and Network Security', href: '/#services' },
+    { label: 'Cloud Penetration Testing', href: '/#services' },
+    { label: 'Advanced Attack Simulation', href: '/#services' },
+    { label: 'Intelligent Process Automation', href: '/#services' },
+    { label: 'DevOps & Cloud Security', href: '/#services' },
   ],
   company: [
     { label: 'Quiénes Somos', href: '/#about' },
