@@ -66,7 +66,7 @@ export function CTA() {
               variants={fadeInUp}
               className="mt-6 text-sm text-foreground/50"
             >
-              🔒 Respuesta en menos de 24 horas • 🛡️ 100% Confidencial
+              Respuesta en menos de 24 horas • 100% Confidencial
             </motion.p>
           </div>
         </motion.div>

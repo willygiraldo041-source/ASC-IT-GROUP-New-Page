@@ -28,7 +28,7 @@ export const fadeIn: Variants = {
 export const staggerContainer: Variants = {
   animate: { 
     transition: { 
-      staggerChildren: 0.1 
+      staggerChildren: 0.05 
     } 
   }
 }
