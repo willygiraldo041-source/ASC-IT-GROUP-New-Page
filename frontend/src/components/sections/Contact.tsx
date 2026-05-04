@@ -22,8 +22,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Teléfono',
-    value: '+57 300 123 4567',
-    href: 'tel:+573001234567',
+    value: '+57 314 795 0662',
+    href: 'tel:+573147950662',
   },
   {
     icon: MapPin,
