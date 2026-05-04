@@ -167,7 +167,6 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                           onMouseEnter={() => setHoveredServiceIndex(idx)}
                           onMouseLeave={() => setHoveredServiceIndex(null)}
                         >
-                          <div className="text-xs font-semibold text-primary mb-3 px-2">{service.label}</div>
                           <div className="space-y-1">
                             {service.subItems.map((subItem, subIdx) => (
                               <Link
@@ -175,7 +174,7 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                                 href={subItem.href}
                                 className="block px-3 py-2.5 text-sm text-foreground/70 hover:text-primary hover:bg-primary/10 rounded-md transition-all duration-200"
                               >
-                                • {subItem.label}
+                                {subItem.label}
                               </Link>
                             ))}
                           </div>
