@@ -50,12 +50,29 @@ export function Contact() {
   })
 
   const onSubmit = async (data: ContactFormData) => {
+    if (data.honeypot) return
     setIsSubmitting(true)
     try {
-      // TODO: Implement API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      toast.success('¡Mensaje enviado! Te contactaremos pronto.')
-      reset()
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY',
+          subject: `Nuevo contacto - ${data.service} | ASC IT GROUP`,
+          from_name: data.name,
+          email: data.email,
+          company: data.company || 'No especificada',
+          service: data.service,
+          message: data.message,
+        }),
+      })
+      const result = await response.json()
+      if (result.success) {
+        toast.success('¡Mensaje enviado! Te contactaremos pronto.')
+        reset()
+      } else {
+        throw new Error('Error al enviar')
+      }
     } catch (error) {
       toast.error('Error al enviar el mensaje. Intenta de nuevo.')
     } finally {
