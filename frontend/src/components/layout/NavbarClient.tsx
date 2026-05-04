@@ -101,12 +101,11 @@ export function NavbarClient({ settings }: NavbarClientProps) {
           >
             <div className="relative transition-transform duration-500 group-hover:scale-105">
               <Image
-                src="/logo_asc.png"
+                src="/01-02.png"
                 alt="ASC IT GROUP Logo"
-                width={600}
-                height={300}
-                className="relative z-10 object-contain h-16 md:h-20 w-auto transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
-                style={{ mixBlendMode: 'screen' }}
+                width={800}
+                height={400}
+                className="relative z-10 object-contain h-24 md:h-36 w-auto transition-all duration-500 group-hover:brightness-110 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
                 priority
               />
               
