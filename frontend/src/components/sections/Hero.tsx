@@ -7,7 +7,7 @@ const Spline = lazy(() => import('@splinetool/react-spline'))
 
 export function Hero() {
   return (
-    <section className="relative h-screen flex items-end overflow-hidden bg-background">
+    <section className="relative h-screen flex items-center overflow-hidden bg-background">
       {/* Spline 3D Background */}
       <div className="absolute inset-0 pointer-events-none" style={{ filter: 'hue-rotate(90deg)' }}>
         <Suspense
@@ -26,7 +26,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/30 z-[1] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[95%] lg:max-w-4xl px-6 md:px-10 pb-10 md:pb-10 pt-32">
+      <div className="relative z-10 w-full max-w-[95%] lg:max-w-4xl px-6 md:px-10">
         <h1
           className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.05em] text-foreground mb-2 md:mb-4 uppercase opacity-0 animate-fade-up"
           style={{ animationDelay: '0.2s' }}

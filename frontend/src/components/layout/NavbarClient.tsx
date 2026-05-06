@@ -93,19 +93,21 @@ export function NavbarClient({ settings }: NavbarClientProps) {
       transition={{ duration: 0.5 }}
     >
       <Container>
-        <nav className="flex items-center justify-between py-2">
+        <nav className="flex items-center justify-between py-3">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center group -my-2"
+            className="flex items-center group"
           >
             <div className="relative transition-transform duration-500 group-hover:scale-105">
               <Image
-                src="/01-02.png"
+                src="/LogoASCfinal.png"
                 alt="ASC IT GROUP Logo"
-                width={800}
-                height={400}
-                className="relative z-10 object-contain h-24 md:h-36 w-auto transition-all duration-500 group-hover:brightness-110 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
+                width={400}
+                height={200}
+                className={`relative z-10 object-contain w-auto transition-all duration-500 group-hover:brightness-110 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.6)] ${
+                  isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
+                }`}
                 priority
               />
               
