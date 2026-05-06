@@ -1,8 +1,12 @@
 import { Metadata } from 'next'
 import { client } from '@/sanity/client'
 import { POSTS_QUERY } from '@/lib/sanity/queries'
+import { SETTINGS_QUERY } from '@/sanity/queries'
 import type { BlogPostPreview } from '@/types/blog'
+import type { SiteSettings } from '@/types/sanity'
 import { Container } from '@/components/ui/Container'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getImageUrl } from '@/lib/sanity/image'
@@ -36,10 +40,15 @@ function formatDate(dateString: string) {
 }
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts()
+  const [posts, settings] = await Promise.all([
+    getBlogPosts(),
+    client.fetch<SiteSettings>(SETTINGS_QUERY)
+  ])
 
   return (
-    <main className="relative">
+    <>
+      <Navbar settings={settings} />
+      <main className="relative">
       {/* Hero Section with Background */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Animated Background Pattern */}
@@ -154,5 +163,7 @@ export default async function BlogPage() {
         </Container>
       </section>
     </main>
+    <Footer settings={settings} />
+    </>
   )
 }

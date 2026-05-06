@@ -1,10 +1,19 @@
 import Link from 'next/link'
 import { Shield, Target, Users, Award, CheckCircle2, Cloud, Swords, Bot, Lock, ArrowLeft } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Navbar settings={settings} />
+      <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 pt-32 pb-20">
         <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(white,transparent_85%)] pointer-events-none" />
@@ -107,5 +116,7 @@ export default function AboutPage() {
         </Container>
       </section>
     </div>
+    <Footer settings={settings} />
+    </>
   )
 }

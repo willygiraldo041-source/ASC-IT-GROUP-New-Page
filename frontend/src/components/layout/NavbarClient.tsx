@@ -155,7 +155,12 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                       onMouseEnter={() => setHoveredServiceIndex(idx)}
                       onMouseLeave={() => setHoveredServiceIndex(null)}
                     >
-                      <div className="flex items-center justify-between px-4 py-3 text-sm text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200 cursor-pointer font-medium">
+                      <div className={cn(
+                        "flex items-center justify-between px-4 py-3 text-sm transition-all duration-200 cursor-pointer font-medium rounded-lg",
+                        hoveredServiceIndex === idx 
+                          ? "text-primary bg-primary/10" 
+                          : "text-foreground/80 hover:text-primary hover:bg-primary/10"
+                      )}>
                         <span>{service.label}</span>
                         {service.subItems && <ChevronRight className="h-4 w-4 text-foreground/40" />}
                       </div>

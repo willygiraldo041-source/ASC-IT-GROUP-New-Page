@@ -10,7 +10,7 @@ import { fadeInUp } from '@/lib/animations'
 export function CTA() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.01,
   })
 
   return (
@@ -20,7 +20,7 @@ export function CTA() {
           ref={ref}
           initial="initial"
           animate={inView ? 'animate' : 'initial'}
-          className="relative rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-blue-500/5 to-primary/10 p-12 md:p-16 backdrop-blur-sm overflow-hidden"
+          className="relative rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-blue-500/5 to-primary/10 p-12 md:p-16 overflow-hidden"
         >
           {/* Background Effects */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[128px]" />

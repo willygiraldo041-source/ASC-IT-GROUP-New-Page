@@ -122,11 +122,8 @@ interface ServicesProps {
 }
 
 export function Services({ services }: ServicesProps) {
-  // TEMPORAL: Usar solo servicios por defecto (ignorar Sanity mientras se resuelve el acceso)
   const displayServices = defaultServices
   
-  console.log('Services received:', services)
-  console.log('Display services:', displayServices)
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.01,
@@ -180,29 +177,12 @@ export function Services({ services }: ServicesProps) {
               <motion.div
                 key={service._id}
                 variants={fadeInUp}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative rounded-2xl border border-white/5 bg-gradient-to-b from-white/5 to-transparent p-8 backdrop-blur-sm overflow-hidden"
+                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 overflow-hidden hover:border-blue-500 hover:bg-blue-500/10 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
               >
-                {/* Animated Border Gradient */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-                     style={{ 
-                       background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent)',
-                       backgroundSize: '200% 100%',
-                       animation: 'shimmer 2s infinite'
-                     }} 
-                />
-                
-                {/* Icon with enhanced animation */}
-                <motion.div 
-                  className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 relative z-10"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                >
-                  {/* Glow Effect Emergente */}
-                  <div className="absolute inset-0 rounded-xl bg-primary/30 opacity-0 blur-xl transition-all duration-300 group-hover:opacity-100" />
+                {/* Icon */}
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 relative z-10 transition-transform duration-300 group-hover:scale-110">
                   <Icon className="h-7 w-7 text-primary" />
-                </motion.div>
+                </div>
 
                 {/* Title */}
                 <h3 className="mb-3 text-xl font-semibold">{service.title}</h3>
@@ -233,8 +213,6 @@ export function Services({ services }: ServicesProps) {
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                 </button>
 
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 opacity-0 blur-xl transition-opacity group-hover:opacity-20" />
               </motion.div>
             )
           })}
