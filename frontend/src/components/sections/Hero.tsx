@@ -1,6 +1,7 @@
 'use client'
 
 import { lazy, Suspense } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 
 const Spline = lazy(() => import('@splinetool/react-spline'))
@@ -53,18 +54,20 @@ export function Hero() {
           className="flex flex-wrap gap-3 font-bold opacity-0 animate-fade-up"
           style={{ animationDelay: '0.7s' }}
         >
-          <Button
-            size="lg"
-          >
-            Nuestros Servicios
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="bg-white text-background hover:bg-white/90 hover:text-background"
-          >
-            ¿Quiénes Somos?
-          </Button>
+          <Link href="/#services">
+            <Button size="lg">
+              Nuestros Servicios
+            </Button>
+          </Link>
+          <Link href="/about">
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white text-background hover:bg-white/90 hover:text-background"
+            >
+              ¿Quiénes Somos?
+            </Button>
+          </Link>
         </div>
 
         <p
