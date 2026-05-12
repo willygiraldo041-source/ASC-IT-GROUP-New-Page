@@ -1,0 +1,129 @@
+{
+  "common": {
+    "learnMore": "Conoce Más",
+    "contactUs": "Contáctanos",
+    "getStarted": "Comenzar",
+    "requestConsultation": "Solicitar Consulta Gratuita",
+    "viewCaseStudies": "Ver Casos de Éxito",
+    "backToHome": "Volver al Inicio",
+    "readMore": "Leer Más",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio"
+  },
+  "hero": {
+    "title": "Soluciones de Ciberseguridad",
+    "subtitle": "de Vanguardia para tu Negocio",
+    "description": "Detectamos, fortalecemos e implementamos sistemas de defensa inteligentes.",
+    "cta": {
+      "primary": "Solicitar Consulta Gratuita",
+      "secondary": "Ver Servicios"
+    }
+  },
+  "services": {
+    "title": "Soluciones de Seguridad Integrales",
+    "subtitle": "Desde identificar vulnerabilidades hasta construir defensas robustas, ofrecemos servicios de ciberseguridad end-to-end adaptados a tus necesidades.",
+    "requestConsultation": "Solicitar Consultoría",
+    "items": {
+      "penetrationTesting": {
+        "title": "Penetration Testing",
+        "description": "Evaluación exhaustiva de seguridad para identificar vulnerabilidades en tu infraestructura antes de que los atacantes las encuentren.",
+        "features": [
+          "Network Pentesting",
+          "Web App Testing",
+          "Mobile App Testing"
+        ]
+      },
+      "redTeamOperations": {
+        "title": "Red Team Operations",
+        "description": "Simulamos ataques reales para probar tu postura de seguridad y capacidades de respuesta a incidentes.",
+        "features": [
+          "Social Engineering",
+          "Physical Security",
+          "Advanced Threats"
+        ]
+      },
+      "securityAudits": {
+        "title": "Security Audits",
+        "description": "Análisis en profundidad de tus controles de seguridad, políticas y requisitos de cumplimiento.",
+        "features": [
+          "Code Review",
+          "Configuration Audit",
+          "Compliance Check"
+        ]
+      },
+      "automation": {
+        "title": "Intelligent Process Automation",
+        "description": "Automatización de workflows y desarrollo de bots RPA. Optimizamos operaciones y liberamos recursos para tareas de mayor valor.",
+        "features": [
+          "Workflow Automation",
+          "RPA & Scripts",
+          "CI/CD Automation"
+        ]
+      },
+      "devOpsCloudSecurity": {
+        "title": "DevOps & Cloud Security",
+        "description": "Integración de seguridad en pipelines DevOps con DevSecOps y protección cloud nativa.",
+        "features": [
+          "CI/CD Security",
+          "IaC Security",
+          "Kubernetes Security"
+        ]
+      }
+    }
+  },
+  "about": {
+    "title": "Quiénes Somos",
+    "description": "Expertos en ciberseguridad, pentesting y ethical hacking. Protegemos tu negocio con soluciones avanzadas de seguridad.",
+    "stats": {
+      "projectsCompleted": "Proyectos Completados",
+      "satisfiedClients": "Clientes Satisfechos",
+      "securityExperts": "Expertos en Seguridad",
+      "countriesCovered": "Países Cubiertos"
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Proteger tu Negocio?",
+    "subtitle": "Obtén una evaluación de seguridad gratuita y descubre cómo podemos fortalecer tu infraestructura contra amenazas cibernéticas.",
+    "footer": "Respuesta en menos de 24 horas • 100% Confidencial"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Estamos aquí para ayudarte a proteger tu negocio",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar el mensaje. Por favor intenta de nuevo."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación"
+    }
+  },
+  "footer": {
+    "description": "Expertos en ciberseguridad, pentesting y ethical hacking. Protegemos tu negocio con soluciones avanzadas de seguridad.",
+    "followUs": "Síguenos",
+    "sections": {
+      "services": "Servicios",
+      "company": "Empresa",
+      "contact": "Contacto"
+    },
+    "copyright": "© {year} ASC IT GROUP. All rights reserved."
+  }
+}
