@@ -37,7 +37,8 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.01,
+    threshold: 0,
+    rootMargin: '300px',
   })
 
   const {

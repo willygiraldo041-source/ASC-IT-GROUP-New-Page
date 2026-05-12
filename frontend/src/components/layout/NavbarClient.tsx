@@ -97,26 +97,18 @@ export function NavbarClient({ settings }: NavbarClientProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center group"
+            className="flex items-center"
           >
-            <div className="relative transition-transform duration-500 group-hover:scale-105">
-              <Image
-                src="/LogoASCfinal.png"
-                alt="ASC IT GROUP Logo"
-                width={400}
-                height={200}
-                className={`relative z-10 object-contain w-auto transition-all duration-500 group-hover:brightness-110 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.6)] ${
-                  isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
-                }`}
-                priority
-              />
-              
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out overflow-hidden">
-                <div className="h-full w-24 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg]" />
-              </div>
-              
-              <div className="absolute inset-0 rounded-2xl bg-primary/40 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-            </div>
+            <Image
+              src="/LogoASCfinal.png"
+              alt="ASC IT GROUP Logo"
+              width={400}
+              height={200}
+              className={`object-contain w-auto transition-all duration-300 ${
+                isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
+              }`}
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

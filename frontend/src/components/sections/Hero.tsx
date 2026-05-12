@@ -10,16 +10,30 @@ export function Hero() {
   return (
     <section className="relative h-screen flex items-center overflow-hidden bg-background">
       {/* Spline 3D Background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ filter: 'hue-rotate(90deg)' }}>
+      <div className="absolute inset-0" style={{ filter: 'hue-rotate(90deg)' }}>
         <Suspense
           fallback={
             <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
           }
         >
-          <Spline
-            scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
-            className="w-full h-full pointer-events-none"
-          />
+          <div 
+            className="w-full h-full"
+            style={{ 
+              pointerEvents: 'auto',
+              touchAction: 'pan-y',
+            }}
+            onWheel={(e) => {
+              const target = e.currentTarget.parentElement?.parentElement
+              if (target) {
+                window.scrollBy(0, e.deltaY)
+              }
+            }}
+          >
+            <Spline
+              scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
         </Suspense>
       </div>
 
@@ -27,7 +41,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/30 z-[1] pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[95%] lg:max-w-4xl px-6 md:px-10">
+      <div className="relative z-10 w-full max-w-[95%] lg:max-w-4xl px-6 md:px-10 pointer-events-auto">
         <h1
           className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.05em] text-foreground mb-2 md:mb-4 uppercase opacity-0 animate-fade-up"
           style={{ animationDelay: '0.2s' }}

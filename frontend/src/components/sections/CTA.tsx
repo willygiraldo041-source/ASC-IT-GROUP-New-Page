@@ -10,7 +10,8 @@ import { fadeInUp } from '@/lib/animations'
 export function CTA() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.01,
+    threshold: 0,
+    rootMargin: '300px',
   })
 
   return (
@@ -53,13 +54,21 @@ export function CTA() {
               variants={fadeInUp}
               className="flex flex-col gap-4 sm:flex-row sm:justify-center"
             >
-              <Button size="lg" className="group">
-                Solicitar Consulta Gratuita
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Ver Casos de Éxito
-              </Button>
+              <a 
+                href="https://wa.me/573147950662?text=Hola,%20me%20interesa%20solicitar%20una%20consulta%20gratuita%20sobre%20sus%20servicios%20de%20ciberseguridad"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="group">
+                  Solicitar Consulta Gratuita
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
+              <a href="/#contact">
+                <Button size="lg" variant="outline">
+                  Ver Casos de Éxito
+                </Button>
+              </a>
             </motion.div>
 
             <motion.p

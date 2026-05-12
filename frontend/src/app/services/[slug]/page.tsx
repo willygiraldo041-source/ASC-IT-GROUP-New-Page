@@ -102,8 +102,9 @@ const servicesData = {
   },
 }
 
-export default async function ServicePage({ params }: { params: { slug: string } }) {
-  const service = servicesData[params.slug as keyof typeof servicesData]
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const service = servicesData[slug as keyof typeof servicesData]
 
   if (!service) {
     notFound()
@@ -167,11 +168,15 @@ export default async function ServicePage({ params }: { params: { slug: string }
           <p className="text-foreground/70 mb-6 max-w-2xl mx-auto">
             Contáctanos para una evaluación gratuita y descubre cómo podemos ayudarte.
           </p>
-          <Link href="/#contact">
+          <a 
+            href="https://wa.me/573147950662?text=Hola,%20me%20interesa%20solicitar%20una%20consulta%20gratuita%20sobre%20sus%20servicios%20de%20ciberseguridad"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button size="lg">
               Solicitar Consulta Gratuita
             </Button>
-          </Link>
+          </a>
         </div>
       </Container>
     </main>

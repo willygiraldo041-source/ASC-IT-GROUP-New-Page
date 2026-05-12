@@ -8,11 +8,11 @@ import type { SiteSettings } from '@/types/sanity'
 
 const footerLinks = {
   services: [
-    { label: 'Application and Network Security', href: '/#services' },
-    { label: 'Cloud Penetration Testing', href: '/#services' },
-    { label: 'Advanced Attack Simulation', href: '/#services' },
-    { label: 'Intelligent Process Automation', href: '/#services' },
-    { label: 'DevOps & Cloud Security', href: '/#services' },
+    { label: 'Application and Network Security', href: '/services/application-and-network-security' },
+    { label: 'Cloud Penetration Testing', href: '/services/cloud-penetration-testing' },
+    { label: 'Advanced Attack Simulation', href: '/services/advanced-attack-simulation' },
+    { label: 'Intelligent Process Automation', href: '/services/intelligent-process-automation' },
+    { label: 'DevOps & Cloud Security', href: '/services/devops-cloud-security' },
   ],
   company: [
     { label: 'Quiénes Somos', href: '/#about' },
@@ -95,7 +95,7 @@ export function Footer({ settings }: FooterProps) {
   return (
     <footer className="border-t border-white/5 bg-background">
       <Container>
-        <div className="grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:gap-8 lg:gap-10 py-10 md:grid-cols-2 lg:grid-cols-[1fr_1.1fr_0.8fr_0.9fr]">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <Link href="/" className="group mb-4 inline-block">
@@ -103,14 +103,14 @@ export function Footer({ settings }: FooterProps) {
                 ASC IT GROUP
               </span>
             </Link>
-            <p className="text-sm text-foreground/60 mb-6">
+            <p className="text-sm text-foreground/60 mb-5">
               {settings?.siteDescription || 'Expertos en ciberseguridad, pentesting y ethical hacking. Protegemos tu negocio con soluciones avanzadas de seguridad.'}
             </p>
             
             {/* Redes Sociales */}
-            <div className="mb-4">
+            <div>
               <h4 className="text-sm font-semibold text-foreground/80 mb-3">Síguenos</h4>
-              <div className="flex gap-3 flex-wrap">
+              <div className="grid grid-cols-3 gap-3 max-w-[144px]">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -137,7 +137,7 @@ export function Footer({ settings }: FooterProps) {
 
           {/* Services */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
               Services
             </h3>
             <ul className="space-y-2">
@@ -145,7 +145,7 @@ export function Footer({ settings }: FooterProps) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-foreground/60 hover:text-primary transition-colors"
+                    className="text-sm text-foreground/60 hover:text-primary transition-colors whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
@@ -156,7 +156,7 @@ export function Footer({ settings }: FooterProps) {
 
           {/* Company */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
               Company
             </h3>
             <ul className="space-y-2">
@@ -175,10 +175,10 @@ export function Footer({ settings }: FooterProps) {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
               Contacto
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {settings?.email && (
                 <li className="flex items-center gap-2 text-sm text-foreground/60">
                   <Mail className="h-4 w-4 text-primary" />
@@ -200,7 +200,7 @@ export function Footer({ settings }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/5 py-6">
+        <div className="border-t border-white/5 py-5">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-foreground/60">
               © {new Date().getFullYear()} ASC IT GROUP. All rights reserved.

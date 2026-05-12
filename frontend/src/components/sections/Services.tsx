@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Link from 'next/link'
 import {
   Shield,
   Target,
@@ -40,7 +41,7 @@ const defaultServices: Service[] = [
   {
     _id: '1',
     title: 'Penetration Testing',
-    slug: 'penetration-testing',
+    slug: 'application-and-network-security',
     description: 'Evaluación exhaustiva de seguridad para identificar vulnerabilidades en tu infraestructura antes de que los atacantes las encuentren.',
     icon: 'Shield',
     order: 1,
@@ -53,7 +54,7 @@ const defaultServices: Service[] = [
   {
     _id: '2',
     title: 'Red Team Operations',
-    slug: 'red-team-operations',
+    slug: 'advanced-attack-simulation',
     description: 'Simulamos ataques reales para probar tu postura de seguridad y capacidades de respuesta a incidentes.',
     icon: 'Target',
     order: 2,
@@ -66,7 +67,7 @@ const defaultServices: Service[] = [
   {
     _id: '3',
     title: 'Security Audits',
-    slug: 'security-audits',
+    slug: 'cloud-penetration-testing',
     description: 'Análisis en profundidad de tus controles de seguridad, políticas y requisitos de cumplimiento.',
     icon: 'Search',
     order: 3,
@@ -102,19 +103,6 @@ const defaultServices: Service[] = [
       'Kubernetes Security'
     ]
   },
-  {
-    _id: '6',
-    title: 'Security Training',
-    slug: 'security-training',
-    description: 'Empodera a tu equipo con capacitación práctica en ciberseguridad y programas de concientización.',
-    icon: 'GraduationCap',
-    order: 6,
-    features: [
-      'Developer Training',
-      'Security Awareness',
-      'Custom Workshops'
-    ]
-  },
 ]
 
 interface ServicesProps {
@@ -126,7 +114,8 @@ export function Services({ services }: ServicesProps) {
   
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.01,
+    threshold: 0,
+    rootMargin: '300px',
   })
 
   return (
@@ -208,10 +197,13 @@ export function Services({ services }: ServicesProps) {
                 )}
 
                 {/* CTA */}
-                <button className="group/btn flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80">
+                <Link 
+                  href={`/services/${service.slug}`}
+                  className="group/btn flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                >
                   Conoce Más
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </button>
+                </Link>
 
               </motion.div>
             )
@@ -225,10 +217,12 @@ export function Services({ services }: ServicesProps) {
           animate={inView ? 'animate' : 'initial'}
           className="mt-12 text-center"
         >
-          <Button size="lg" variant="outline">
-            Ver Todos los Servicios
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <Link href="/#contact">
+            <Button size="lg" variant="outline">
+              Solicitar Consultoría
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </motion.div>
       </Container>
     </section>

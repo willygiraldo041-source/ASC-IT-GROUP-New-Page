@@ -40,7 +40,8 @@ const features = [
 export function About() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.01,
+    threshold: 0,
+    rootMargin: '300px',
   })
 
   return (

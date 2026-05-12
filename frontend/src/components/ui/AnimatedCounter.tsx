@@ -21,7 +21,8 @@ export function AnimatedCounter({
   const [count, setCount] = useState(0)
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.01,
+    threshold: 0,
+    rootMargin: '200px',
   })
   const hasAnimated = useRef(false)
 
