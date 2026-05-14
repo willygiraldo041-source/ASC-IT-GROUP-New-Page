@@ -1,8 +1,23 @@
 import { ServiceDetailPage } from '@/components/services/ServiceDetailPage'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function K8sSecurityPage() {
+export default async function K8sSecurityPage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
-    <ServiceDetailPage
+    <>
+      <Navbar settings={settings} />
+      <ServiceDetailPage
       title="Kubernetes Security"
       subtitle="Evaluación y hardening de seguridad para clusters Kubernetes. Identificamos misconfigurations, implementamos security best practices, y fortalecemos tu infraestructura de containers contra amenazas y ataques sofisticados."
       description={[
@@ -27,5 +42,9 @@ export default function K8sSecurityPage() {
         buttonLink: "/#contact"
       }}
     />
+    <Footer settings={settings} />
+    </>
   )
 }
+
+

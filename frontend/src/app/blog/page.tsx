@@ -7,6 +7,7 @@ import type { SiteSettings } from '@/types/sanity'
 import { Container } from '@/components/ui/Container'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { BlogHero } from '@/components/blog/BlogHero'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getImageUrl } from '@/lib/sanity/image'
@@ -49,36 +50,8 @@ export default async function BlogPage() {
     <>
       <Navbar settings={settings} />
       <main className="relative">
-      {/* Hero Section with Background */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-        </div>
-        
-        {/* Content */}
-        <Container className="relative z-10">
-          <div className="text-center max-w-4xl mx-auto py-20">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              Blog de Ciberseguridad
-            </h1>
-            <p className="text-xl md:text-2xl text-foreground/70 mb-8 max-w-2xl mx-auto">
-              Descubre las últimas tendencias, mejores prácticas y noticias del mundo de la ciberseguridad
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                Pentesting
-              </span>
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                Red Team
-              </span>
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                Seguridad Cloud
-              </span>
-            </div>
-          </div>
-        </Container>
-      </section>
+        {/* Modern Hero Section */}
+        <BlogHero />
 
       {/* Posts Section */}
       <section className="py-24 bg-gradient-to-b from-transparent to-background/50">

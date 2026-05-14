@@ -1,7 +1,22 @@
 import { ServiceDetailPage } from '@/components/services/ServiceDetailPage'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function CICDInfrastructurePage() {
+export default async function CICDInfrastructurePage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
+    <>
+      <Navbar settings={settings} />
     <ServiceDetailPage
       title="CI/CD & Infrastructure Automation"
       subtitle="Diseño e implementación de pipelines CI/CD modernos y automatización de infraestructura. Acelera tus releases, mejora calidad de software, y gestiona infraestructura como código con GitOps y prácticas DevOps."
@@ -27,5 +42,9 @@ export default function CICDInfrastructurePage() {
         buttonLink: "/#contact"
       }}
     />
+    <Footer settings={settings} />
+    </>
   )
 }
+
+

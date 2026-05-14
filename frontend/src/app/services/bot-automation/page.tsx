@@ -1,7 +1,22 @@
 import { ServiceDetailPage } from '@/components/services/ServiceDetailPage'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function BotAutomationPage() {
+export default async function BotAutomationPage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
+    <>
+      <Navbar settings={settings} />
     <ServiceDetailPage
       title="Bot Automation (RPA & Scripts)"
       subtitle="Desarrollo de bots inteligentes y scripts de automatización para tareas repetitivas. Implementamos soluciones RPA, web scraping, data extraction, y task automation que optimizan operaciones y liberan recursos humanos."
@@ -27,5 +42,9 @@ export default function BotAutomationPage() {
         buttonLink: "/#contact"
       }}
     />
+    <Footer settings={settings} />
+    </>
   )
 }
+
+

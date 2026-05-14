@@ -1,7 +1,22 @@
 import { ServiceDetailPage } from '@/components/services/ServiceDetailPage'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function VishingPage() {
+export default async function VishingPage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
+    <>
+      <Navbar settings={settings} />
     <ServiceDetailPage
       title="Vishing Testing"
       subtitle="Simulación de ataques de voice phishing (vishing) para evaluar la susceptibilidad de tu personal a ingeniería social por teléfono. Identificamos vulnerabilidades en tus procesos de verificación de identidad y security awareness."
@@ -27,5 +42,9 @@ export default function VishingPage() {
         buttonLink: "/#contact"
       }}
     />
+    <Footer settings={settings} />
+    </>
   )
 }
+
+

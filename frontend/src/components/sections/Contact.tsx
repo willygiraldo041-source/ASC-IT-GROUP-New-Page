@@ -10,30 +10,32 @@ import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { contactFormSchema, type ContactFormData } from '@/lib/validations'
+import { useLanguage } from '@/contexts/LanguageContext'
 import toast from 'react-hot-toast'
 
-const contactInfo = [
+const contactInfoData = [
   {
     icon: Mail,
-    label: 'Email',
+    key: 'email',
     value: 'sac@ascitgroup.com',
     href: 'mailto:sac@ascitgroup.com',
   },
   {
     icon: Phone,
-    label: 'Teléfono',
+    key: 'phone',
     value: '+57 314 795 0662',
     href: 'tel:+573147950662',
   },
   {
     icon: MapPin,
-    label: 'Ubicación',
+    key: 'location',
     value: 'Bogotá, Colombia',
     href: '#',
   },
 ]
 
 export function Contact() {
+  const { t } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -69,13 +71,13 @@ export function Contact() {
       })
       const result = await response.json()
       if (result.success) {
-        toast.success('¡Mensaje enviado! Te contactaremos pronto.')
+        toast.success(t('contact.form.success'))
         reset()
       } else {
         throw new Error('Error al enviar')
       }
     } catch (error) {
-      toast.error('Error al enviar el mensaje. Intenta de nuevo.')
+      toast.error(t('contact.form.error'))
     } finally {
       setIsSubmitting(false)
     }
@@ -96,21 +98,21 @@ export function Contact() {
             className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-4"
           >
             <Mail className="h-4 w-4" />
-            <span>Contáctanos</span>
+            <span>{t('common.contactUs')}</span>
           </motion.div>
 
           <motion.h2
             variants={fadeInUp}
             className="text-4xl font-bold tracking-tight sm:text-5xl mb-4"
           >
-            Hablemos de Seguridad
+            {t('contact.title')}
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
             className="max-w-2xl mx-auto text-lg text-foreground/60"
           >
-            ¿Listo para proteger tu negocio? Contáctanos para una consulta gratuita.
+            {t('contact.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -123,9 +125,9 @@ export function Contact() {
             animate={inView ? 'animate' : 'initial'}
             className="space-y-6"
           >
-            {contactInfo.map((info) => (
+            {contactInfoData.map((info) => (
               <motion.a
-                key={info.label}
+                key={info.key}
                 variants={fadeInUp}
                 href={info.href}
                 whileHover={{ x: 4 }}
@@ -147,7 +149,7 @@ export function Contact() {
                 
                 <div className="transition-transform duration-300 group-hover:translate-x-1">
                   <div className="text-sm text-foreground/60 mb-1 transition-colors duration-300 group-hover:text-primary/80">
-                    {info.label}
+                    {t(`contact.info.${info.key}`)}
                   </div>
                   <div className="text-lg font-medium transition-colors duration-300 group-hover:text-primary">
                     {info.value}
@@ -173,14 +175,14 @@ export function Contact() {
                   htmlFor="name"
                   className="mb-2 block text-sm font-medium"
                 >
-                  Nombre *
+                  {t('contact.form.name')} *
                 </label>
                 <input
                   {...register('name')}
                   type="text"
                   id="name"
                   className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  placeholder="Tu nombre completo"
+                  placeholder={t('contact.form.name')}
                 />
                 {errors.name && (
                   <p className="mt-1 text-xs text-red-500">
@@ -194,14 +196,14 @@ export function Contact() {
                   htmlFor="email"
                   className="mb-2 block text-sm font-medium"
                 >
-                  Email *
+                  {t('contact.form.email')} *
                 </label>
                 <input
                   {...register('email')}
                   type="email"
                   id="email"
                   className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  placeholder="tu@email.com"
+                  placeholder={t('contact.form.email')}
                 />
                 {errors.email && (
                   <p className="mt-1 text-xs text-red-500">
@@ -215,14 +217,14 @@ export function Contact() {
                   htmlFor="company"
                   className="mb-2 block text-sm font-medium"
                 >
-                  Empresa
+                  {t('contact.form.company')}
                 </label>
                 <input
                   {...register('company')}
                   type="text"
                   id="company"
                   className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  placeholder="Nombre de tu empresa"
+                  placeholder={t('contact.form.company')}
                 />
               </div>
 
@@ -255,14 +257,14 @@ export function Contact() {
                   htmlFor="message"
                   className="mb-2 block text-sm font-medium"
                 >
-                  Mensaje *
+                  {t('contact.form.message')} *
                 </label>
                 <textarea
                   {...register('message')}
                   id="message"
                   rows={5}
                   className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  placeholder="Cuéntanos sobre tu proyecto..."
+                  placeholder={t('contact.form.message')}
                 />
                 {errors.message && (
                   <p className="mt-1 text-xs text-red-500">
@@ -286,7 +288,7 @@ export function Contact() {
                 className="w-full"
                 isLoading={isSubmitting}
               >
-                {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
                 {!isSubmitting && <Send className="ml-2 h-5 w-5" />}
               </Button>
             </form>

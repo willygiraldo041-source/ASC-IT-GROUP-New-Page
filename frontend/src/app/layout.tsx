@@ -3,6 +3,7 @@ import { Sora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { Toaster } from 'react-hot-toast'
 import { CustomCursor } from '@/components/ui/CustomCursor'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 import './globals.css'
 
 const sora = Sora({
@@ -54,7 +55,9 @@ export default function RootLayout({
           <CustomCursor />
         </div> */}
         
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Analytics />
         <Toaster
           position="bottom-right"

@@ -1,7 +1,22 @@
 import { ServiceDetailPage } from '@/components/services/ServiceDetailPage'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function WorkflowAutomationPage() {
+export default async function WorkflowAutomationPage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
+    <>
+      <Navbar settings={settings} />
     <ServiceDetailPage
       title="Workflow Automation"
       subtitle="Automatización inteligente de procesos empresariales mediante orquestación de workflows, integración de sistemas y diseño de arquitecturas automation-first. Optimiza operaciones, reduce errores manuales y acelera tus procesos de negocio."
@@ -27,5 +42,9 @@ export default function WorkflowAutomationPage() {
         buttonLink: "/#contact"
       }}
     />
+    <Footer settings={settings} />
+    </>
   )
 }
+
+

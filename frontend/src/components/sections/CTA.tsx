@@ -6,8 +6,10 @@ import { Shield, ArrowRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { fadeInUp } from '@/lib/animations'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function CTA() {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0,
@@ -39,15 +41,14 @@ export function CTA() {
               variants={fadeInUp}
               className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
             >
-              ¿Listo para Proteger tu Negocio?
+              {t('cta.title')}
             </motion.h2>
 
             <motion.p
               variants={fadeInUp}
               className="mx-auto mb-8 max-w-2xl text-lg text-foreground/70"
             >
-              Obtén una evaluación de seguridad gratuita y descubre cómo podemos
-              fortalecer tu infraestructura contra amenazas cibernéticas.
+              {t('cta.subtitle')}
             </motion.p>
 
             <motion.div
@@ -60,13 +61,13 @@ export function CTA() {
                 rel="noopener noreferrer"
               >
                 <Button size="lg" className="group">
-                  Solicitar Consulta Gratuita
+                  {t('common.requestConsultation')}
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
               <a href="/#contact">
                 <Button size="lg" variant="outline">
-                  Ver Casos de Éxito
+                  {t('common.viewCaseStudies')}
                 </Button>
               </a>
             </motion.div>
@@ -75,7 +76,7 @@ export function CTA() {
               variants={fadeInUp}
               className="mt-6 text-sm text-foreground/50"
             >
-              Respuesta en menos de 24 horas • 100% Confidencial
+              {t('cta.footer')}
             </motion.p>
           </div>
         </motion.div>

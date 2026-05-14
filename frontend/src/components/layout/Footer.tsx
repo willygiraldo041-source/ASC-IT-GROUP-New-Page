@@ -4,24 +4,25 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { useLanguage } from '@/contexts/LanguageContext'
 import type { SiteSettings } from '@/types/sanity'
 
-const footerLinks = {
+const footerLinksData = {
   services: [
-    { label: 'Application and Network Security', href: '/services/application-and-network-security' },
-    { label: 'Cloud Penetration Testing', href: '/services/cloud-penetration-testing' },
-    { label: 'Advanced Attack Simulation', href: '/services/advanced-attack-simulation' },
-    { label: 'Intelligent Process Automation', href: '/services/intelligent-process-automation' },
-    { label: 'DevOps & Cloud Security', href: '/services/devops-cloud-security' },
+    { key: 'appNetSecurity', href: '/services/application-and-network-security' },
+    { key: 'cloudPentest', href: '/services/cloud-penetration-testing' },
+    { key: 'advancedAttack', href: '/services/advanced-attack-simulation' },
+    { key: 'processAutomation', href: '/services/intelligent-process-automation' },
+    { key: 'devopsCloud', href: '/services/devops-cloud-security' },
   ],
   company: [
-    { label: 'Quiénes Somos', href: '/#about' },
-    { label: 'Casos de Éxito', href: '/#case-studies' },
-    { label: 'Contacto', href: '/#contact' },
+    { key: 'about', href: '/#about' },
+    { key: 'caseStudies', href: '/#case-studies' },
+    { key: 'contact', href: '/#contact' },
   ],
   legal: [
-    { label: 'Política de Privacidad', href: '/privacy' },
-    { label: 'Términos de Servicio', href: '/terms' },
+    { key: 'privacy', href: '/privacy' },
+    { key: 'terms', href: '/terms' },
   ],
 }
 
@@ -30,6 +31,7 @@ interface FooterProps {
 }
 
 export function Footer({ settings }: FooterProps) {
+  const { t } = useLanguage()
   const socialLinks = [
     { 
       href: 'https://www.linkedin.com/company/ascybersecurity/', 
@@ -104,12 +106,12 @@ export function Footer({ settings }: FooterProps) {
               </span>
             </Link>
             <p className="text-sm text-foreground/60 mb-5">
-              {settings?.siteDescription || 'Expertos en ciberseguridad, pentesting y ethical hacking. Protegemos tu negocio con soluciones avanzadas de seguridad.'}
+              {settings?.siteDescription || t('footer.description')}
             </p>
             
             {/* Redes Sociales */}
             <div>
-              <h4 className="text-sm font-semibold text-foreground/80 mb-3">Síguenos</h4>
+              <h4 className="text-sm font-semibold text-foreground/80 mb-3">{t('footer.followUs')}</h4>
               <div className="grid grid-cols-3 gap-3 max-w-[144px]">
                 {socialLinks.map((social) => (
                   <a
@@ -138,16 +140,16 @@ export function Footer({ settings }: FooterProps) {
           {/* Services */}
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
-              Services
+              {t('footer.sections.services')}
             </h3>
             <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
+              {footerLinksData.services.map((link) => (
+                <li key={link.key}>
                   <Link
                     href={link.href}
                     className="text-sm text-foreground/60 hover:text-primary transition-colors whitespace-nowrap"
                   >
-                    {link.label}
+                    {t(`footer.services.${link.key}`)}
                   </Link>
                 </li>
               ))}
@@ -157,16 +159,16 @@ export function Footer({ settings }: FooterProps) {
           {/* Company */}
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
-              Company
+              {t('footer.sections.company')}
             </h3>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
+              {footerLinksData.company.map((link) => (
+                <li key={link.key}>
                   <Link
                     href={link.href}
                     className="text-sm text-foreground/60 hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    {t(`footer.company.${link.key}`)}
                   </Link>
                 </li>
               ))}
@@ -176,7 +178,7 @@ export function Footer({ settings }: FooterProps) {
           {/* Contact */}
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
-              Contacto
+              {t('footer.sections.contact')}
             </h3>
             <ul className="space-y-2">
               {settings?.email && (
@@ -203,16 +205,16 @@ export function Footer({ settings }: FooterProps) {
         <div className="border-t border-white/5 py-5">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-foreground/60">
-              © {new Date().getFullYear()} ASC IT GROUP. All rights reserved.
+              {t('footer.copyright', { year: new Date().getFullYear() })}
             </p>
             <div className="flex gap-6">
-              {footerLinks.legal.map((link) => (
+              {footerLinksData.legal.map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.key}
                   href={link.href}
                   className="text-sm text-foreground/60 hover:text-primary transition-colors"
                 >
-                  {link.label}
+                  {t(`footer.legal.${link.key}`)}
                 </Link>
               ))}
             </div>

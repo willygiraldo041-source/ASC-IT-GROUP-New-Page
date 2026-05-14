@@ -1,7 +1,22 @@
 import { ServiceDetailPage } from '@/components/services/ServiceDetailPage'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 
-export default function DevSecOpsPage() {
+export default async function DevSecOpsPage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
+    <>
+      <Navbar settings={settings} />
     <ServiceDetailPage
       title="Cloud Security (DevSecOps)"
       subtitle="Integración de seguridad en tus pipelines DevOps y arquitecturas cloud. Implementamos shift-left security, SAST/DAST, container scanning, policy as code, y prácticas DevSecOps que hacen la seguridad parte del desarrollo."
@@ -27,5 +42,9 @@ export default function DevSecOpsPage() {
         buttonLink: "/#contact"
       }}
     />
+    <Footer settings={settings} />
+    </>
   )
 }
+
+

@@ -3,59 +3,63 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
+import { useLanguage } from '@/contexts/LanguageContext'
 import { cn } from '@/lib/utils'
 import type { SiteSettings } from '@/types/sanity'
 
-const serviceLinks = [
+// Keys para construir servicios dinámicamente
+const serviceLinksKeys = [
   { 
-    label: 'Application and Network Security', 
+    key: 'appNetSecurity',
     href: '/#services',
     subItems: [
-      { label: 'Web Application Penetration Testing', href: '/services/web-app-pentest' },
-      { label: 'Network Penetration Testing', href: '/services/network-pentest' },
-      { label: 'Active Directory Penetration Testing', href: '/services/ad-pentest' },
-      { label: 'Mobile App Penetration Testing', href: '/services/mobile-pentest' },
+      { key: 'webApp', href: '/services/web-app-pentest' },
+      { key: 'network', href: '/services/network-pentest' },
+      { key: 'ad', href: '/services/ad-pentest' },
+      { key: 'mobile', href: '/services/mobile-pentest' },
     ]
   },
   { 
-    label: 'Cloud Penetration Testing', 
+    key: 'cloudPentest',
     href: '/#services',
     subItems: [
-      { label: 'AWS Penetration Testing', href: '/services/aws-pentest' },
-      { label: 'Azure Penetration Testing', href: '/services/azure-pentest' },
-      { label: 'GCP Penetration Testing', href: '/services/gcp-pentest' },
+      { key: 'aws', href: '/services/aws-pentest' },
+      { key: 'azure', href: '/services/azure-pentest' },
+      { key: 'gcp', href: '/services/gcp-pentest' },
     ]
   },
   { 
-    label: 'Advanced Attack Simulation', 
+    key: 'advancedAttack',
     href: '/#services',
     subItems: [
-      { label: 'Artificial Intelligence Penetration Testing', href: '/services/ai-pentest' },
-      { label: 'Red Team Assessments', href: '/services/red-team' },
-      { label: 'Ransomware Attack Simulation', href: '/services/ransomware-sim' },
-      { label: 'Email Spear Phishing', href: '/services/phishing' },
-      { label: 'Vishing Testing', href: '/services/vishing' },
+      { key: 'ai', href: '/services/ai-pentest' },
+      { key: 'redTeam', href: '/services/red-team' },
+      { key: 'ransomware', href: '/services/ransomware-sim' },
+      { key: 'phishing', href: '/services/phishing' },
+      { key: 'vishing', href: '/services/vishing' },
     ]
   },
   { 
-    label: 'Intelligent Process Automation', 
+    key: 'automation',
     href: '/#services',
     subItems: [
-      { label: 'Workflow Automation', href: '/services/workflow-automation' },
-      { label: 'Bot Automation (RPA & Scripts)', href: '/services/bot-automation' },
+      { key: 'workflow', href: '/services/workflow-automation' },
+      { key: 'bot', href: '/services/bot-automation' },
     ]
   },
   { 
-    label: 'DevOps & Cloud Security', 
+    key: 'devopsCloud',
     href: '/#services',
     subItems: [
-      { label: 'CI/CD & Infrastructure Automation', href: '/services/cicd-infrastructure' },
-      { label: 'Cloud Security (DevSecOps)', href: '/services/devsecops' },
-      { label: 'Kubernetes Security', href: '/services/k8s-security' },
+      { key: 'cicd', href: '/services/cicd-infrastructure' },
+      { key: 'devsecops', href: '/services/devsecops' },
+      { key: 'k8s', href: '/services/k8s-security' },
     ]
   },
 ]
@@ -65,11 +69,26 @@ interface NavbarClientProps {
 }
 
 export function NavbarClient({ settings }: NavbarClientProps) {
+  const pathname = usePathname()
+  const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [expandedService, setExpandedService] = useState<number | null>(null)
   const [hoveredServiceIndex, setHoveredServiceIndex] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
+
+  // Construir serviceLinks con traducciones dinámicas
+  const serviceLinks = serviceLinksKeys.map(service => ({
+    label: t(`navigation.serviceItems.${service.key}.title`),
+    href: service.href,
+    subItems: service.subItems.map(subItem => ({
+      label: t(`navigation.serviceItems.${service.key}.items.${subItem.key}`),
+      href: subItem.href
+    }))
+  }))
+
+  // Detectar si estamos en una página de servicios
+  const isServicesPage = pathname.startsWith('/services')
 
   useEffect(() => {
     setMounted(true)
@@ -116,25 +135,49 @@ export function NavbarClient({ settings }: NavbarClientProps) {
             {/* Inicio */}
             <Link
               href="/"
-              className="group relative text-sm font-medium text-foreground/80 transition-all duration-300 hover:text-primary"
+              className={cn(
+                "group relative text-sm font-medium transition-all duration-300 hover:text-primary",
+                pathname === '/' ? "text-primary" : "text-foreground/80"
+              )}
             >
-              <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
-                Inicio
+              <span className={cn(
+                "relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]",
+                pathname === '/' && "drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+              )}>
+                {t('navigation.home')}
               </span>
-              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300 group-hover:w-full" />
-              <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 blur-sm transition-all duration-300 group-hover:opacity-100" />
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300",
+                pathname === '/' ? "w-full" : "w-0 group-hover:w-full"
+              )} />
+              <span className={cn(
+                "absolute inset-0 -z-10 rounded-md bg-primary/10 blur-sm transition-all duration-300",
+                pathname === '/' ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+              )} />
             </Link>
             
             {/* Servicios Dropdown */}
             <div className="group relative">
-              <div className="relative text-sm font-medium text-foreground/80 transition-all duration-300 hover:text-primary cursor-pointer">
-                <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
-                  Servicios
+              <div className={cn(
+                "relative text-sm font-medium transition-all duration-300 hover:text-primary cursor-pointer",
+                isServicesPage ? "text-primary" : "text-foreground/80"
+              )}>
+                <span className={cn(
+                  "relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]",
+                  isServicesPage && "drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                )}>
+                  {t('navigation.services')}
                 </span>
                 
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300 group-hover:w-full" />
+                <span className={cn(
+                  "absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300",
+                  isServicesPage ? "w-full" : "w-0 group-hover:w-full"
+                )} />
                 
-                <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 blur-sm transition-all duration-300 group-hover:opacity-100" />
+                <span className={cn(
+                  "absolute inset-0 -z-10 rounded-md bg-primary/10 blur-sm transition-all duration-300",
+                  isServicesPage ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                )} />
               </div>
               
               {/* Menu Principal - Solo los 5 servicios */}
@@ -188,25 +231,49 @@ export function NavbarClient({ settings }: NavbarClientProps) {
             {/* Quiénes Somos */}
             <Link
               href="/about"
-              className="group relative text-sm font-medium text-foreground/80 transition-all duration-300 hover:text-primary"
+              className={cn(
+                "group relative text-sm font-medium transition-all duration-300 hover:text-primary",
+                pathname === '/about' ? "text-primary" : "text-foreground/80"
+              )}
             >
-              <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
-                Quiénes Somos
+              <span className={cn(
+                "relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]",
+                pathname === '/about' && "drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+              )}>
+                {t('navigation.about')}
               </span>
-              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300 group-hover:w-full" />
-              <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 blur-sm transition-all duration-300 group-hover:opacity-100" />
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300",
+                pathname === '/about' ? "w-full" : "w-0 group-hover:w-full"
+              )} />
+              <span className={cn(
+                "absolute inset-0 -z-10 rounded-md bg-primary/10 blur-sm transition-all duration-300",
+                pathname === '/about' ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+              )} />
             </Link>
             
             {/* Blog */}
             <Link
               href="/blog"
-              className="group relative text-sm font-medium text-foreground/80 transition-all duration-300 hover:text-primary"
+              className={cn(
+                "group relative text-sm font-medium transition-all duration-300 hover:text-primary",
+                pathname === '/blog' ? "text-primary" : "text-foreground/80"
+              )}
             >
-              <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
-                Blog
+              <span className={cn(
+                "relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]",
+                pathname === '/blog' && "drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+              )}>
+                {t('navigation.blog')}
               </span>
-              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300 group-hover:w-full" />
-              <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 blur-sm transition-all duration-300 group-hover:opacity-100" />
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300",
+                pathname === '/blog' ? "w-full" : "w-0 group-hover:w-full"
+              )} />
+              <span className={cn(
+                "absolute inset-0 -z-10 rounded-md bg-primary/10 blur-sm transition-all duration-300",
+                pathname === '/blog' ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+              )} />
             </Link>
             
             {/* Contacto */}
@@ -215,13 +282,16 @@ export function NavbarClient({ settings }: NavbarClientProps) {
               className="group relative text-sm font-medium text-foreground/80 transition-all duration-300 hover:text-primary"
             >
               <span className="relative z-10 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]">
-                Contacto
+                {t('navigation.contact')}
               </span>
               <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-blue-400 transition-all duration-300 group-hover:w-full" />
               <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 blur-sm transition-all duration-300 group-hover:opacity-100" />
             </Link>
             
-            <Button size="sm" className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">Request Pentest</Button>
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+            
+            <Button size="sm" className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">{t('common.requestPentest')}</Button>
           </div>
 
           {/* Mobile Menu Button */}

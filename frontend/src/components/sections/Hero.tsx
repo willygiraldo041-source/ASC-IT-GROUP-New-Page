@@ -3,10 +3,12 @@
 import { lazy, Suspense } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 export function Hero() {
+  const { t } = useLanguage()
   return (
     <section className="relative h-screen flex items-center overflow-hidden bg-background">
       {/* Spline 3D Background */}
@@ -53,15 +55,14 @@ export function Hero() {
           className="text-foreground/80 text-[clamp(1.125rem,2.5vw,1.875rem)] font-light mb-3 md:mb-6 opacity-0 animate-fade-up"
           style={{ animationDelay: '0.4s' }}
         >
-          Detectamos, fortalecemos e implementamos sistemas de defensa inteligentes.
+          {t('hero.subtitle')}
         </p>
 
         <p
           className="text-muted-foreground text-[clamp(0.875rem,1.5vw,1.25rem)] font-light mb-4 md:mb-8 opacity-0 animate-fade-up"
           style={{ animationDelay: '0.55s' }}
         >
-          En ASC IT GROUP ofrecemos soluciones de ciberseguridad e innovación tecnológica
-          diseñadas para proteger tu información y garantizar la continuidad de tu negocio.
+          {t('hero.description')}
         </p>
 
         <div
@@ -70,7 +71,7 @@ export function Hero() {
         >
           <Link href="/#services">
             <Button size="lg">
-              Nuestros Servicios
+              {t('hero.cta.primary')}
             </Button>
           </Link>
           <Link href="/about">
@@ -79,7 +80,7 @@ export function Hero() {
               variant="outline"
               className="bg-white text-background hover:bg-white/90 hover:text-background"
             >
-              ¿Quiénes Somos?
+              {t('hero.cta.secondary')}
             </Button>
           </Link>
         </div>
@@ -88,7 +89,7 @@ export function Hero() {
           className="text-primary/80 text-xs font-light mt-4 md:mt-6 opacity-0 animate-fade-up"
           style={{ animationDelay: '0.85s' }}
         >
-          Expertos en pentesting, Ciberseguridad y consultoría para tu empresa.
+          {t('hero.tagline')}
         </p>
       </div>
     </section>

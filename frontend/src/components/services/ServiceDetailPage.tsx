@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, Shield, Check, Phone } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface ServiceDetailProps {
   title: string
@@ -27,6 +28,7 @@ export function ServiceDetailPage({
   benefits,
   cta
 }: ServiceDetailProps) {
+  const { t } = useLanguage()
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -45,7 +47,7 @@ export function ServiceDetailPage({
               className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 mb-8 transition-colors cursor-pointer relative z-20"
             >
               <ArrowLeft className="h-4 w-4" />
-              Volver al Inicio
+              {t('servicePages.backToHome')}
             </Link>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -61,7 +63,7 @@ export function ServiceDetailPage({
               className="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 bg-primary text-background hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 h-13 px-8 text-lg mt-8"
             >
               <Phone className="h-5 w-5" />
-              Hablar con Ventas
+              {t('common.talkToSales')}
             </Link>
           </motion.div>
         </Container>
@@ -97,7 +99,7 @@ export function ServiceDetailPage({
                 className="mt-12"
               >
                 <h3 className="text-2xl font-bold mb-6">
-                  ¿Por qué elegirnos para este servicio?
+                  {t('servicePages.keyBenefits')}
                 </h3>
                 
                 <div className="space-y-4">
@@ -127,7 +129,7 @@ export function ServiceDetailPage({
                   <div className="flex items-center gap-3 mb-4">
                     <Shield className="h-6 w-6 text-primary" />
                     <h3 className="text-lg font-semibold">
-                      Nuestras Certificaciones
+                      {t('servicePages.ourCertifications')}
                     </h3>
                   </div>
                   

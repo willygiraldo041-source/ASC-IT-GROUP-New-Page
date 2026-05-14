@@ -20,6 +20,7 @@ import {
 import { Container } from '@/components/ui/Container'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { Button } from '@/components/ui/Button'
+import { useLanguage } from '@/contexts/LanguageContext'
 import type { Service } from '@/types/sanity'
 
 // Icon mapping
@@ -36,72 +37,42 @@ const iconMap: Record<string, LucideIcon> = {
   Network,
 }
 
-// Servicios por defecto
-const defaultServices: Service[] = [
+// Servicios por defecto - keys para traducciones
+const defaultServicesKeys = [
   {
     _id: '1',
-    title: 'Penetration Testing',
+    key: 'penetrationTesting',
     slug: 'application-and-network-security',
-    description: 'Evaluación exhaustiva de seguridad para identificar vulnerabilidades en tu infraestructura antes de que los atacantes las encuentren.',
     icon: 'Shield',
     order: 1,
-    features: [
-      'Network Pentesting',
-      'Web App Testing',
-      'Mobile App Testing'
-    ]
   },
   {
     _id: '2',
-    title: 'Red Team Operations',
+    key: 'redTeamOperations',
     slug: 'advanced-attack-simulation',
-    description: 'Simulamos ataques reales para probar tu postura de seguridad y capacidades de respuesta a incidentes.',
     icon: 'Target',
     order: 2,
-    features: [
-      'Social Engineering',
-      'Physical Security',
-      'Advanced Threats'
-    ]
   },
   {
     _id: '3',
-    title: 'Security Audits',
-    slug: 'cloud-penetration-testing',
-    description: 'Análisis en profundidad de tus controles de seguridad, políticas y requisitos de cumplimiento.',
+    key: 'securityAudits',
+    slug: 'security-audits',
     icon: 'Search',
     order: 3,
-    features: [
-      'Code Review',
-      'Configuration Audit',
-      'Compliance Check'
-    ]
   },
   {
     _id: '4',
-    title: 'Intelligent Process Automation',
+    key: 'automation',
     slug: 'intelligent-process-automation',
-    description: 'Automatización de workflows y desarrollo de bots RPA. Optimizamos operaciones y liberamos recursos para tareas de mayor valor.',
     icon: 'Settings',
     order: 4,
-    features: [
-      'Workflow Automation',
-      'RPA & Scripts',
-      'CI/CD Automation'
-    ]
   },
   {
     _id: '5',
-    title: 'DevOps & Cloud Security',
+    key: 'devOpsCloudSecurity',
     slug: 'devops-cloud-security',
-    description: 'Integración de seguridad en pipelines DevOps con DevSecOps y protección cloud nativa.',
     icon: 'Cloud',
     order: 5,
-    features: [
-      'CI/CD Security',
-      'IaC Security',
-      'Kubernetes Security'
-    ]
   },
 ]
 
@@ -110,7 +81,21 @@ interface ServicesProps {
 }
 
 export function Services({ services }: ServicesProps) {
-  const displayServices = defaultServices
+  const { t, messages } = useLanguage()
+  
+  // Construir servicios con traducciones dinámicas
+  const displayServices = defaultServicesKeys.map(serviceKey => {
+    const serviceData = (messages as any)?.services?.items?.[serviceKey.key]
+    return {
+      _id: serviceKey._id,
+      title: t(`services.items.${serviceKey.key}.title`),
+      slug: serviceKey.slug,
+      description: t(`services.items.${serviceKey.key}.description`),
+      icon: serviceKey.icon,
+      order: serviceKey.order,
+      features: Array.isArray(serviceData?.features) ? serviceData.features : []
+    }
+  })
   
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -133,22 +118,21 @@ export function Services({ services }: ServicesProps) {
             className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-4"
           >
             <Shield className="h-4 w-4" />
-            <span>Nuestros Servicios</span>
+            <span>{t('navigation.services')}</span>
           </motion.div>
 
           <motion.h2
             variants={fadeInUp}
             className="text-4xl font-bold tracking-tight sm:text-5xl mb-4"
           >
-            Soluciones de Seguridad Integrales
+            {t('services.title')}
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
             className="max-w-2xl mx-auto text-lg text-foreground/60"
           >
-            Desde identificar vulnerabilidades hasta construir defensas robustas,
-            ofrecemos servicios de ciberseguridad end-to-end adaptados a tus necesidades.
+            {t('services.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -201,7 +185,7 @@ export function Services({ services }: ServicesProps) {
                   href={`/services/${service.slug}`}
                   className="group/btn flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80"
                 >
-                  Conoce Más
+                  {t('common.learnMore')}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
 
