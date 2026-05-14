@@ -168,7 +168,7 @@ export function Services({ services }: ServicesProps) {
                 {/* Features */}
                 {service.features && service.features.length > 0 && (
                   <ul className="mb-6 space-y-2">
-                    {service.features.map((feature, idx) => (
+                    {service.features.map((feature: string, idx: number) => (
                       <li
                         key={idx}
                         className="flex items-center gap-2 text-sm text-foreground/70"
