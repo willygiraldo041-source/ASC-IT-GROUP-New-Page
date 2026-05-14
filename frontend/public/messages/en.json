@@ -227,5 +227,28 @@
     "backToHome": "Back to Home",
     "ourCertifications": "Our Certifications",
     "keyBenefits": "Key Benefits"
+  },
+  "serviceDetails": {
+    "web-app-pentest": {
+      "title": "Web Application Penetration Testing",
+      "subtitle": "Discover hidden vulnerabilities in your web applications. Our ethical hacking service encompasses comprehensive reviews of CMS, APIs, websockets, web applications with legacy or modern technologies, and much more, providing you with the peace of mind of a secure and protected system.",
+      "description": [
+        "Our ethical hacking, pentesting, and vulnerability analysis service for web applications with legacy or modern technologies is the perfect choice to protect your system and ensure your company's security. What sets us apart is our highly qualified and certified team, including experts with recognized certifications such as OSWE (Offensive Security Web Expert), BSCP (Burp Suite Certified Practitioner), and eWPTX (eLearnSecurity Web Application Penetration Tester eXtreme).",
+        "Our IT security specialists have the knowledge and experience needed to identify and exploit vulnerabilities in your web applications, whether based on legacy or modern technologies. We use advanced ethical hacking and pentesting techniques to simulate real cyberattacks and find weak points in your infrastructure.",
+        "In addition to having highly qualified personnel, our approach focuses on providing you with effective results and practical solutions. We not only provide you with a detailed report of discovered vulnerabilities but also offer clear recommendations and concrete actions to effectively correct security flaws."
+      ],
+      "benefits": [
+        "Everyone will offer OWASP compliance. We perform manual pentesting with a team that goes in-depth.",
+        "Our web hacking service employs advanced techniques to identify and mitigate vulnerabilities in your applications, ensuring the protection of your data and systems against digital threats.",
+        "Our team of certified IT security experts efficiently detects and resolves vulnerabilities in your web applications, providing you with the peace of mind of robust and protected systems.",
+        "Through real cyberattack simulations, we assess the resilience of your web applications, identifying potential security breaches and providing specific recommendations to strengthen your digital infrastructure.",
+        "We not only identify vulnerabilities in your web applications but also offer practical solutions and concrete actions to correct security flaws, ensuring comprehensive and lasting protection for your company."
+      ],
+      "cta": {
+        "title": "Unmasking Threats",
+        "description": "We hack your web applications and identify vulnerabilities to ensure your peace of mind and protect your digital assets.",
+        "buttonText": "Talk to Sales"
+      }
+    }
   }
 }
