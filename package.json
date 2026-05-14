@@ -8,11 +8,15 @@
     "dev:studio": "cd studio && npm run dev",
     "build": "cd frontend && npm install && npm run build",
     "build:studio": "cd studio && npm run build",
-    "deploy": "cd frontend && npm run deploy",
-    "deploy:studio": "cd studio && npm run deploy"
+    "deploy": "wrangler deploy",
+    "deploy:studio": "cd studio && npm run deploy",
+    "preview": "wrangler dev"
   },
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.90.1"
   }
 }

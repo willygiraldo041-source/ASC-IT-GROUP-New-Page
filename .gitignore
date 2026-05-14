@@ -38,3 +38,6 @@ out
 
 # OS files
 Thumbs.db
+
+.dev.vars*
+!.dev.vars.example
