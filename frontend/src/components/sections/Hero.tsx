@@ -66,19 +66,19 @@ export function Hero() {
         </p>
 
         <div
-          className="flex flex-wrap gap-3 font-bold opacity-0 animate-fade-up"
+          className="flex flex-col sm:flex-row gap-3 font-bold opacity-0 animate-fade-up"
           style={{ animationDelay: '0.7s' }}
         >
-          <Link href="/#services">
-            <Button size="lg">
+          <Link href="/#services" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto whitespace-nowrap">
               {t('hero.cta.primary')}
             </Button>
           </Link>
-          <Link href="/about">
+          <Link href="/about" className="w-full sm:w-auto">
             <Button
               size="lg"
               variant="outline"
-              className="bg-white text-background hover:bg-white/90 hover:text-background"
+              className="w-full sm:w-auto bg-white text-background hover:bg-white/90 hover:text-background whitespace-nowrap"
             >
               {t('hero.cta.secondary')}
             </Button>

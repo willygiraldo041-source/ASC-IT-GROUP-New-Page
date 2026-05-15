@@ -271,6 +271,376 @@
         "description": "Identifica y corrige vulnerabilidades en tu infraestructura de red antes de que sean explotadas por atacantes.",
         "buttonText": "Solicitar Assessment"
       }
+    },
+    "ad-pentest": {
+      "title": "Active Directory Penetration Testing",
+      "subtitle": "Evaluación especializada de la seguridad de tu entorno Active Directory. Identificamos configuraciones inseguras, paths de escalación de privilegios, y vectores de ataque que podrían comprometer toda tu infraestructura corporativa.",
+      "description": [
+        "Active Directory es el corazón de la mayoría de las infraestructuras corporativas y un objetivo primario para los atacantes. Nuestro servicio especializado de penetration testing de Active Directory evalúa exhaustivamente la seguridad de tu dominio, identificando misconfigurations, debilidades en políticas de grupo, cuentas privilegiadas vulnerables, y paths de escalación de privilegios que podrían permitir a un atacante tomar control completo de tu red corporativa.",
+        "Utilizamos técnicas avanzadas de post-exploitation como Kerberoasting, AS-REP Roasting, Golden Ticket, Silver Ticket, DCSync, y Pass-the-Hash para simular las tácticas que utilizan los atacantes reales. Evaluamos la seguridad de tus Domain Controllers, analizamos trusts entre dominios, auditamos permisos delegados, y buscamos configuraciones inseguras en GPOs que podrían ser explotadas.",
+        "Nuestros expertos certificados en seguridad de Active Directory te proporcionan un análisis detallado de tu postura de seguridad AD, incluyendo un mapa visual de attack paths, evidencia técnica de cada vulnerabilidad, y recomendaciones prioritizadas para hardening de tu entorno Active Directory siguiendo best practices de Microsoft y estándares de la industria."
+      ],
+      "benefits": [
+        "Identificación de paths de escalación de privilegios desde usuario estándar hasta Domain Admin utilizando técnicas reales de atacantes.",
+        "Análisis exhaustivo de configuraciones inseguras en Group Policy Objects (GPOs) que podrían permitir lateral movement o privilege escalation.",
+        "Evaluación de la seguridad de cuentas privilegiadas, service accounts, y detección de credenciales almacenadas de forma insegura.",
+        "Auditoría de permisos delegados, ACLs inseguras, y configuraciones de trusts entre dominios que podrían ser explotadas.",
+        "Simulación de ataques avanzados como Kerberoasting, DCSync, Golden Ticket, y técnicas de persistencia en el dominio.",
+        "Roadmap detallado de remediación con pasos específicos y priorizados para fortalecer tu entorno Active Directory."
+      ],
+      "cta": {
+        "title": "Protege el Corazón de Tu Infraestructura",
+        "description": "Asegura tu Active Directory contra ataques sofisticados que podrían comprometer toda tu red corporativa.",
+        "buttonText": "Agendar Consulta"
+      }
+    },
+    "ai-pentest": {
+      "title": "Artificial Intelligence Penetration Testing",
+      "subtitle": "Evaluación especializada de seguridad para sistemas de IA y Machine Learning. Identificamos vulnerabilidades en modelos de IA, APIs de ML, data pipelines, y vectores de ataque como model poisoning, adversarial attacks, y prompt injection.",
+      "description": [
+        "Los sistemas de Inteligencia Artificial y Machine Learning presentan vectores de ataque únicos que requieren expertise especializado. Nuestro servicio de penetration testing de IA evalúa la seguridad de tus modelos de ML, incluyendo testing de robustez contra adversarial examples, evaluación de data poisoning vulnerabilities, análisis de model extraction attacks, y validación de controles de seguridad en MLOps pipelines.",
+        "Evaluamos tanto la seguridad de la infraestructura que soporta tus sistemas de IA (APIs, data storage, training pipelines) como la robustez de los modelos mismos. Realizamos adversarial testing contra modelos de clasificación, detección y generación, evaluamos vulnerabilidades en LLMs como prompt injection y jailbreaking, analizamos data leakage en training sets, y validamos controles de acceso en model registries y deployment platforms.",
+        "Nuestros especialistas en AI Security te proporcionan un assessment completo que incluye threat modeling específico para sistemas de IA, testing de model robustness, evaluación de fairness y bias, análisis de privacy-preserving techniques, y validación de MLSecOps practices. Entregamos recomendaciones para hardening de modelos, secure ML pipeline design, y controles de seguridad específicos para sistemas de IA en producción."
+      ],
+      "benefits": [
+        "Testing de adversarial robustness de modelos de ML contra ataques de evasión y manipulación.",
+        "Evaluación de vulnerabilidades de prompt injection, jailbreaking, y output manipulation en LLMs.",
+        "Análisis de data poisoning risks en training datasets y feature engineering pipelines.",
+        "Testing de model extraction y model inversion attacks para validar protección de IP.",
+        "Evaluación de privacy leakage, membership inference, y attribute inference attacks.",
+        "Auditoría de MLOps security incluyendo model registry, serving infrastructure, y monitoring.",
+        "Assessment de fairness, bias, y ethical considerations en sistemas de IA de producción."
+      ],
+      "cta": {
+        "title": "Asegura Tus Sistemas de IA",
+        "description": "Protege tus modelos de ML contra ataques sofisticados y vulnerabilidades únicas de sistemas de IA.",
+        "buttonText": "Evaluar Mi Sistema IA"
+      }
+    },
+    "aws-pentest": {
+      "title": "AWS Penetration Testing",
+      "subtitle": "Evaluación especializada de seguridad para infraestructuras en Amazon Web Services. Identificamos misconfigurations en IAM, S3, EC2, Lambda, y otros servicios AWS que podrían exponer tus datos y recursos en la nube.",
+      "description": [
+        "AWS es el proveedor de cloud líder a nivel mundial, pero su complejidad puede llevar a configuraciones inseguras. Nuestro servicio especializado de penetration testing de AWS evalúa la seguridad de tu infraestructura cloud, identificando misconfigurations en IAM policies, buckets S3 expuestos, security groups permisivos, roles sobre-privilegiados, y vulnerabilidades en Lambda functions, API Gateway, y otros servicios AWS.",
+        "Siguiendo las guías de AWS Security Best Practices y AWS Well-Architected Framework, evaluamos la implementación de tus controles de seguridad en la nube. Analizamos IAM policies y roles, auditamos configuraciones de VPC y security groups, evaluamos el cifrado de datos en reposo y en tránsito, revisamos logs de CloudTrail, y buscamos paths de privilege escalation que podrían permitir a un atacante comprometer tu cuenta AWS.",
+        "Nuestros expertos certificados en seguridad AWS te proporcionan un assessment completo que incluye análisis de configuraciones, testing de servicios expuestos, evaluación de container security en ECS/EKS, revisión de serverless architectures, y validación de controles de compliance. Entregamos recomendaciones prioritizadas alineadas con CIS AWS Benchmark y AWS Security Hub findings."
+      ],
+      "benefits": [
+        "Evaluación exhaustiva de IAM policies, roles, y detección de privilege escalation paths en tu cuenta AWS.",
+        "Auditoría de configuraciones de S3 buckets, identificando buckets públicos, ACLs inseguras, y falta de cifrado.",
+        "Análisis de security groups y NACLs, identificando reglas permisivas que podrían exponer tus recursos.",
+        "Evaluación de Lambda functions, API Gateway, y arquitecturas serverless en busca de vulnerabilidades.",
+        "Testing de container security en ECS, EKS, y ECR, incluyendo análisis de imágenes y configuraciones.",
+        "Validación de configuraciones de cifrado en RDS, EBS, S3, y otros servicios de almacenamiento.",
+        "Assessment de logging y monitoring con CloudTrail, CloudWatch, y GuardDuty para detección de amenazas."
+      ],
+      "cta": {
+        "title": "Asegura Tu Infraestructura AWS",
+        "description": "Identifica y corrige vulnerabilidades en tu entorno AWS antes de que sean explotadas.",
+        "buttonText": "Evaluar Mi AWS"
+      }
+    },
+    "azure-pentest": {
+      "title": "Azure Penetration Testing",
+      "subtitle": "Evaluación especializada de seguridad para infraestructuras en Microsoft Azure. Identificamos configuraciones inseguras en Azure AD, Storage Accounts, Virtual Machines, App Services y otros recursos de Azure que podrían comprometer tu entorno cloud.",
+      "description": [
+        "Microsoft Azure es una de las plataformas cloud más utilizadas por empresas a nivel mundial. Nuestro servicio de penetration testing de Azure evalúa la seguridad de tu tenant, identificando misconfigurations en Azure Active Directory, permisos excesivos en Service Principals, Storage Accounts públicos, Network Security Groups permisivos, y vulnerabilidades en Azure Functions, Logic Apps y otros servicios PaaS.",
+        "Siguiendo el Microsoft Cloud Security Benchmark y Azure Security Best Practices, realizamos una evaluación exhaustiva de tus controles de seguridad. Analizamos Azure AD roles y conditional access policies, auditamos configuraciones de Key Vault, evaluamos la seguridad de Azure SQL y Cosmos DB, revisamos Azure Monitor logs, y buscamos paths de privilege escalation en tu subscripción de Azure.",
+        "Nuestros consultores certificados en seguridad Azure te entregan un assessment completo que incluye evaluación de identidades y RBAC, análisis de networking y conectividad, revisión de configuraciones de PaaS services, validación de encryption at rest y in transit, y compliance checks contra frameworks como CIS Azure Benchmark. Proporcionamos un roadmap de remediación priorizado y asistencia en la implementación."
+      ],
+      "benefits": [
+        "Evaluación completa de Azure AD incluyendo conditional access, MFA, privileged identities, y service principals.",
+        "Auditoría de Azure RBAC, custom roles, y detección de privilege escalation paths en tu subscripción.",
+        "Análisis de Storage Accounts, identificando public blobs, SAS tokens mal configurados, y falta de encryption.",
+        "Evaluación de Virtual Networks, NSGs, Azure Firewall, y segmentación de red en tu entorno Azure.",
+        "Testing de App Services, Azure Functions, Logic Apps, y otros servicios PaaS en busca de vulnerabilidades.",
+        "Revisión de Azure Key Vault, certificados, secrets management, y configuraciones de managed identities.",
+        "Assessment de Azure SQL, Cosmos DB, y otros servicios de datos para validar controles de seguridad."
+      ],
+      "cta": {
+        "title": "Fortalece Tu Seguridad en Azure",
+        "description": "Identifica y corrige vulnerabilidades críticas en tu tenant de Azure antes de que sean explotadas.",
+        "buttonText": "Evaluar Mi Azure"
+      }
+    },
+    "bot-automation": {
+      "title": "Bot Automation (RPA & Scripts)",
+      "subtitle": "Desarrollo de bots inteligentes y scripts de automatización para tareas repetitivas. Implementamos soluciones RPA, web scraping, data extraction, y task automation que optimizan operaciones y liberan recursos humanos.",
+      "description": [
+        "La automatización robótica de procesos (RPA) y el scripting permiten automatizar tareas repetitivas que tradicionalmente requieren intervención humana. Desarrollamos bots inteligentes que pueden interactuar con aplicaciones, navegar interfaces web, procesar documentos, extraer y transformar datos, y ejecutar acciones complejas de manera confiable y escalable. Utilizamos tecnologías como Python, PowerShell, Selenium, Puppeteer, y plataformas RPA empresariales.",
+        "Nuestros bots pueden automatizar una amplia gama de tareas incluyendo data entry, form filling, report generation, email processing, file manipulation, database operations, API interactions, web scraping ético, y legacy system automation. Implementamos features avanzadas como computer vision para procesar screenshots, NLP para entender contenido, machine learning para decisiones inteligentes, y integración con AI APIs para capacidades cognitivas.",
+        "Entregamos bots production-ready con error handling robusto, logging detallado, retry mechanisms, y capabilities de self-healing. Incluimos documentación completa, deployment guides, monitoring dashboards, y alerting para operación confiable. Aplicamos best practices de security incluyendo credential management seguro, encryption de datos sensibles, y compliance con políticas de la organización. Nuestros bots son maintainable, extensible, y diseñados para operar en ambientes empresariales críticos."
+      ],
+      "benefits": [
+        "Desarrollo de bots RPA customizados para automatizar procesos específicos de tu organización.",
+        "Scripts de automatización en Python, PowerShell, Bash para tareas de sistema y operaciones IT.",
+        "Web automation con Selenium, Puppeteer para interacción con aplicaciones web y data extraction.",
+        "Bots inteligentes con computer vision, OCR, NLP, y ML para procesar documentos y tomar decisiones.",
+        "Automatización de legacy systems mediante RPA cuando APIs no están disponibles.",
+        "Monitoring, logging, y error handling enterprise-grade para operación confiable 24/7.",
+        "Documentation completa y training para que tu equipo pueda mantener y extender los bots."
+      ],
+      "cta": {
+        "title": "Automatiza Tareas Repetitivas con Bots",
+        "description": "Libera a tu equipo de tareas manuales mediante bots inteligentes y scripts de automatización eficientes.",
+        "buttonText": "Desarrollar Bots"
+      }
+    },
+    "cicd-infrastructure": {
+      "title": "CI/CD & Infrastructure Automation",
+      "subtitle": "Diseño e implementación de pipelines CI/CD modernos y automatización de infraestructura. Acelera tus releases, mejora calidad de software, y gestiona infraestructura como código con GitOps y prácticas DevOps.",
+      "description": [
+        "La automatización de CI/CD y gestión de infraestructura es fundamental para organizaciones que buscan agilidad y confiabilidad en entregas de software. Implementamos pipelines CI/CD completos utilizando herramientas modernas como Jenkins, GitLab CI, GitHub Actions, Azure DevOps, y ArgoCD. Nuestras soluciones incluyen automated testing, security scanning, artifact management, deployment automation, y rollback strategies que garantizan releases rápidos y seguros.",
+        "Implementamos Infrastructure as Code (IaC) utilizando Terraform, Ansible, CloudFormation, y Pulumi para provisionar y gestionar infraestructura de manera declarativa, versionada y reproducible. Aplicamos principios GitOps donde toda la configuración vive en Git, los cambios se aplican mediante pull requests con review y approval, y el estado deseado se reconcilia automáticamente. Esto proporciona auditability completa, disaster recovery capabilities, y consistency entre ambientes.",
+        "Nuestras implementaciones incluyen automated environment provisioning, configuration management, secrets management con Vault o AWS Secrets Manager, monitoring y observability con Prometheus/Grafana, y progressive delivery strategies como blue-green deployments y canary releases. Proporcionamos training completo para tu equipo en herramientas y prácticas, documentación exhaustiva de pipelines e infraestructura, y best practices de platform engineering para escalar tu práctica DevOps."
+      ],
+      "benefits": [
+        "Diseño e implementación de pipelines CI/CD con automated testing, security scanning, y deployment automation.",
+        "Infrastructure as Code con Terraform, Ansible para provisioning reproducible y versionado de infraestructura.",
+        "GitOps implementation para gestión declarativa de infraestructura y aplicaciones con Git como source of truth.",
+        "Container orchestration con Kubernetes, Helm charts, y operators para gestión de aplicaciones cloud-native.",
+        "Secrets management, configuration management, y environment parity entre dev, staging, y production.",
+        "Monitoring, logging, y observability stack completo con alerting y dashboards operacionales.",
+        "Progressive delivery con feature flags, blue-green deployments, canary releases para minimizar riesgo."
+      ],
+      "cta": {
+        "title": "Moderniza Tu Infraestructura y Deployments",
+        "description": "Acelera entregas de software y gestiona infraestructura como código con prácticas DevOps modernas.",
+        "buttonText": "Transformar DevOps"
+      }
+    },
+    "devsecops": {
+      "title": "Cloud Security (DevSecOps)",
+      "subtitle": "Integración de seguridad en tus pipelines DevOps y arquitecturas cloud. Implementamos shift-left security, SAST/DAST, container scanning, policy as code, y prácticas DevSecOps que hacen la seguridad parte del desarrollo.",
+      "description": [
+        "DevSecOps integra seguridad en cada fase del ciclo de vida de desarrollo, haciendo que sea responsabilidad compartida y automatizada. Implementamos security gates en tus pipelines CI/CD incluyendo SAST (Static Application Security Testing), DAST (Dynamic Application Security Testing), SCA (Software Composition Analysis), container image scanning, IaC security scanning, y secret detection. Estas validaciones automáticas detectan vulnerabilidades temprano cuando son más económicas de remediar.",
+        "Implementamos policy as code utilizando herramientas como Open Policy Agent (OPA), Kyverno, y cloud-native policy engines para enforcar controles de seguridad, compliance, y governance de manera automatizada. Esto incluye validación de configuraciones de infraestructura, enforcement de security baselines, control de deployment policies, y automated compliance checking contra frameworks como CIS Benchmarks, SOC 2, y regulaciones específicas de tu industria.",
+        "Nuestras implementaciones DevSecOps incluyen vulnerability management automatizado, security testing en pre-production environments, runtime security monitoring, automated incident response, y security observability con herramientas como Falco, Aqua Security, y cloud-native security platforms. Proporcionamos training en secure coding practices, threat modeling, y security champions program para embeber security mindset en tu equipo de desarrollo. El resultado es software más seguro entregado más rápido sin comprometer la agilidad."
+      ],
+      "benefits": [
+        "Implementación de security scanning automatizado en CI/CD: SAST, DAST, SCA, container scanning.",
+        "Policy as code con OPA, Kyverno para automated enforcement de security policies y compliance.",
+        "Shift-left security con early detection de vulnerabilidades en IDE, pre-commit hooks, y pull requests.",
+        "Container security con image scanning, runtime protection, y network policies en Kubernetes.",
+        "Secrets management automatizado con detection de secrets en código y integración con vaults.",
+        "Security observability con monitoring de runtime threats, anomaly detection, y automated response.",
+        "Security champions program y training para desarrolladores en secure coding y threat modeling."
+      ],
+      "cta": {
+        "title": "Integra Seguridad en Tu DevOps",
+        "description": "Haz la seguridad parte natural de tu desarrollo con automatización, políticas como código, y shift-left practices.",
+        "buttonText": "Implementar DevSecOps"
+      }
+    },
+    "gcp-pentest": {
+      "title": "GCP Penetration Testing",
+      "subtitle": "Evaluación especializada de seguridad para Google Cloud Platform. Identificamos misconfigurations en IAM, Storage Buckets, Compute Engine, Cloud Functions y servicios GCP que podrían exponer tu infraestructura cloud.",
+      "description": [
+        "Google Cloud Platform ofrece servicios avanzados pero su seguridad depende de configuraciones correctas. Nuestro servicio de penetration testing de GCP evalúa la seguridad de tu organización y proyectos, identificando misconfigurations en IAM policies, Cloud Storage buckets expuestos, Compute Engine instances vulnerables, service accounts sobre-privilegiados, y vulnerabilidades en Cloud Functions, Cloud Run y otros servicios de GCP.",
+        "Siguiendo las guías de GCP Security Best Practices y Google Cloud Security Foundations Guide, evaluamos tus controles de seguridad implementados. Analizamos IAM roles y policies, auditamos configuraciones de VPC y firewall rules, evaluamos Cloud KMS y encryption configurations, revisamos Cloud Logging y Cloud Monitoring, y buscamos privilege escalation paths que podrían comprometer tus proyectos de GCP.",
+        "Nuestros expertos certificados en GCP Security te proporcionan un assessment integral que incluye evaluación de identidades y accesos, análisis de networking y conectividad, testing de servicios serverless, validación de container security en GKE, y compliance checks contra CIS GCP Benchmark. Entregamos recomendaciones prioritizadas y asistencia técnica para remediar los hallazgos."
+      ],
+      "benefits": [
+        "Evaluación exhaustiva de IAM policies, service accounts, y detección de privilege escalation en GCP.",
+        "Auditoría de Cloud Storage buckets identificando configuraciones públicas, ACLs inseguras, y datos expuestos.",
+        "Análisis de VPC networks, firewall rules, y Cloud NAT en busca de configuraciones permisivas.",
+        "Evaluación de Compute Engine instances, managed instance groups, y configuraciones de OS Login.",
+        "Testing de Cloud Functions, Cloud Run, App Engine y arquitecturas serverless.",
+        "Revisión de GKE clusters, workload identity, network policies, y container security.",
+        "Assessment de Cloud KMS, Secret Manager, y prácticas de encryption en tu organización GCP."
+      ],
+      "cta": {
+        "title": "Protege Tu Infraestructura GCP",
+        "description": "Asegura tus proyectos de Google Cloud identificando y corrigiendo vulnerabilidades críticas.",
+        "buttonText": "Evaluar Mi GCP"
+      }
+    },
+    "k8s-security": {
+      "title": "Kubernetes Security",
+      "subtitle": "Evaluación y hardening de seguridad para clusters Kubernetes. Identificamos misconfigurations, implementamos security best practices, y fortalecemos tu infraestructura de containers contra amenazas y ataques sofisticados.",
+      "description": [
+        "Kubernetes es la plataforma de orquestación de containers líder, pero su complejidad introduce riesgos de seguridad únicos. Nuestro servicio de Kubernetes Security evalúa exhaustivamente la seguridad de tus clusters, identificando misconfigurations en RBAC, network policies, pod security standards, admission controllers, y secrets management. Realizamos security assessments basados en CIS Kubernetes Benchmark, NSA/CISA Kubernetes Hardening Guide, y OWASP Kubernetes Top 10.",
+        "Implementamos controles de seguridad robustos incluyendo least privilege RBAC, network segmentation con network policies, pod security admission para enforcar security standards, runtime security monitoring con Falco, policy enforcement con OPA/Gatekeeper, y security scanning de container images. Configuramos audit logging, validamos encryption at rest y in transit, implementamos secrets management con external secrets operators, y establecemos security boundaries entre namespaces y tenants.",
+        "Proporcionamos cluster hardening completo que incluye securing del control plane, protection de etcd, configuration de API server security, implementation de admission webhooks para policy enforcement, integration con security tools como Falco, Trivy, y Aqua Security, y setup de monitoring y alerting para security events. Entregamos documentación detallada de security configurations, runbooks para incident response en Kubernetes, y training para tu equipo en Kubernetes security best practices y CKS (Certified Kubernetes Security Specialist) preparation."
+      ],
+      "benefits": [
+        "Security assessment exhaustivo de clusters Kubernetes basado en CIS Benchmark y industry standards.",
+        "Implementación de RBAC con least privilege, service accounts seguras, y control de acceso granular.",
+        "Network policies para microsegmentation, isolation entre workloads, y zero-trust networking.",
+        "Pod Security Standards implementation con admission controllers y policy enforcement.",
+        "Runtime security monitoring con Falco para detección de comportamiento anómalo en containers.",
+        "Container image scanning en pipeline y runtime, vulnerability management para images.",
+        "Secrets management con external secrets operators, encryption at rest para etcd, y secure configurations."
+      ],
+      "cta": {
+        "title": "Asegura Tus Clusters Kubernetes",
+        "description": "Protege tu infraestructura de containers con security best practices y controles de seguridad robustos.",
+        "buttonText": "Evaluar Kubernetes"
+      }
+    },
+    "mobile-pentest": {
+      "title": "Mobile App Penetration Testing",
+      "subtitle": "Evaluación integral de seguridad para aplicaciones móviles iOS y Android. Identificamos vulnerabilidades en el código, almacenamiento inseguro, comunicaciones, autenticación y lógica de negocio que podrían comprometer tus aplicaciones móviles.",
+      "description": [
+        "Las aplicaciones móviles son una superficie de ataque crítica que requiere evaluación especializada. Nuestro servicio de penetration testing móvil cubre análisis estático y dinámico de aplicaciones iOS y Android, evaluando la seguridad del código fuente, almacenamiento de datos, comunicaciones de red, autenticación, criptografía, y lógica de negocio siguiendo las mejores prácticas de OWASP Mobile Top 10 y MASVS.",
+        "Realizamos reverse engineering de aplicaciones móviles, análisis de binarios, evaluación de APIs backend, testing de certificados SSL/TLS, análisis de datos almacenados en el dispositivo, y evaluación de mecanismos de autenticación y autorización. Probamos tanto en dispositivos físicos como en entornos emulados, cubriendo diferentes versiones de sistemas operativos y configuraciones.",
+        "Entregamos un reporte técnico detallado con evidencias reproducibles de cada vulnerabilidad encontrada, clasificadas por severidad según CVSS, incluyendo pruebas de concepto (PoCs), capturas de pantalla, tráfico de red interceptado, y recomendaciones específicas para remediar cada issue identificado, tanto a nivel de código como de arquitectura."
+      ],
+      "benefits": [
+        "Análisis exhaustivo de seguridad según OWASP Mobile Top 10 y Mobile Application Security Verification Standard (MASVS).",
+        "Evaluación de almacenamiento inseguro de datos sensibles, credenciales hardcodeadas, y secretos en el código de la aplicación.",
+        "Testing de comunicaciones de red, incluyendo certificate pinning, SSL/TLS, y vulnerabilidades en APIs backend.",
+        "Análisis de mecanismos de autenticación, gestión de sesiones, y controles de autorización implementados en la app.",
+        "Evaluación de implementaciones criptográficas, generadores de números aleatorios, y uso apropiado de KeyStore/Keychain.",
+        "Testing de lógica de negocio, race conditions, y vulnerabilidades específicas de la plataforma (iOS/Android).",
+        "Informe con PoCs ejecutables y recomendaciones de código específicas para desarrolladores."
+      ],
+      "cta": {
+        "title": "Asegura Tus Aplicaciones Móviles",
+        "description": "Protege a tus usuarios y tu reputación identificando y corrigiendo vulnerabilidades en tus apps antes del lanzamiento.",
+        "buttonText": "Evaluar Mi App"
+      }
+    },
+    "phishing": {
+      "title": "Email Spear Phishing Simulation",
+      "subtitle": "Campañas de phishing dirigido para evaluar el nivel de awareness de seguridad en tu organización. Identificamos usuarios vulnerables y medimos la efectividad de tu programa de security awareness training.",
+      "description": [
+        "El phishing sigue siendo el vector de ataque inicial más común en brechas de seguridad. Nuestro servicio de simulación de spear phishing evalúa la susceptibilidad de tus empleados a ataques de ingeniería social mediante campañas realistas pero controladas. Diseñamos emails de phishing personalizados que replican las tácticas utilizadas por atacantes reales, incluyendo spoofing, urgency tactics, y pretexting contextual a tu industria.",
+        "Realizamos campañas de phishing con diferentes niveles de sofisticación, desde phishing masivo hasta spear phishing altamente dirigido contra executives y usuarios con privilegios elevados. Simulamos diversos scenarios incluyendo credential harvesting, malware delivery, business email compromise (BEC), y otros tipos de ataques de ingeniería social. Cada campaña es customizada para tu organización e incluye landing pages convincentes y tracking detallado de interactions.",
+        "Proporcionamos métricas detalladas incluyendo click rates, credential submission rates, reporting rates, y tiempo promedio para reportar. Identificamos usuarios de alto riesgo, departamentos vulnerables, y gaps en tu programa de awareness. Entregamos recomendaciones para mejorar tu security culture, contenido para training personalizado basado en los resultados, y servicios de awareness training continuo para reducir el riesgo humano."
+      ],
+      "benefits": [
+        "Campañas de phishing realistas y personalizadas que replican tácticas de atacantes reales.",
+        "Evaluación de susceptibilidad a diferentes tipos de phishing: credential harvesting, malware, BEC.",
+        "Identificación de usuarios de alto riesgo y departamentos con mayor vulnerabilidad.",
+        "Métricas detalladas de click rates, submission rates, y reporting behavior.",
+        "Assessment de efectividad de tus controles anti-phishing: email filtering, user reporting tools.",
+        "Contenido customizado de security awareness training basado en resultados de la campaña.",
+        "Campañas continuas para medir mejora en security culture y reducción de riesgo humano."
+      ],
+      "cta": {
+        "title": "Fortalece Tu Security Culture",
+        "description": "Mide y mejora el awareness de seguridad de tus empleados mediante campañas realistas de phishing.",
+        "buttonText": "Iniciar Campaña"
+      }
+    },
+    "ransomware-sim": {
+      "title": "Ransomware Attack Simulation",
+      "subtitle": "Simulación controlada de ataques de ransomware para evaluar tu capacidad de prevención, detección y recuperación. Validamos tus controles de seguridad, backups, y procedimientos de incident response ante este tipo de amenaza crítica.",
+      "description": [
+        "Los ataques de ransomware representan una de las amenazas más críticas para las organizaciones actuales. Nuestro servicio de simulación de ransomware evalúa tu capacidad de prevenir, detectar y recuperarte de un ataque real, sin causar daño a tus sistemas. Simulamos el ciclo completo de un ataque de ransomware, desde initial access hasta encryption, validando cada layer de defensa en tu organización.",
+        "Replicamos las técnicas utilizadas por grupos de ransomware reales incluyendo phishing para initial access, exploitation de vulnerabilidades, privilege escalation, lateral movement, data exfiltration antes del cifrado, y deployment del ransomware simulado. Evaluamos tus controles de EDR/XDR, validamos la efectividad de tus backups, testamos procedimientos de aislamiento de red, y verificamos la capacidad de tu equipo para responder a este tipo de incidente.",
+        "Proporcionamos un informe detallado que documenta cada fase de la simulación, identifica gaps en tus defensas anti-ransomware, evalúa el tiempo de detección y respuesta, valida la viabilidad de recovery desde backups, y entrega recomendaciones específicas para mejorar tu resiliencia contra ransomware. También ofrecemos training para tu equipo en detección y respuesta a ransomware."
+      ],
+      "benefits": [
+        "Simulación segura de ataque de ransomware sin impacto en producción pero validando controles reales.",
+        "Evaluación de efectividad de anti-ransomware controls incluyendo EDR, application whitelisting, y behavioral detection.",
+        "Testing de backup and recovery procedures para validar RPO/RTO en escenario de ransomware.",
+        "Validación de network segmentation y ability to contain ransomware spread.",
+        "Assessment de incident response procedures específicos para ransomware scenarios.",
+        "Evaluación de data exfiltration controls y DLP para prevenir double extortion tactics.",
+        "Training práctico para SOC y IR teams en detección y respuesta a ransomware."
+      ],
+      "cta": {
+        "title": "Prepárate Para Ransomware",
+        "description": "Valida tu capacidad de prevenir, detectar y recuperarte de ataques de ransomware antes de enfrentar uno real.",
+        "buttonText": "Simular Ataque"
+      }
+    },
+    "red-team": {
+      "title": "Red Team Assessments",
+      "subtitle": "Simulaciones avanzadas de ataques reales contra tu organización. Evaluamos tu capacidad de detección, respuesta y prevención mediante operaciones ofensivas realistas que replican las tácticas de adversarios sofisticados.",
+      "description": [
+        "Las operaciones de Red Team van más allá del penetration testing tradicional, simulando ataques APT (Advanced Persistent Threat) realistas contra tu organización durante períodos extendidos. Nuestro equipo de Red Team emplea las mismas tácticas, técnicas y procedimientos (TTPs) que utilizan los atacantes reales, evaluando no solo la seguridad técnica, sino también tu capacidad de detección, análisis de SOC, incident response, y awareness del personal.",
+        "Realizamos operaciones que incluyen reconocimiento pasivo y activo, social engineering, physical security testing, initial access mediante phishing o exploitation, persistence en la red, lateral movement, privilege escalation, y exfiltración de datos simulada. Operamos de forma sigilosa evaluando tu capacidad de detectar y responder a amenazas avanzadas, documentando cada paso de la kill chain desde reconnaissance hasta impact.",
+        "Al finalizar la operación de Red Team, proporcionamos un debrief ejecutivo y técnico detallado que incluye timeline de la operación, TTPs empleadas (mapeadas a MITRE ATT&CK), evidencia de cada fase del ataque, análisis de gaps en detección y respuesta, y recomendaciones prioritizadas para mejorar tu postura de seguridad defensiva. También ofrecemos ejercicios purple team para transferir conocimiento a tu equipo de seguridad."
+      ],
+      "benefits": [
+        "Simulación realista de ataques APT con TTPs mapeadas a MITRE ATT&CK framework.",
+        "Evaluación integral de tu security operations center (SOC) y capacidades de threat detection.",
+        "Testing de incident response procedures y tiempos de respuesta ante amenazas reales.",
+        "Social engineering campaigns incluyendo phishing, vishing, y physical security testing.",
+        "Validación de controles de seguridad en un escenario de ataque multi-vector y multi-stage.",
+        "Assessment de network segmentation, lateral movement detection, y data exfiltration controls.",
+        "Ejercicios purple team opcionales para mejorar collaboration entre equipos ofensivos y defensivos."
+      ],
+      "cta": {
+        "title": "Evalúa Tu Capacidad Defensiva",
+        "description": "Descubre gaps críticos en tu seguridad mediante simulaciones de ataques realistas por adversarios avanzados.",
+        "buttonText": "Agendar Red Team"
+      }
+    },
+    "security-audits": {
+      "title": "Security Audits",
+      "subtitle": "En ASC IT GROUP realizamos auditorías de seguridad orientadas a identificar vulnerabilidades, validar configuraciones críticas y fortalecer el cumplimiento de estándares y buenas prácticas de ciberseguridad.",
+      "description": [
+        "Nuestros servicios permiten evaluar la postura de seguridad de la organización mediante revisiones técnicas, análisis de configuraciones y validaciones de cumplimiento sobre infraestructura, aplicaciones y servicios tecnológicos.",
+        "**Code Review**: Análisis técnico del código fuente para identificar vulnerabilidades de seguridad, errores de desarrollo seguro, exposición de información sensible, fallas de autenticación y autorización, riesgos OWASP Top 10 y malas prácticas de programación. Realizamos revisiones enfocadas en seguridad para aplicaciones web, APIs y desarrollos empresariales.",
+        "**Configuration Audit**: Evaluación de configuraciones de seguridad en Firewalls, Servidores Windows/Linux, Active Directory, Plataformas Cloud, Microsoft 365, Dispositivos de red y Herramientas de seguridad. Validamos configuraciones inseguras, servicios expuestos, permisos excesivos y desviaciones respecto a buenas prácticas.",
+        "**Compliance Check**: Verificación del cumplimiento de controles y estándares como ISO 27001, CIS Controls, NIST, PCI-DSS, Políticas corporativas y Requisitos regulatorios. Identificamos brechas de cumplimiento y generamos recomendaciones para fortalecer la postura de seguridad y reducir riesgos operativos."
+      ],
+      "benefits": [
+        "Identificación temprana de riesgos de seguridad antes de que sean explotados.",
+        "Fortalecimiento de controles de seguridad mediante validación técnica y recomendaciones específicas.",
+        "Reducción de superficie de ataque a través de la detección de configuraciones inseguras y servicios expuestos.",
+        "Mejora del cumplimiento normativo con evaluaciones alineadas a estándares internacionales.",
+        "Recomendaciones técnicas priorizadas basadas en el nivel de riesgo y criticidad de los hallazgos.",
+        "Reportes ejecutivos y técnicos detallados con evidencias y roadmap de remediación.",
+        "Evaluación de infraestructura On-Premise, Cloud (AWS, Azure, GCP), Aplicaciones Web, APIs, Microsoft 365, Active Directory, Firewalls y Plataformas de Seguridad.",
+        "Experiencia en auditorías técnicas, gestión de riesgos, seguridad ofensiva y defensiva, análisis de vulnerabilidades, hardening y cumplimiento.",
+        "Enfoque orientado a entregar resultados claros, accionables y alineados con las necesidades del negocio."
+      ],
+      "cta": {
+        "title": "Solicita una evaluación",
+        "description": "Contáctanos para conocer cómo podemos ayudarte a fortalecer la seguridad de tu organización mediante auditorías técnicas y evaluaciones especializadas.",
+        "buttonText": "Agendar Consulta"
+      }
+    },
+    "vishing": {
+      "title": "Vishing Testing",
+      "subtitle": "Simulación de ataques de voice phishing (vishing) para evaluar la susceptibilidad de tu personal a ingeniería social por teléfono. Identificamos vulnerabilidades en tus procesos de verificación de identidad y security awareness.",
+      "description": [
+        "Los ataques de vishing (voice phishing) utilizan llamadas telefónicas para manipular a empleados y obtener información sensible o acceso no autorizado. Nuestro servicio de testing de vishing simula llamadas de ingeniería social realistas, pretexting scenarios como IT support, executives, vendors, o autoridades, para evaluar cómo tus empleados responden a solicitudes sospechosas por teléfono.",
+        "Diseñamos escenarios de vishing customizados para tu organización, incluyendo scenarios de password reset, access requests, información confidencial, financial fraud (CEO fraud), y otros pretexts relevantes. Nuestros ethical hackers experimentados en ingeniería social realizan las llamadas siguiendo protocolos de seguridad y compliance, documentando cada interacción y evaluando la efectividad de tus controles y políticas.",
+        "Entregamos un informe detallado que incluye métricas de susceptibilidad a vishing, transcripciones de llamadas exitosas (con consentimiento), análisis de puntos débiles en tus procesos de verificación, identificación de empleados y departamentos de alto riesgo, y recomendaciones específicas para mejorar tus procedimientos de autenticación por teléfono y training de awareness contra vishing."
+      ],
+      "benefits": [
+        "Simulaciones realistas de vishing con pretexts customizados para tu industria y organización.",
+        "Evaluación de procesos de verificación de identidad por teléfono y controles de acceso verbal.",
+        "Identificación de empleados susceptibles a tácticas de social engineering por voz.",
+        "Testing de diferentes scenarios: IT support, executive fraud, vendor impersonation, authority impersonation.",
+        "Assessment de controles organizacionales como callback procedures y verification protocols.",
+        "Training específico en detección y respuesta a intentos de vishing para tu personal.",
+        "Métricas de risk reduction a través de campañas de awareness y entrenamiento continuo."
+      ],
+      "cta": {
+        "title": "Protege Contra Vishing",
+        "description": "Identifica y corrige vulnerabilidades en tus procesos antes de que sean explotadas por atacantes reales.",
+        "buttonText": "Evaluar Vulnerabilidad"
+      }
+    },
+    "workflow-automation": {
+      "title": "Workflow Automation",
+      "subtitle": "Automatización inteligente de procesos empresariales mediante orquestación de workflows, integración de sistemas y diseño de arquitecturas automation-first. Optimiza operaciones, reduce errores manuales y acelera tus procesos de negocio.",
+      "description": [
+        "La automatización de workflows transforma procesos manuales y repetitivos en flujos automatizados eficientes. Nuestro servicio de workflow automation diseña, implementa y optimiza soluciones de automatización de procesos empresariales utilizando plataformas modernas de orquestación como Power Automate, Zapier, n8n, Apache Airflow, y herramientas de BPM. Analizamos tus procesos actuales, identificamos oportunidades de automatización, y construimos workflows robustos y escalables.",
+        "Implementamos automatizaciones que conectan múltiples sistemas y aplicaciones, integrando APIs, bases de datos, servicios cloud, y herramientas empresariales. Nuestras soluciones incluyen approval workflows, document processing automation, notification systems, data synchronization between systems, reporting automation, y complex business process orchestration. Aplicamos best practices de error handling, monitoring, logging, y governance para garantizar workflows confiables.",
+        "Entregamos soluciones de automation completamente documentadas, con runbooks para operación y troubleshooting, dashboards de monitoring, y training para tu equipo. Implementamos continuous improvement mediante análisis de métricas de performance, identificación de cuellos de botella, y optimización continua de workflows. Nuestro enfoque garantiza ROI medible a través de reducción de tiempo de proceso, eliminación de errores manuales, y liberación de recursos humanos para tareas de mayor valor."
+      ],
+      "benefits": [
+        "Análisis exhaustivo de procesos empresariales para identificar oportunidades de automatización con alto ROI.",
+        "Diseño e implementación de workflows robustos con error handling, retry logic, y monitoring integrado.",
+        "Integración de múltiples sistemas y servicios mediante APIs, webhooks, y conectores empresariales.",
+        "Automatización de procesos complejos incluyendo approvals, conditional logic, y human-in-the-loop scenarios.",
+        "Implementación de governance y compliance en workflows automatizados con audit trails completos.",
+        "Dashboards y reporting para visibility de performance de workflows y métricas de negocio.",
+        "Transferencia de conocimiento y training para que tu equipo pueda mantener y extender las automatizaciones."
+      ],
+      "cta": {
+        "title": "Transforma Tus Procesos con Automatización",
+        "description": "Optimiza operaciones empresariales mediante workflows inteligentes que reducen costos y aceleran tu negocio.",
+        "buttonText": "Automatizar Procesos"
+      }
     }
   }
 }
