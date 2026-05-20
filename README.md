@@ -9,6 +9,13 @@
 
 ---
 
+## 🌐 Live Sites
+
+- **Production**: [https://asc-it-group.administrator-794.workers.dev/](https://asc-it-group.administrator-794.workers.dev/)
+- **Sanity Studio**: [https://ascitgroup.sanity.studio](https://ascitgroup.sanity.studio) _(pending deployment)_
+
+---
+
 ## 🚀 Tech Stack
 
 ### Frontend
