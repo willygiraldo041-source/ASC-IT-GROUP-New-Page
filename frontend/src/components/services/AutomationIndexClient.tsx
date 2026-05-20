@@ -8,26 +8,26 @@ import { Settings, Workflow, Bot, ArrowRight, MessageCircle } from 'lucide-react
 
 const automationServices = [
   {
-    titleKey: 'Intelligent Process Automation',
-    descriptionKey: 'Automatización de procesos empresariales complejos utilizando RPA, AI y Machine Learning para maximizar eficiencia operativa.',
+    titleKey: 'serviceCards.automation.intelligentProcess.title',
+    descriptionKey: 'serviceCards.automation.intelligentProcess.description',
     slug: 'intelligent-process-automation',
     icon: Settings,
     color: 'from-cyan-500 to-blue-500'
   },
   {
-    titleKey: 'Workflow Automation',
-    descriptionKey: 'Diseño e implementación de flujos de trabajo automatizados que conectan sistemas, personas y datos para agilizar operaciones.',
+    titleKey: 'serviceCards.automation.workflow.title',
+    descriptionKey: 'serviceCards.automation.workflow.description',
     slug: 'workflow-automation',
     icon: Workflow,
     color: 'from-indigo-500 to-purple-500'
   },
   {
-    titleKey: 'Bot Development',
-    descriptionKey: 'Desarrollo de bots inteligentes para automatizar tareas repetitivas, atención al cliente, procesamiento de datos y más.',
+    titleKey: 'serviceCards.automation.bot.title',
+    descriptionKey: 'serviceCards.automation.bot.description',
     slug: 'bot-automation',
     icon: Bot,
     color: 'from-violet-500 to-fuchsia-500'
-  },
+  }
 ]
 
 interface Props {
@@ -103,11 +103,11 @@ export function AutomationIndexClient({ settings }: Props) {
                   </div>
 
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.titleKey}
+                    {t(service.titleKey)}
                   </h3>
 
                   <p className="text-foreground/60 mb-6 leading-relaxed">
-                    {service.descriptionKey}
+                    {t(service.descriptionKey)}
                   </p>
 
                   <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">

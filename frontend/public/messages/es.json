@@ -689,5 +689,109 @@
       "ctaButton1": "Solicitar Consulta",
       "ctaButton2": "WhatsApp Directo"
     }
+  },
+  "serviceCards": {
+    "pentesting": {
+      "webApp": {
+        "title": "Web Application Pentest",
+        "description": "Evaluación exhaustiva de aplicaciones web para identificar vulnerabilidades como SQL injection, XSS, CSRF y más."
+      },
+      "network": {
+        "title": "Network Pentest",
+        "description": "Análisis profundo de infraestructura de red para detectar configuraciones inseguras, puertos expuestos y vulnerabilidades."
+      },
+      "mobile": {
+        "title": "Mobile App Pentest",
+        "description": "Testing de seguridad para aplicaciones móviles iOS y Android, incluyendo análisis de código y comunicaciones."
+      },
+      "aws": {
+        "title": "AWS Cloud Pentest",
+        "description": "Evaluación de seguridad específica para infraestructura en AWS, incluyendo IAM, S3, EC2 y servicios relacionados."
+      },
+      "azure": {
+        "title": "Azure Cloud Pentest",
+        "description": "Testing de seguridad para entornos Microsoft Azure, evaluando configuraciones y permisos de recursos cloud."
+      },
+      "gcp": {
+        "title": "GCP Cloud Pentest",
+        "description": "Penetration testing especializado para Google Cloud Platform, revisando IAM, Storage, Compute y seguridad de datos."
+      },
+      "activeDirectory": {
+        "title": "Active Directory Pentest",
+        "description": "Evaluación de seguridad de entornos Active Directory, buscando escalación de privilegios, ataques Kerberos y misconfigurations."
+      },
+      "ai": {
+        "title": "AI/ML Security Testing",
+        "description": "Testing especializado en modelos de IA y Machine Learning, evaluando adversarial attacks, data poisoning y model extraction."
+      }
+    },
+    "redTeam": {
+      "assessment": {
+        "title": "Red Team Assessment",
+        "description": "Simulación completa de ataques APT (Advanced Persistent Threat) para evaluar la postura de seguridad de tu organización desde múltiples vectores."
+      },
+      "ransomware": {
+        "title": "Ransomware Simulation",
+        "description": "Simulación controlada de ataques de ransomware para evaluar la capacidad de detección, respuesta y recuperación de tu organización."
+      },
+      "phishing": {
+        "title": "Phishing Campaigns",
+        "description": "Campañas de phishing personalizadas para evaluar la concienciación de seguridad de tus empleados y fortalecer tu primera línea de defensa."
+      },
+      "vishing": {
+        "title": "Vishing (Voice Phishing)",
+        "description": "Simulaciones de ataques telefónicos de ingeniería social para evaluar la resistencia de tu organización a manipulación por voz."
+      }
+    },
+    "securityAudits": {
+      "compliance": {
+        "title": "Compliance Audits",
+        "description": "Auditorías de cumplimiento para ISO 27001, SOC 2, PCI DSS, HIPAA y otros marcos regulatorios internacionales."
+      },
+      "assessment": {
+        "title": "Security Assessments",
+        "description": "Evaluaciones integrales de seguridad que abarcan personas, procesos y tecnología para identificar brechas de seguridad."
+      },
+      "vulnerability": {
+        "title": "Vulnerability Assessments",
+        "description": "Análisis sistemático de vulnerabilidades en infraestructura, aplicaciones y configuraciones para priorizar remediación."
+      },
+      "codeReview": {
+        "title": "Code Review & SAST",
+        "description": "Revisión de código fuente y análisis estático (SAST) para identificar vulnerabilidades de seguridad en fase de desarrollo."
+      }
+    },
+    "automation": {
+      "intelligentProcess": {
+        "title": "Intelligent Process Automation",
+        "description": "Automatización de procesos empresariales complejos utilizando RPA, AI y Machine Learning para maximizar eficiencia operativa."
+      },
+      "workflow": {
+        "title": "Workflow Automation",
+        "description": "Diseño e implementación de flujos de trabajo automatizados que conectan sistemas, personas y datos para agilizar operaciones."
+      },
+      "bot": {
+        "title": "Bot Development",
+        "description": "Desarrollo de bots inteligentes para automatizar tareas repetitivas, atención al cliente, procesamiento de datos y más."
+      }
+    },
+    "devOpsCloud": {
+      "devSecOps": {
+        "title": "DevSecOps Integration",
+        "description": "Integración de seguridad en todo el ciclo de vida de desarrollo con prácticas DevSecOps, SAST, DAST y SCA automatizados."
+      },
+      "cicd": {
+        "title": "CI/CD Pipeline Security",
+        "description": "Aseguramiento de pipelines CI/CD con análisis de seguridad automatizado, secrets management y controles de acceso."
+      },
+      "kubernetes": {
+        "title": "Container & Kubernetes Security",
+        "description": "Seguridad para contenedores Docker, orquestación Kubernetes, escaneo de imágenes y runtime protection."
+      },
+      "multiCloud": {
+        "title": "Multi-Cloud Security",
+        "description": "Estrategias de seguridad para entornos multi-cloud (AWS, Azure, GCP) con gobernanza, compliance y monitoreo unificado."
+      }
+    }
   }
 }

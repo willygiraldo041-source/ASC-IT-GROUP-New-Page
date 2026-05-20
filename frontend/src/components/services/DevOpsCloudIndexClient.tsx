@@ -8,33 +8,33 @@ import { Cloud, GitBranch, Container as ContainerIcon, Shield, ArrowRight, Messa
 
 const devOpsCloudServices = [
   {
-    titleKey: 'DevSecOps Integration',
-    descriptionKey: 'Integración de seguridad en todo el ciclo de vida de desarrollo con prácticas DevSecOps, SAST, DAST y SCA automatizados.',
+    titleKey: 'serviceCards.devOpsCloud.devSecOps.title',
+    descriptionKey: 'serviceCards.devOpsCloud.devSecOps.description',
     slug: 'devsecops',
     icon: Shield,
     color: 'from-blue-500 to-cyan-500'
   },
   {
-    titleKey: 'CI/CD Pipeline Security',
-    descriptionKey: 'Aseguramiento de pipelines CI/CD con análisis de seguridad automatizado, secrets management y controles de acceso.',
+    titleKey: 'serviceCards.devOpsCloud.cicd.title',
+    descriptionKey: 'serviceCards.devOpsCloud.cicd.description',
     slug: 'cicd-infrastructure',
     icon: GitBranch,
     color: 'from-indigo-500 to-blue-500'
   },
   {
-    titleKey: 'Container & Kubernetes Security',
-    descriptionKey: 'Seguridad para contenedores Docker, orquestación Kubernetes, escaneo de imágenes y runtime protection.',
+    titleKey: 'serviceCards.devOpsCloud.kubernetes.title',
+    descriptionKey: 'serviceCards.devOpsCloud.kubernetes.description',
     slug: 'k8s-security',
     icon: ContainerIcon,
     color: 'from-purple-500 to-indigo-500'
   },
   {
-    titleKey: 'Multi-Cloud Security',
-    descriptionKey: 'Estrategias de seguridad para entornos multi-cloud (AWS, Azure, GCP) con gobernanza, compliance y monitoreo unificado.',
+    titleKey: 'serviceCards.devOpsCloud.multiCloud.title',
+    descriptionKey: 'serviceCards.devOpsCloud.multiCloud.description',
     slug: 'devops-cloud-security',
     icon: Cloud,
     color: 'from-violet-500 to-purple-500'
-  },
+  }
 ]
 
 interface Props {
@@ -110,11 +110,11 @@ export function DevOpsCloudIndexClient({ settings }: Props) {
                   </div>
 
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.titleKey}
+                    {t(service.titleKey)}
                   </h3>
 
                   <p className="text-foreground/60 mb-6 leading-relaxed">
-                    {service.descriptionKey}
+                    {t(service.descriptionKey)}
                   </p>
 
                   <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">

@@ -8,33 +8,33 @@ import { Search, ShieldCheck, FileCheck, Code, ArrowRight, MessageCircle } from 
 
 const securityAuditServices = [
   {
-    titleKey: 'Compliance Audits',
-    descriptionKey: 'Auditorías de cumplimiento para ISO 27001, SOC 2, PCI DSS, HIPAA y otros marcos regulatorios internacionales.',
+    titleKey: 'serviceCards.securityAudits.compliance.title',
+    descriptionKey: 'serviceCards.securityAudits.compliance.description',
     slug: 'security-audits',
     icon: ShieldCheck,
     color: 'from-emerald-500 to-green-500'
   },
   {
-    titleKey: 'Security Assessments',
-    descriptionKey: 'Evaluaciones integrales de seguridad que abarcan personas, procesos y tecnología para identificar brechas de seguridad.',
+    titleKey: 'serviceCards.securityAudits.assessment.title',
+    descriptionKey: 'serviceCards.securityAudits.assessment.description',
     slug: 'security-audits',
     icon: Search,
     color: 'from-teal-500 to-cyan-500'
   },
   {
-    titleKey: 'Vulnerability Assessments',
-    descriptionKey: 'Análisis sistemático de vulnerabilidades en infraestructura, aplicaciones y configuraciones para priorizar remediación.',
+    titleKey: 'serviceCards.securityAudits.vulnerability.title',
+    descriptionKey: 'serviceCards.securityAudits.vulnerability.description',
     slug: 'security-audits',
     icon: FileCheck,
     color: 'from-blue-500 to-indigo-500'
   },
   {
-    titleKey: 'Code Review & SAST',
-    descriptionKey: 'Revisión de código fuente y análisis estático (SAST) para identificar vulnerabilidades de seguridad en fase de desarrollo.',
+    titleKey: 'serviceCards.securityAudits.codeReview.title',
+    descriptionKey: 'serviceCards.securityAudits.codeReview.description',
     slug: 'security-audits',
     icon: Code,
     color: 'from-purple-500 to-violet-500'
-  },
+  }
 ]
 
 interface Props {
@@ -110,11 +110,11 @@ export function SecurityAuditsIndexClient({ settings }: Props) {
                   </div>
 
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.titleKey}
+                    {t(service.titleKey)}
                   </h3>
 
                   <p className="text-foreground/60 mb-6 leading-relaxed">
-                    {service.descriptionKey}
+                    {t(service.descriptionKey)}
                   </p>
 
                   <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">

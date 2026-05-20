@@ -106,7 +106,7 @@ export function Footer({ settings }: FooterProps) {
               </span>
             </Link>
             <p className="text-sm text-foreground/60 mb-5">
-              {settings?.siteDescription || t('footer.description')}
+              {t('footer.description')}
             </p>
             
             {/* Redes Sociales */}

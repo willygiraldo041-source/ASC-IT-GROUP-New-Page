@@ -8,60 +8,60 @@ import { Shield, Network, Smartphone, Cloud, Lock, Brain, Server, Globe, ArrowRi
 
 const pentestingServices = [
   {
-    titleKey: 'Web Application Pentest',
-    descriptionKey: 'Evaluación exhaustiva de aplicaciones web para identificar vulnerabilidades como SQL injection, XSS, CSRF y más.',
+    titleKey: 'serviceCards.pentesting.webApp.title',
+    descriptionKey: 'serviceCards.pentesting.webApp.description',
     slug: 'web-app-pentest',
     icon: Globe,
     color: 'from-blue-500 to-cyan-500'
   },
   {
-    titleKey: 'Network Pentest',
-    descriptionKey: 'Análisis profundo de infraestructura de red para detectar configuraciones inseguras, puertos expuestos y vulnerabilidades.',
+    titleKey: 'serviceCards.pentesting.network.title',
+    descriptionKey: 'serviceCards.pentesting.network.description',
     slug: 'network-pentest',
     icon: Network,
     color: 'from-purple-500 to-pink-500'
   },
   {
-    titleKey: 'Mobile App Pentest',
-    descriptionKey: 'Testing de seguridad para aplicaciones móviles iOS y Android, incluyendo análisis de código y comunicaciones.',
+    titleKey: 'serviceCards.pentesting.mobile.title',
+    descriptionKey: 'serviceCards.pentesting.mobile.description',
     slug: 'mobile-pentest',
     icon: Smartphone,
     color: 'from-green-500 to-emerald-500'
   },
   {
-    titleKey: 'AWS Cloud Pentest',
-    descriptionKey: 'Evaluación de seguridad específica para infraestructura en AWS, incluyendo IAM, S3, EC2 y servicios relacionados.',
+    titleKey: 'serviceCards.pentesting.aws.title',
+    descriptionKey: 'serviceCards.pentesting.aws.description',
     slug: 'aws-pentest',
     icon: Cloud,
     color: 'from-orange-500 to-red-500'
   },
   {
-    titleKey: 'Azure Cloud Pentest',
-    descriptionKey: 'Testing de seguridad para entornos Microsoft Azure, evaluando configuraciones y permisos de recursos cloud.',
+    titleKey: 'serviceCards.pentesting.azure.title',
+    descriptionKey: 'serviceCards.pentesting.azure.description',
     slug: 'azure-pentest',
     icon: Cloud,
     color: 'from-blue-600 to-indigo-600'
   },
   {
-    titleKey: 'GCP Cloud Pentest',
-    descriptionKey: 'Penetration testing especializado para Google Cloud Platform, revisando IAM, Storage, Compute y seguridad de datos.',
+    titleKey: 'serviceCards.pentesting.gcp.title',
+    descriptionKey: 'serviceCards.pentesting.gcp.description',
     slug: 'gcp-pentest',
     icon: Cloud,
     color: 'from-red-500 to-yellow-500'
   },
   {
-    titleKey: 'Active Directory Pentest',
-    descriptionKey: 'Evaluación de seguridad de Active Directory, incluyendo ataques de escalación de privilegios y lateral movement.',
-    slug: 'ad-pentest',
+    titleKey: 'serviceCards.pentesting.activeDirectory.title',
+    descriptionKey: 'serviceCards.pentesting.activeDirectory.description',
+    slug: 'active-directory-pentest',
     icon: Server,
-    color: 'from-gray-500 to-slate-600'
+    color: 'from-indigo-500 to-purple-500'
   },
   {
-    titleKey: 'AI/ML Security Testing',
-    descriptionKey: 'Testing especializado en modelos de IA y ML para detectar adversarial attacks, model poisoning y data leakage.',
-    slug: 'ai-pentest',
+    titleKey: 'serviceCards.pentesting.ai.title',
+    descriptionKey: 'serviceCards.pentesting.ai.description',
+    slug: 'ai-security',
     icon: Brain,
-    color: 'from-violet-500 to-purple-600'
+    color: 'from-pink-500 to-rose-500'
   }
 ]
 
@@ -138,11 +138,11 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
                   </div>
 
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.titleKey}
+                    {t(service.titleKey)}
                   </h3>
 
                   <p className="text-foreground/60 mb-6 leading-relaxed">
-                    {service.descriptionKey}
+                    {t(service.descriptionKey)}
                   </p>
 
                   <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">

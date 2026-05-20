@@ -8,33 +8,33 @@ import { Target, Skull, Mail, Phone, ArrowRight, MessageCircle } from 'lucide-re
 
 const redTeamServices = [
   {
-    titleKey: 'Red Team Assessment',
-    descriptionKey: 'Simulación completa de ataques APT (Advanced Persistent Threat) para evaluar la postura de seguridad de tu organización desde múltiples vectores.',
+    titleKey: 'serviceCards.redTeam.assessment.title',
+    descriptionKey: 'serviceCards.redTeam.assessment.description',
     slug: 'red-team',
     icon: Target,
     color: 'from-red-500 to-rose-500'
   },
   {
-    titleKey: 'Ransomware Simulation',
-    descriptionKey: 'Simulación controlada de ataques de ransomware para evaluar la capacidad de detección, respuesta y recuperación de tu organización.',
+    titleKey: 'serviceCards.redTeam.ransomware.title',
+    descriptionKey: 'serviceCards.redTeam.ransomware.description',
     slug: 'ransomware-sim',
     icon: Skull,
     color: 'from-orange-500 to-red-600'
   },
   {
-    titleKey: 'Phishing Campaigns',
-    descriptionKey: 'Campañas de phishing personalizadas para evaluar la concienciación de seguridad de tus empleados y fortalecer tu primera línea de defensa.',
+    titleKey: 'serviceCards.redTeam.phishing.title',
+    descriptionKey: 'serviceCards.redTeam.phishing.description',
     slug: 'phishing',
     icon: Mail,
     color: 'from-amber-500 to-orange-500'
   },
   {
-    titleKey: 'Vishing (Voice Phishing)',
-    descriptionKey: 'Simulaciones de ataques telefónicos de ingeniería social para evaluar la resistencia de tu organización a manipulación por voz.',
+    titleKey: 'serviceCards.redTeam.vishing.title',
+    descriptionKey: 'serviceCards.redTeam.vishing.description',
     slug: 'vishing',
     icon: Phone,
     color: 'from-yellow-500 to-amber-500'
-  },
+  }
 ]
 
 interface Props {
@@ -110,11 +110,11 @@ export function RedTeamIndexClient({ settings }: Props) {
                   </div>
 
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.titleKey}
+                    {t(service.titleKey)}
                   </h3>
 
                   <p className="text-foreground/60 mb-6 leading-relaxed">
-                    {service.descriptionKey}
+                    {t(service.descriptionKey)}
                   </p>
 
                   <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
