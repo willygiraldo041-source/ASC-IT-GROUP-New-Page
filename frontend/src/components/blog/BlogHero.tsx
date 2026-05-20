@@ -3,15 +3,17 @@
 import { motion } from 'framer-motion'
 import { Container } from '@/components/ui/Container'
 import { Shield, Code, Cloud, Lock } from 'lucide-react'
-
-const tags = [
-  { name: 'Pentesting', icon: Shield },
-  { name: 'Red Team', icon: Lock },
-  { name: 'Seguridad Cloud', icon: Cloud },
-  { name: 'DevSecOps', icon: Code }
-]
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function BlogHero() {
+  const { t } = useLanguage()
+  
+  const tags = [
+    { nameKey: 'blog.tags.pentesting', icon: Shield },
+    { nameKey: 'blog.tags.redTeam', icon: Lock },
+    { nameKey: 'blog.tags.cloudSecurity', icon: Cloud },
+    { nameKey: 'blog.tags.devSecOps', icon: Code }
+  ]
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/[0.02] to-background">
       {/* Enhanced Grid Background */}
@@ -50,7 +52,7 @@ export function BlogHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            <span className="text-primary text-sm font-medium">Últimas noticias en ciberseguridad</span>
+            <span className="text-primary text-sm font-medium">{t('blog.badge')}</span>
           </motion.div>
 
           {/* Main Title with Enhanced Glow */}
@@ -65,13 +67,7 @@ export function BlogHero() {
             }}
           >
             <span className="bg-gradient-to-r from-foreground via-foreground to-foreground bg-clip-text text-transparent">
-              Blog de{' '}
-            </span>
-            <span className="relative inline-block">
-              <span className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 opacity-30 blur-2xl" />
-              <span className="relative bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">
-                Ciberseguridad
-              </span>
+              {t('blog.title')}
             </span>
           </motion.h1>
 
@@ -86,7 +82,7 @@ export function BlogHero() {
               lineHeight: 'clamp(1.5rem, 3.5vw, 1.875rem)'
             }}
           >
-            Descubre las últimas tendencias, mejores prácticas y noticias del mundo de la ciberseguridad
+            {t('blog.subtitle')}
           </motion.p>
 
           {/* Enhanced Tags with Icons */}
@@ -100,7 +96,7 @@ export function BlogHero() {
               const Icon = tag.icon
               return (
                 <motion.div
-                  key={tag.name}
+                  key={tag.nameKey}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
@@ -109,7 +105,7 @@ export function BlogHero() {
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-500 rounded-full opacity-0 group-hover:opacity-100 blur transition duration-300" />
                   <div className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20 backdrop-blur-sm group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all cursor-default">
                     <Icon className="h-3.5 w-3.5 group-hover:rotate-12 transition-transform duration-300" />
-                    <span>{tag.name}</span>
+                    <span>{t(tag.nameKey)}</span>
                   </div>
                 </motion.div>
               )
