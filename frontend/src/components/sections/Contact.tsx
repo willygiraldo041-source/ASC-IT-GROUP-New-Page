@@ -55,12 +55,17 @@ export function Contact() {
   const onSubmit = async (data: ContactFormData) => {
     if (data.honeypot) return
     setIsSubmitting(true)
+    
+    // Web3Forms Access Key
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'a94e0ab6-4df7-41e0-ae2d-a8465f01d408'
+    console.log('🔑 Access Key:', accessKey ? 'Loaded ✅' : 'Missing ❌')
+    
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY',
+          access_key: accessKey,
           subject: `Nuevo contacto - ${data.service} | ASC IT GROUP`,
           from_name: data.name,
           email: data.email,
