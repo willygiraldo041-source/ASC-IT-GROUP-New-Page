@@ -1,6 +1,11 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 import Link from 'next/link'
 import { Shield, Network, Smartphone, Cloud, Lock, Brain, Server, Globe, ArrowRight } from 'lucide-react'
 
@@ -68,9 +73,19 @@ const pentestingServices = [
   },
 ]
 
-export default function PenetrationTestingPage() {
+export default async function PenetrationTestingPage() {
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed, using default data')
+  }
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+    <>
+      <Navbar settings={settings} />
+      <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
@@ -165,6 +180,8 @@ export default function PenetrationTestingPage() {
           </div>
         </Container>
       </section>
-    </div>
+      </div>
+      <Footer settings={settings} />
+    </>
   )
 }
