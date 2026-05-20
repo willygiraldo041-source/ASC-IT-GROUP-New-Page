@@ -42,7 +42,7 @@ const defaultServicesKeys = [
   {
     _id: '1',
     key: 'penetrationTesting',
-    slug: 'application-and-network-security',
+    slug: 'penetration-testing',
     icon: 'Shield',
     order: 1,
   },
