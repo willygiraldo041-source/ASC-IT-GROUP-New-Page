@@ -3,5 +3,8 @@
   "compatibility_date": "2025-01-01",
   "assets": {
     "directory": "out"
+  },
+  "vars": {
+    "NEXT_PUBLIC_WEB3FORMS_KEY": "a94e0ab6-4df7-41e0-ae2d-a8465f01d408"
   }
 }
