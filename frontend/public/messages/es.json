@@ -642,5 +642,52 @@
         "buttonText": "Automatizar Procesos"
       }
     }
+  },
+  "serviceIndexPages": {
+    "penetrationTesting": {
+      "badge": "Servicios Completos de Testing",
+      "title": "Penetration Testing",
+      "subtitle": "Identifica vulnerabilidades en tu infraestructura antes de que los atacantes las descubran",
+      "ctaTitle": "¿No estás seguro cuál servicio necesitas?",
+      "ctaSubtitle": "Nuestros expertos pueden ayudarte a determinar la mejor estrategia de testing para tu infraestructura.",
+      "ctaButton1": "Solicitar Consulta",
+      "ctaButton2": "WhatsApp Directo"
+    },
+    "redTeam": {
+      "badge": "Simulación de Ataques Avanzados",
+      "title": "Red Team Operations",
+      "subtitle": "Simulamos ataques reales para probar tus defensas y capacidad de respuesta",
+      "ctaTitle": "¿Listo para poner a prueba tus defensas?",
+      "ctaSubtitle": "Nuestros expertos en Red Team te ayudarán a identificar vulnerabilidades antes que los atacantes reales.",
+      "ctaButton1": "Solicitar Consulta",
+      "ctaButton2": "WhatsApp Directo"
+    },
+    "securityAudits": {
+      "badge": "Cumplimiento y Evaluación",
+      "title": "Security Audits",
+      "subtitle": "Auditorías de seguridad y cumplimiento para fortalecer tu postura de ciberseguridad",
+      "ctaTitle": "¿Necesitas cumplir con normativas de seguridad?",
+      "ctaSubtitle": "Nuestros expertos te guiarán en el proceso de cumplimiento y te ayudarán a fortalecer tu postura de seguridad.",
+      "ctaButton1": "Solicitar Consulta",
+      "ctaButton2": "WhatsApp Directo"
+    },
+    "automation": {
+      "badge": "Optimización Inteligente",
+      "title": "Automation",
+      "subtitle": "Automatiza procesos y workflows para aumentar eficiencia y reducir errores",
+      "ctaTitle": "¿Listo para automatizar tus procesos?",
+      "ctaSubtitle": "Nuestros expertos en automatización te ayudarán a identificar oportunidades y diseñar soluciones a medida.",
+      "ctaButton1": "Solicitar Consulta",
+      "ctaButton2": "WhatsApp Directo"
+    },
+    "devOpsCloud": {
+      "badge": "Seguridad en CI/CD",
+      "title": "DevOps & Cloud Security",
+      "subtitle": "Integra seguridad en tus pipelines DevOps y protege tu infraestructura cloud",
+      "ctaTitle": "¿Necesitas seguridad en tu pipeline DevOps?",
+      "ctaSubtitle": "Nuestros expertos te ayudarán a implementar seguridad sin frenar la velocidad de desarrollo.",
+      "ctaButton1": "Solicitar Consulta",
+      "ctaButton2": "WhatsApp Directo"
+    }
   }
 }
