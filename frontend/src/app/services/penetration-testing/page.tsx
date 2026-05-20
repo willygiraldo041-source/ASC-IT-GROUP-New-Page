@@ -156,7 +156,7 @@ export default function PenetrationTestingPage() {
                 Nuestros expertos pueden ayudarte a determinar la mejor estrategia de testing para tu infraestructura.
               </p>
               <Link href="/#contact">
-                <Button size="lg" variant="secondary" className="group">
+                <Button size="lg" variant="outline" className="group bg-white/10 hover:bg-white/20 border-white/20">
                   Hablar con un Experto
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
