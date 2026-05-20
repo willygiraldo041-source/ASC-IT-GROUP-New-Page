@@ -7,7 +7,7 @@ import { client } from '@/sanity/client'
 import { SETTINGS_QUERY } from '@/sanity/queries'
 import type { SiteSettings } from '@/types/sanity'
 import Link from 'next/link'
-import { Shield, Network, Smartphone, Cloud, Lock, Brain, Server, Globe, ArrowRight } from 'lucide-react'
+import { Shield, Network, Smartphone, Cloud, Lock, Brain, Server, Globe, ArrowRight, MessageCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Penetration Testing | ASC IT GROUP',
@@ -105,12 +105,27 @@ export default async function PenetrationTestingPage() {
               Ofrecemos testing especializado para cada componente de tu stack tecnológico.
             </p>
 
-            <Link href="/#contact">
-              <Button size="lg" className="group">
-                Solicitar Evaluación
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/#contact">
+                <Button size="lg" className="group">
+                  Solicitar Evaluación
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              
+              {settings?.whatsappNumber && (
+                <a 
+                  href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent('¡Hola! Me gustaría obtener más información sobre los servicios de Penetration Testing.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button size="lg" variant="outline" className="group">
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    Hablar por WhatsApp
+                  </Button>
+                </a>
+              )}
+            </div>
           </div>
         </Container>
       </section>
