@@ -190,7 +190,7 @@ export default async function PenetrationTestingPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   href="/#contact"
-                  className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group bg-white/10 hover:bg-white/20 border-white/20")}
+                  className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-blue-600 hover:bg-white/90 hover:scale-105 hover:shadow-xl"
                 >
                   Solicitar Consulta
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -201,7 +201,7 @@ export default async function PenetrationTestingPage() {
                     href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent('¡Hola! Necesito asesoría para determinar qué servicio de Penetration Testing necesito para mi infraestructura.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group bg-white/10 hover:bg-white/20 border-white/20")}
+                    className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-blue-600 hover:bg-white/90 hover:scale-105 hover:shadow-xl"
                   >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp Directo
