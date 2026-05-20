@@ -44,6 +44,7 @@ export interface BlogPost {
   tags?: string[]
   publishedAt: string
   featured?: boolean
+  language: 'es' | 'en'
   seo?: {
     metaTitle?: string
     metaDescription?: string
@@ -85,4 +86,5 @@ export interface BlogPostPreview {
   }
   categories?: BlogCategory[]
   featured?: boolean
+  language: 'es' | 'en'
 }

@@ -121,6 +121,21 @@ export default defineType({
       initialValue: false,
     },
     {
+      name: 'language',
+      title: 'Idioma / Language',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Español (ES)', value: 'es'},
+          {title: 'English (EN)', value: 'en'}
+        ],
+        layout: 'radio'
+      },
+      validation: (Rule) => Rule.required(),
+      initialValue: 'es',
+      description: 'Idioma del contenido del post. Debes crear un post separado para cada idioma.'
+    },
+    {
       name: 'seo',
       title: 'SEO',
       type: 'object',

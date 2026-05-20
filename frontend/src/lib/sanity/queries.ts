@@ -1,7 +1,7 @@
 import {groq} from 'next-sanity'
 
-// Get all blog posts with pagination
-export const POSTS_QUERY = groq`*[_type == "blogPost"] | order(publishedAt desc) {
+// Get all blog posts with pagination (filtered by language)
+export const POSTS_QUERY = groq`*[_type == "blogPost" && language == $language] | order(publishedAt desc) {
   _id,
   title,
   slug,
@@ -14,6 +14,7 @@ export const POSTS_QUERY = groq`*[_type == "blogPost"] | order(publishedAt desc)
     alt
   },
   publishedAt,
+  language,
   author->{
     name,
     slug,
@@ -31,8 +32,8 @@ export const POSTS_QUERY = groq`*[_type == "blogPost"] | order(publishedAt desc)
   featured
 }`
 
-// Get a single post by slug
-export const POST_BY_SLUG_QUERY = groq`*[_type == "blogPost" && slug.current == $slug][0] {
+// Get a single post by slug (filtered by language)
+export const POST_BY_SLUG_QUERY = groq`*[_type == "blogPost" && slug.current == $slug && language == $language][0] {
   _id,
   title,
   slug,
@@ -46,6 +47,7 @@ export const POST_BY_SLUG_QUERY = groq`*[_type == "blogPost" && slug.current == 
   },
   content,
   publishedAt,
+  language,
   author->{
     name,
     slug,
@@ -84,8 +86,8 @@ export const CATEGORIES_QUERY = groq`*[_type == "category"] | order(title asc) {
   description
 }`
 
-// Get posts by category
-export const POSTS_BY_CATEGORY_QUERY = groq`*[_type == "blogPost" && $categorySlug in categories[]->slug.current] | order(publishedAt desc) {
+// Get posts by category (filtered by language)
+export const POSTS_BY_CATEGORY_QUERY = groq`*[_type == "blogPost" && $categorySlug in categories[]->slug.current && language == $language] | order(publishedAt desc) {
   _id,
   title,
   slug,
@@ -114,8 +116,8 @@ export const POSTS_BY_CATEGORY_QUERY = groq`*[_type == "blogPost" && $categorySl
   }
 }`
 
-// Get featured posts
-export const FEATURED_POSTS_QUERY = groq`*[_type == "blogPost" && featured == true] | order(publishedAt desc) [0...3] {
+// Get featured posts (filtered by language)
+export const FEATURED_POSTS_QUERY = groq`*[_type == "blogPost" && featured == true && language == $language] | order(publishedAt desc) [0...3] {
   _id,
   title,
   slug,
@@ -152,8 +154,8 @@ export const AUTHORS_QUERY = groq`*[_type == "author"] | order(name asc) {
   bio
 }`
 
-// Get related posts (same categories, excluding current post)
-export const RELATED_POSTS_QUERY = groq`*[_type == "blogPost" && _id != $postId && count((categories[]->slug.current)[@ in $categories]) > 0] | order(publishedAt desc) [0...3] {
+// Get related posts (same categories, excluding current post, filtered by language)
+export const RELATED_POSTS_QUERY = groq`*[_type == "blogPost" && _id != $postId && count((categories[]->slug.current)[@ in $categories]) > 0 && language == $language] | order(publishedAt desc) [0...3] {
   _id,
   title,
   slug,
