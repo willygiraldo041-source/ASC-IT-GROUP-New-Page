@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
-import { Button } from '@/components/ui/Button'
+import { Button, buttonVariants } from '@/components/ui/Button'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { client } from '@/sanity/client'
@@ -8,6 +8,7 @@ import { SETTINGS_QUERY } from '@/sanity/queries'
 import type { SiteSettings } from '@/types/sanity'
 import Link from 'next/link'
 import { Shield, Network, Smartphone, Cloud, Lock, Brain, Server, Globe, ArrowRight, MessageCircle } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Penetration Testing | ASC IT GROUP',
@@ -106,11 +107,12 @@ export default async function PenetrationTestingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/#contact">
-                <Button size="lg" className="group">
-                  Solicitar Evaluación
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+              <Link 
+                href="/#contact"
+                className={cn(buttonVariants({ size: "lg" }), "group")}
+              >
+                Solicitar Evaluación
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               
               {settings?.whatsappNumber && (
@@ -118,11 +120,10 @@ export default async function PenetrationTestingPage() {
                   href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent('¡Hola! Me gustaría obtener más información sobre los servicios de Penetration Testing.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group")}
                 >
-                  <Button size="lg" variant="outline" className="group">
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Hablar por WhatsApp
-                  </Button>
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Hablar por WhatsApp
                 </a>
               )}
             </div>
@@ -187,11 +188,12 @@ export default async function PenetrationTestingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/#contact">
-                  <Button size="lg" variant="outline" className="group bg-white/10 hover:bg-white/20 border-white/20">
-                    Solicitar Consulta
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                <Link 
+                  href="/#contact"
+                  className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group bg-white/10 hover:bg-white/20 border-white/20")}
+                >
+                  Solicitar Consulta
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 
                 {settings?.whatsappNumber && (
@@ -199,11 +201,10 @@ export default async function PenetrationTestingPage() {
                     href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent('¡Hola! Necesito asesoría para determinar qué servicio de Penetration Testing necesito para mi infraestructura.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className={cn(buttonVariants({ size: "lg", variant: "outline" }), "group bg-white/10 hover:bg-white/20 border-white/20")}
                   >
-                    <Button size="lg" variant="outline" className="group bg-white/10 hover:bg-white/20 border-white/20">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      WhatsApp Directo
-                    </Button>
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp Directo
                   </a>
                 )}
               </div>
