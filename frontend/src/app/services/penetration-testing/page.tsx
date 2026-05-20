@@ -185,12 +185,28 @@ export default async function PenetrationTestingPage() {
               <p className="text-xl text-blue-100 mb-8">
                 Nuestros expertos pueden ayudarte a determinar la mejor estrategia de testing para tu infraestructura.
               </p>
-              <Link href="/#contact">
-                <Button size="lg" variant="outline" className="group bg-white/10 hover:bg-white/20 border-white/20">
-                  Hablar con un Experto
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/#contact">
+                  <Button size="lg" variant="outline" className="group bg-white/10 hover:bg-white/20 border-white/20">
+                    Solicitar Consulta
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                
+                {settings?.whatsappNumber && (
+                  <a 
+                    href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent('¡Hola! Necesito asesoría para determinar qué servicio de Penetration Testing necesito para mi infraestructura.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button size="lg" variant="outline" className="group bg-white/10 hover:bg-white/20 border-white/20">
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      WhatsApp Directo
+                    </Button>
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </Container>
