@@ -22,6 +22,7 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { Button } from '@/components/ui/Button'
 import { useLanguage } from '@/contexts/LanguageContext'
 import type { Service } from '@/types/sanity'
+import { useIsMobile } from '@/hooks/useMediaQuery'
 
 // Icon mapping
 const iconMap: Record<string, LucideIcon> = {
@@ -82,6 +83,7 @@ interface ServicesProps {
 
 export function Services({ services }: ServicesProps) {
   const { t, messages } = useLanguage()
+  const isMobile = useIsMobile()
   
   // Construir servicios con traducciones dinámicas
   const displayServices = defaultServicesKeys.map(serviceKey => {
@@ -99,8 +101,8 @@ export function Services({ services }: ServicesProps) {
   
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0,
-    rootMargin: '300px',
+    threshold: 0.1,
+    rootMargin: '100px',
   })
 
   return (
@@ -108,9 +110,9 @@ export function Services({ services }: ServicesProps) {
       <Container>
         <motion.div
           ref={ref}
-          variants={staggerContainer}
-          initial="initial"
-          animate={inView ? 'animate' : 'initial'}
+          variants={isMobile ? undefined : staggerContainer}
+          initial={isMobile ? false : "initial"}
+          animate={isMobile ? false : (inView ? 'animate' : 'initial')}
           className="text-center mb-16"
         >
           <motion.div
@@ -138,9 +140,9 @@ export function Services({ services }: ServicesProps) {
 
         <motion.div
           ref={ref}
-          variants={staggerContainer}
-          initial="initial"
-          animate={inView ? 'animate' : 'initial'}
+          variants={isMobile ? undefined : staggerContainer}
+          initial={isMobile ? false : "initial"}
+          animate={isMobile ? false : (inView ? 'animate' : 'initial')}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {displayServices.map((service) => {
@@ -150,10 +152,10 @@ export function Services({ services }: ServicesProps) {
               <motion.div
                 key={service._id}
                 variants={fadeInUp}
-                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 overflow-hidden hover:border-blue-500 hover:bg-blue-500/10 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 overflow-hidden hover:border-blue-500 hover:bg-blue-500/10 md:hover:-translate-y-2 transition-all duration-200 cursor-pointer will-change-transform"
               >
                 {/* Icon */}
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 relative z-10 transition-transform duration-300 group-hover:scale-110">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 relative z-10 transition-transform duration-200 md:group-hover:scale-110">
                   <Icon className="h-7 w-7 text-primary" />
                 </div>
 

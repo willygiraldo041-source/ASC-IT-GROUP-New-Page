@@ -39,8 +39,8 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0,
-    rootMargin: '300px',
+    threshold: 0.1,
+    rootMargin: '100px',
   })
 
   const {
@@ -50,6 +50,8 @@ export function Contact() {
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    mode: 'onBlur', // Validate only on blur, not on every keystroke
+    reValidateMode: 'onBlur',
   })
 
   const onSubmit = async (data: ContactFormData) => {
