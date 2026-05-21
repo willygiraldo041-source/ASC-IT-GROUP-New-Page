@@ -65,7 +65,7 @@ export function CTA() {
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </a>
-              <a href="/#contact">
+              <a href="/case-studies">
                 <Button size="lg" variant="outline">
                   {t('common.viewCaseStudies')}
                 </Button>
