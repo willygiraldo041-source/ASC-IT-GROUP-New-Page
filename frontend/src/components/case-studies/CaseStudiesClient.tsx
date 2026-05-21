@@ -18,31 +18,31 @@ import {
 
 const caseStudies = [
   {
-    id: 'integrated-management',
+    id: 'integratedManagement',
     icon: Shield,
     color: 'from-blue-500 to-cyan-500',
     category: 'caseStudies.cases.integratedManagement.category'
   },
   {
-    id: 'attack-surface',
+    id: 'attackSurface',
     icon: Network,
     color: 'from-purple-500 to-pink-500',
     category: 'caseStudies.cases.attackSurface.category'
   },
   {
-    id: 'pentest-breach',
+    id: 'pentestBreach',
     icon: ShoppingCart,
     color: 'from-green-500 to-emerald-500',
     category: 'caseStudies.cases.pentestBreach.category'
   },
   {
-    id: 'security-culture',
+    id: 'securityCulture',
     icon: Users,
     color: 'from-orange-500 to-red-500',
     category: 'caseStudies.cases.securityCulture.category'
   },
   {
-    id: 'security-strategy',
+    id: 'securityStrategy',
     icon: Target,
     color: 'from-indigo-500 to-purple-500',
     category: 'caseStudies.cases.securityStrategy.category'
