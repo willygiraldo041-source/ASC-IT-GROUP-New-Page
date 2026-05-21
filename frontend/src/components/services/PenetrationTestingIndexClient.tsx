@@ -75,7 +75,7 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500">
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#73643C] via-[#8b7a5e] to-[#a08f70]">
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         
@@ -90,14 +90,14 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
               {t('serviceIndexPages.penetrationTesting.title')}
             </h1>
             
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
               {t('serviceIndexPages.penetrationTesting.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-blue-600 hover:bg-white/90 hover:scale-105 hover:shadow-xl"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-[#73643C] hover:bg-white/90 hover:scale-105 hover:shadow-xl"
               >
                 {t('serviceIndexPages.penetrationTesting.ctaButton1')}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -108,7 +108,7 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
                   href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(locale === 'es' ? '¡Hola! Necesito asesoría para determinar qué servicio de Penetration Testing necesito para mi infraestructura.' : 'Hello! I need advice to determine which Penetration Testing service I need for my infrastructure.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-blue-600 hover:bg-white/90 hover:scale-105 hover:shadow-xl"
+                  className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-[#73643C] hover:bg-white/90 hover:scale-105 hover:shadow-xl"
                 >
                   <MessageCircle className="w-4 h-4 mr-2" />
                   {t('serviceIndexPages.penetrationTesting.ctaButton2')}
@@ -156,7 +156,7 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500">
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#73643C] via-[#8b7a5e] to-[#a08f70]">
         <div className="absolute inset-0 bg-grid-white/[0.05]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         
@@ -165,14 +165,14 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               {t('serviceIndexPages.penetrationTesting.ctaTitle')}
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               {t('serviceIndexPages.penetrationTesting.ctaSubtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-blue-600 hover:bg-white/90 hover:scale-105 hover:shadow-xl"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-[#73643C] hover:bg-white/90 hover:scale-105 hover:shadow-xl"
               >
                 {t('serviceIndexPages.penetrationTesting.ctaButton1')}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -183,7 +183,7 @@ export function PenetrationTestingIndexClient({ settings }: Props) {
                   href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(locale === 'es' ? '¡Hola! Necesito asesoría para determinar qué servicio de Penetration Testing necesito para mi infraestructura.' : 'Hello! I need advice to determine which Penetration Testing service I need for my infrastructure.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-blue-600 hover:bg-white/90 hover:scale-105 hover:shadow-xl"
+                  className="group inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 h-12 px-4 text-sm sm:h-13 sm:px-8 sm:text-lg bg-white text-[#73643C] hover:bg-white/90 hover:scale-105 hover:shadow-xl"
                 >
                   <MessageCircle className="w-4 h-4 mr-2" />
                   {t('serviceIndexPages.penetrationTesting.ctaButton2')}
