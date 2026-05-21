@@ -793,5 +793,54 @@
         "description": "Estrategias de seguridad para entornos multi-cloud (AWS, Azure, GCP) con gobernanza, compliance y monitoreo unificado."
       }
     }
+  },
+  "caseStudies": {
+    "badge": "Casos de Éxito Reales",
+    "title": "Resultados que Hablan por Sí Mismos",
+    "subtitle": "Descubre cómo hemos ayudado a organizaciones a fortalecer su postura de seguridad, optimizar procesos y transformar la gestión del riesgo.",
+    "ctaButton1": "Solicitar Consulta",
+    "ctaButton2": "Hablar por WhatsApp",
+    "ctaTitle": "¿Listo para ser Nuestro Próximo Caso de Éxito?",
+    "ctaSubtitle": "Transforma la seguridad de tu organización con estrategias probadas y resultados medibles.",
+    "challengeLabel": "Desafío",
+    "solutionLabel": "Solución",
+    "impactLabel": "Resultados",
+    "cases": {
+      "integratedManagement": {
+        "category": "Gestión Integrada",
+        "title": "De Cumplimiento Aislado a Sistema Integrado de Gestión",
+        "challenge": "Una organización del sector servicios contaba con certificaciones en calidad y seguridad, pero operaban como sistemas independientes. Esto generaba duplicidad de esfuerzos, auditorías extensas y falta de visibilidad integral del riesgo.",
+        "solution": "Se trabajó en la integración de ambos sistemas bajo un enfoque unificado, alineando procesos, riesgos e indicadores. Esto permitió identificar que varios problemas de calidad tenían origen en fallas de seguridad de la información.",
+        "impact": "Optimización de auditorías y reducción de tiempos operativos | Gestión más coherente del riesgo organizacional | Mayor visibilidad integral de procesos críticos"
+      },
+      "attackSurface": {
+        "category": "Arquitectura Segura",
+        "title": "Superficie de Ataque Invisible en Integraciones Tecnológicas",
+        "challenge": "Una empresa en proceso de transformación digital había conectado múltiples sistemas (CRM, ERP, herramientas en la nube) sin una evaluación integral de riesgos. El análisis reveló múltiples puntos de exposición, integraciones sin control y flujos de datos hacia terceros sin visibilidad clara.",
+        "solution": "Se implementaron controles de arquitectura, revisión exhaustiva de integraciones y monitoreo continuo de flujos de información. Se establecieron políticas de gobierno para futuras conexiones.",
+        "impact": "Reducción significativa de la superficie de exposición | Mejora del control sobre información crítica | Prevención de brechas de seguridad por integraciones no controladas"
+      },
+      "pentestBreach": {
+        "category": "Pentesting Proactivo",
+        "title": "Pentesting que Evitó una Brecha en Producción",
+        "challenge": "Una compañía del sector retail, en pleno proceso de transformación digital, decidió evaluar la seguridad de su nueva plataforma e-commerce antes de su lanzamiento. Durante las pruebas de penetración se identificaron vulnerabilidades críticas en la gestión de sesiones y validación de entradas.",
+        "solution": "Se realizó pentesting exhaustivo previo al lanzamiento, identificando y remediando vulnerabilidades críticas que habrían permitido accesos indebidos a cuentas de clientes.",
+        "impact": "Lanzamiento seguro sin incidentes de seguridad | Protección de datos de clientes desde el día uno | Refuerzo de la confianza del negocio en procesos de seguridad proactivos"
+      },
+      "securityCulture": {
+        "category": "Concienciación & Cultura",
+        "title": "Cultura de Seguridad que Redujo el Riesgo Humano",
+        "challenge": "Una empresa de servicios enfrentaba múltiples incidentes relacionados con phishing y uso indebido de herramientas. Los controles técnicos no eran suficientes para mitigar el riesgo del factor humano.",
+        "solution": "Se desarrolló un programa integral de simulaciones de ataques (phishing, vishing y QR phishing), acompañado de campañas de concientización personalizadas y métricas de seguimiento.",
+        "impact": "Disminución considerable de clics en correos maliciosos | Cambio cultural medible en comportamientos de seguridad | Demostración de que la cultura es tan relevante como la tecnología"
+      },
+      "securityStrategy": {
+        "category": "Consultoría Estratégica",
+        "title": "Estrategia de Seguridad Alineada al Negocio",
+        "challenge": "Una organización en crecimiento carecía de una estrategia clara de ciberseguridad, con iniciativas aisladas y sin priorización efectiva según los riesgos del negocio.",
+        "solution": "A través de un servicio de consultoría estratégica, se definió una hoja de ruta alineada a los riesgos del negocio, integrando controles, métricas claras y responsabilidades definidas.",
+        "impact": "Transición de seguridad reactiva a gestión estructurada | Facilitación de la toma de decisiones basada en riesgos | Optimización de la inversión en tecnología de seguridad"
+      }
+    }
   }
 }

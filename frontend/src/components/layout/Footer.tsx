@@ -17,7 +17,7 @@ const footerLinksData = {
   ],
   company: [
     { key: 'about', href: '/#about' },
-    { key: 'caseStudies', href: '/#case-studies' },
+    { key: 'caseStudies', href: '/case-studies' },
     { key: 'contact', href: '/#contact' },
   ],
   legal: [

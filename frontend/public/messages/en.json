@@ -793,5 +793,54 @@
         "description": "Security strategies for multi-cloud environments (AWS, Azure, GCP) with unified governance, compliance, and monitoring."
       }
     }
+  },
+  "caseStudies": {
+    "badge": "Real Success Stories",
+    "title": "Results That Speak for Themselves",
+    "subtitle": "Discover how we've helped organizations strengthen their security posture, optimize processes, and transform risk management.",
+    "ctaButton1": "Request Consultation",
+    "ctaButton2": "Chat on WhatsApp",
+    "ctaTitle": "Ready to Be Our Next Success Story?",
+    "ctaSubtitle": "Transform your organization's security with proven strategies and measurable results.",
+    "challengeLabel": "Challenge",
+    "solutionLabel": "Solution",
+    "impactLabel": "Impact",
+    "cases": {
+      "integratedManagement": {
+        "category": "Integrated Management",
+        "title": "From Isolated Compliance to Integrated Management System",
+        "challenge": "A service sector organization had quality and security certifications, but they operated as independent systems. This created duplication of efforts, extensive audits, and lack of comprehensive risk visibility.",
+        "solution": "We worked on integrating both systems under a unified approach, aligning processes, risks, and indicators. This enabled identifying that several quality issues originated from information security failures.",
+        "impact": "Optimized audits and reduced operational times | More coherent organizational risk management | Greater comprehensive visibility of critical processes"
+      },
+      "attackSurface": {
+        "category": "Secure Architecture",
+        "title": "Invisible Attack Surface in Technology Integrations",
+        "challenge": "A company undergoing digital transformation had connected multiple systems (CRM, ERP, cloud tools) without comprehensive risk assessment. Analysis revealed multiple exposure points, uncontrolled integrations, and data flows to third parties without clear visibility.",
+        "solution": "We implemented architecture controls, comprehensive integration review, and continuous information flow monitoring. Governance policies were established for future connections.",
+        "impact": "Significant reduction in exposure surface | Improved control over critical information | Prevention of security breaches through uncontrolled integrations"
+      },
+      "pentestBreach": {
+        "category": "Proactive Pentesting",
+        "title": "Pentesting That Prevented a Production Breach",
+        "challenge": "A retail company in full digital transformation decided to assess the security of its new e-commerce platform before launch. During penetration testing, critical vulnerabilities were identified in session management and input validation.",
+        "solution": "Comprehensive pentesting was performed before launch, identifying and remediating critical vulnerabilities that would have allowed unauthorized access to customer accounts.",
+        "impact": "Secure launch without security incidents | Customer data protection from day one | Reinforced business confidence in proactive security processes"
+      },
+      "securityCulture": {
+        "category": "Awareness & Culture",
+        "title": "Security Culture That Reduced Human Risk",
+        "challenge": "A service company faced multiple incidents related to phishing and tool misuse. Technical controls were insufficient to mitigate human factor risk.",
+        "solution": "A comprehensive attack simulation program (phishing, vishing, and QR phishing) was developed, accompanied by personalized awareness campaigns and tracking metrics.",
+        "impact": "Considerable decrease in clicks on malicious emails | Measurable cultural change in security behaviors | Demonstration that culture is as relevant as technology"
+      },
+      "securityStrategy": {
+        "category": "Strategic Consulting",
+        "title": "Security Strategy Aligned with Business",
+        "challenge": "A growing organization lacked a clear cybersecurity strategy, with isolated initiatives and no effective prioritization according to business risks.",
+        "solution": "Through strategic consulting service, a roadmap aligned with business risks was defined, integrating controls, clear metrics, and defined responsibilities.",
+        "impact": "Transition from reactive security to structured management | Risk-based decision-making facilitation | Optimization of security technology investment"
+      }
+    }
   }
 }
