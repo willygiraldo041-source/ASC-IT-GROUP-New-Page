@@ -1,9 +1,8 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { HomeClient } from '@/components/pages/HomeClient'
-import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
+import { FloatingButtons } from '@/components/ui/FloatingButtons'
 import { ScrollProgress } from '@/components/ui/ScrollProgress'
-import { BackToTop } from '@/components/ui/BackToTop'
 import { client } from '@/sanity/client'
 import { SERVICES_QUERY, SETTINGS_QUERY } from '@/sanity/queries'
 import type { Service, SiteSettings } from '@/types/sanity'
@@ -35,11 +34,8 @@ export default async function Home() {
       <HomeClient services={services} />
       <Footer settings={settings} />
       
-      {/* Floating Buttons */}
-      {settings?.whatsappNumber && (
-        <WhatsAppButton phoneNumber={settings.whatsappNumber} />
-      )}
-      <BackToTop />
+      {/* Floating Buttons - WhatsApp + Scroll to Top */}
+      <FloatingButtons settings={settings} showScrollTop={true} />
     </>
   )
 }
