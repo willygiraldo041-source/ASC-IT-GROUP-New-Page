@@ -211,7 +211,7 @@ export function Services({ services }: ServicesProps) {
         >
           <Link href="/#contact">
             <Button size="lg" variant="outline">
-              Solicitar Consultoría
+              {t('services.requestConsultation')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
