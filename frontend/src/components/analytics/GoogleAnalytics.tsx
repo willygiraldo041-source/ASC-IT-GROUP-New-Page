@@ -1,15 +1,15 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import { initGA, pageview, GA_MEASUREMENT_ID } from '@/lib/analytics/ga'
 
 /**
- * Google Analytics 4 Component
+ * Google Analytics 4 Component (Internal)
  * Integrates GA4 with Next.js App Router
  */
-export function GoogleAnalytics() {
+function GoogleAnalyticsInner() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -41,5 +41,17 @@ export function GoogleAnalytics() {
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
     </>
+  )
+}
+
+/**
+ * Google Analytics 4 Component (Public)
+ * Wraps GA tracking with Suspense boundary
+ */
+export function GoogleAnalytics() {
+  return (
+    <Suspense fallback={null}>
+      <GoogleAnalyticsInner />
+    </Suspense>
   )
 }
