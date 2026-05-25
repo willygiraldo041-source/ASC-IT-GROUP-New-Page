@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Toaster } from 'react-hot-toast'
 import { CustomCursor } from '@/components/ui/CustomCursor'
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import { PageLoader } from '@/components/ui/PageLoader'
 import './globals.css'
 
 const sora = Sora({
@@ -48,8 +49,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${sora.variable} dark`}>
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+    <html lang="es" className={`${sora.variable} dark scroll-smooth`}>
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased overflow-x-hidden">
+        <PageLoader />
+        
         {/* Custom Cursor (solo desktop) - Deshabilitado temporalmente */}
         {/* <div className="hidden lg:block">
           <CustomCursor />
