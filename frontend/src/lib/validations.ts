@@ -12,12 +12,12 @@ export const contactFormSchema = z.object({
   company: z.string().optional(),
   phone: z.string().optional(),
   service: z.enum([
-    'penetration-testing',
-    'red-team',
-    'blue-team',
-    'security-audit',
-    'incident-response',
-    'training',
+    'application-network-security',
+    'cloud-penetration-testing',
+    'advanced-attack-simulation',
+    'intelligent-process-automation',
+    'devops-cloud-security',
+    'security-audits',
     'other',
   ]),
   message: z

@@ -61,6 +61,7 @@ export function Contact() {
     // Web3Forms Access Key
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'a94e0ab6-4df7-41e0-ae2d-a8465f01d408'
     console.log('🔑 Access Key:', accessKey ? 'Loaded ✅' : 'Missing ❌')
+    console.log('📤 Enviando formulario con datos:', data)
     
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -77,13 +78,17 @@ export function Contact() {
         }),
       })
       const result = await response.json()
+      console.log('📥 Respuesta Web3Forms:', result)
+      
       if (result.success) {
         toast.success(t('contact.form.success'))
         reset()
       } else {
-        throw new Error('Error al enviar')
+        console.error('❌ Error en respuesta:', result)
+        toast.error(result.message || t('contact.form.error'))
       }
     } catch (error) {
+      console.error('❌ Error al enviar:', error)
       toast.error(t('contact.form.error'))
     } finally {
       setIsSubmitting(false)
@@ -267,6 +272,11 @@ export function Contact() {
                   </option>
                   <option value="other">Otro</option>
                 </select>
+                {errors.service && (
+                  <p className="mt-1 text-xs text-red-500">
+                    {errors.service.message}
+                  </p>
+                )}
               </div>
 
               <div>
