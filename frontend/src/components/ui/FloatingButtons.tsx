@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { ArrowUp, MessageCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useAnalytics } from '@/hooks/useAnalytics'
 import type { SiteSettings } from '@/types/sanity'
 
 interface FloatingButtonsProps {
@@ -11,6 +12,7 @@ interface FloatingButtonsProps {
 }
 
 export function FloatingButtons({ settings, showScrollTop = true }: FloatingButtonsProps) {
+  const { trackWhatsAppClick } = useAnalytics()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -44,6 +46,7 @@ export function FloatingButtons({ settings, showScrollTop = true }: FloatingButt
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackWhatsAppClick('floating_button')}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}

@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/Button'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { contactFormSchema, type ContactFormData } from '@/lib/validations'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useAnalytics } from '@/hooks/useAnalytics'
 import toast from 'react-hot-toast'
 
 const contactInfoData = [
@@ -36,6 +37,7 @@ const contactInfoData = [
 
 export function Contact() {
   const { t } = useLanguage()
+  const { trackFormSubmit, trackContactClick } = useAnalytics()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -81,6 +83,8 @@ export function Contact() {
       console.log('📥 Respuesta Web3Forms:', result)
       
       if (result.success) {
+        // Track successful form submission
+        trackFormSubmit('contact_form', data.service)
         toast.success(t('contact.form.success'))
         reset()
       } else {
