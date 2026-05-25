@@ -1,4 +1,5 @@
 // Google Analytics 4 Configuration
+// Updated: 2026-05-24
 
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || ''
 
