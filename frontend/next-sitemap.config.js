@@ -4,7 +4,6 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: [
-    '/server-sitemap.xml',
     '/admin/*',
     '/api/*',
     '/staging/*',
@@ -25,9 +24,7 @@ module.exports = {
         crawlDelay: 0,
       },
     ],
-    additionalSitemaps: [
-      `${process.env.NEXT_PUBLIC_SITE_URL || 'https://ascitgroup.com'}/server-sitemap.xml`,
-    ],
+    additionalSitemaps: [],
   },
   transform: async (config, path) => {
     // Custom priority and changefreq por tipo de página
