@@ -291,7 +291,9 @@ export function NavbarClient({ settings }: NavbarClientProps) {
             {/* Language Switcher */}
             <LanguageSwitcher />
             
-            <Button size="sm" className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">{t('common.requestPentest')}</Button>
+            <Link href="/#contact">
+              <Button size="sm" className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">{t('common.requestPentest')}</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -401,9 +403,11 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                   <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </Link>
                 
-                <Button className="w-full" size="md">
-                  Request Pentest
-                </Button>
+                <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="w-full" size="md">
+                    {t('common.requestPentest')}
+                  </Button>
+                </Link>
               </div>
             </Container>
           </motion.div>
