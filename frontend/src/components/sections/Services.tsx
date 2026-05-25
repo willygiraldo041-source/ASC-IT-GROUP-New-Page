@@ -101,8 +101,8 @@ export function Services({ services }: ServicesProps) {
   
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: isMobile ? 0 : 0.2,
-    rootMargin: isMobile ? '0px' : '50px',
+    threshold: 0,
+    rootMargin: isMobile ? '-50px' : '50px',
   })
 
   return (
@@ -138,22 +138,12 @@ export function Services({ services }: ServicesProps) {
           </motion.p>
         </motion.div>
 
-        <motion.div
-          ref={ref}
-          variants={isMobile ? undefined : staggerContainer}
-          initial={isMobile ? false : "initial"}
-          animate={isMobile ? false : (inView ? 'animate' : 'initial')}
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {displayServices.map((service) => {
             const Icon = iconMap[service.icon] || Shield
             
-            return (
-              <motion.div
-                key={service._id}
-                variants={fadeInUp}
-                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 overflow-hidden hover:border-blue-500 hover:bg-blue-500/10 md:hover:-translate-y-2 transition-all duration-200 cursor-pointer will-change-transform"
-              >
+            const cardContent = (
+              <>
                 {/* Icon */}
                 <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 relative z-10 transition-transform duration-200 md:group-hover:scale-110">
                   <Icon className="h-7 w-7 text-primary" />
@@ -190,11 +180,27 @@ export function Services({ services }: ServicesProps) {
                   {t('common.learnMore')}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
-
+              </>
+            )
+            
+            return isMobile ? (
+              <div
+                key={service._id}
+                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 overflow-hidden"
+              >
+                {cardContent}
+              </div>
+            ) : (
+              <motion.div
+                key={service._id}
+                variants={fadeInUp}
+                className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 overflow-hidden hover:border-blue-500 hover:bg-blue-500/10 md:hover:-translate-y-2 transition-all duration-200 cursor-pointer will-change-transform"
+              >
+                {cardContent}
               </motion.div>
             )
           })}
-        </motion.div>
+        </div>
 
         <motion.div
           ref={ref}
