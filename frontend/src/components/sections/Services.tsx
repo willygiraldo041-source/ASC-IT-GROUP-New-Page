@@ -101,8 +101,8 @@ export function Services({ services }: ServicesProps) {
   
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
-    rootMargin: '100px',
+    threshold: isMobile ? 0 : 0.2,
+    rootMargin: isMobile ? '0px' : '50px',
   })
 
   return (
