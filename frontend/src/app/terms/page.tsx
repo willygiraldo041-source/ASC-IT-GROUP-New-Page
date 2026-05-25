@@ -14,7 +14,13 @@ export const metadata: Metadata = {
 }
 
 export default async function TermsPage() {
-  const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
+  }
   
   return (
     <>

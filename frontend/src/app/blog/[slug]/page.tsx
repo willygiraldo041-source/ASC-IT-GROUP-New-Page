@@ -64,7 +64,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
-  const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
+  }
 
   return (
     <>

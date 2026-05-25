@@ -110,7 +110,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     notFound()
   }
 
-  const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  let settings: SiteSettings | null = null
+  
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
+  }
 
   return (
     <>

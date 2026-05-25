@@ -36,8 +36,8 @@ export function BlogPageClient() {
       setLoading(true)
       try {
         const [fetchedPosts, fetchedSettings] = await Promise.all([
-          client.fetch<BlogPostPreview[]>(POSTS_QUERY, { language: locale }),
-          client.fetch<SiteSettings>(SETTINGS_QUERY)
+          client.fetch<BlogPostPreview[]>(POSTS_QUERY, { language: locale }).catch(() => []),
+          client.fetch<SiteSettings>(SETTINGS_QUERY).catch(() => null)
         ])
         
         console.log(`📝 Posts obtenidos (${locale}):`, fetchedPosts)
@@ -46,8 +46,9 @@ export function BlogPageClient() {
         setPosts(fetchedPosts || [])
         setSettings(fetchedSettings)
       } catch (error) {
-        console.error('❌ Error fetching blog data:', error)
+        console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
         setPosts([])
+        setSettings(null)
       } finally {
         setLoading(false)
       }
