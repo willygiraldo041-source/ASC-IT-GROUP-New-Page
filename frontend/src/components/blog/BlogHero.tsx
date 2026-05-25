@@ -102,8 +102,8 @@ export function BlogHero() {
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
                   className="group relative"
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-500 rounded-full opacity-0 group-hover:opacity-100 blur transition duration-300" />
-                  <div className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20 backdrop-blur-sm group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all cursor-default">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-500 rounded-full opacity-0 group-hover:opacity-30 blur-sm transition duration-300" />
+                  <div className="relative flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20 backdrop-blur-sm group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:scale-105 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.2)] transition-all cursor-default">
                     <Icon className="h-3.5 w-3.5 group-hover:rotate-12 transition-transform duration-300" />
                     <span>{t(tag.nameKey)}</span>
                   </div>
