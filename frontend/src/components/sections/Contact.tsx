@@ -247,14 +247,24 @@ export function Contact() {
                   id="service"
                   className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 >
-                  <option value="penetration-testing">
-                    Penetration Testing
+                  <option value="application-network-security">
+                    Application and Network Security
                   </option>
-                  <option value="red-team">Red Team</option>
-                  <option value="blue-team">Blue Team</option>
-                  <option value="security-audit">Security Audit</option>
-                  <option value="incident-response">Incident Response</option>
-                  <option value="training">Training</option>
+                  <option value="cloud-penetration-testing">
+                    Cloud Penetration Testing
+                  </option>
+                  <option value="advanced-attack-simulation">
+                    Advanced Attack Simulation
+                  </option>
+                  <option value="intelligent-process-automation">
+                    Intelligent Process Automation
+                  </option>
+                  <option value="devops-cloud-security">
+                    DevOps & Cloud Security
+                  </option>
+                  <option value="security-audits">
+                    Security Audits
+                  </option>
                   <option value="other">Otro</option>
                 </select>
               </div>
