@@ -44,6 +44,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+          cache-dependency-path: 'frontend/pnpm-lock.yaml'
 
       # ========================================
       # 4. Get pnpm store directory
