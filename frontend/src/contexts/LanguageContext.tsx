@@ -22,11 +22,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<Messages>({})
 
   useEffect(() => {
-    // Load saved preference or detect browser language
-    const savedLocale = localStorage.getItem('preferred-language') as Locale
-    const browserLang = navigator.language.split('-')[0] as Locale
-    const initialLocale = savedLocale || (browserLang === 'en' ? 'en' : 'es')
-    
+    const saved = localStorage.getItem('preferred-language')
+    const safeLocale: Locale = saved === 'en' ? 'en' : 'es'
+    const browserLang = navigator.language.split('-')[0]
+    const initialLocale: Locale = saved ? safeLocale : (browserLang === 'en' ? 'en' : 'es')
+
     loadMessages(initialLocale)
   }, [])
 
