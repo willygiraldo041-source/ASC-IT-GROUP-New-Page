@@ -28,22 +28,22 @@ jobs:
         uses: actions/checkout@v4
 
       # ========================================
-      # 2. Setup Node.js
-      # ========================================
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-
-      # ========================================
-      # 3. Install pnpm
+      # 2. Install pnpm (debe ir antes de setup-node para el cache)
       # ========================================
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
+
+      # ========================================
+      # 3. Setup Node.js
+      # ========================================
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
 
       # ========================================
       # 4. Get pnpm store directory
