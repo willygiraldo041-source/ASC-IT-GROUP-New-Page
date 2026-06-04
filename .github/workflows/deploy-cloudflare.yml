@@ -76,7 +76,7 @@ jobs:
       # 7. Build for Cloudflare Pages
       # ========================================
       - name: Build with Cloudflare adapter
-        run: pnpm pages:build
+        run: pnpm build
         working-directory: ./frontend
         env:
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
@@ -95,7 +95,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: asc-it-group
-          directory: ./frontend/.vercel/output/static
+          directory: ./frontend/out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref_name }}
           wranglerVersion: '3'
