@@ -90,15 +90,11 @@ jobs:
       # 8. Deploy to Cloudflare Pages
       # ========================================
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ascitgroup
-          directory: ./frontend/out
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref_name }}
-          wranglerVersion: '3'
+          command: pages deploy ./frontend/out --project-name=ascitgroup --branch=${{ github.ref_name }}
 
       # ========================================
       # 9. Comment on PR (Preview URL)
