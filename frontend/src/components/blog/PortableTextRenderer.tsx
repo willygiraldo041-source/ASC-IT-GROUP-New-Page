@@ -52,12 +52,14 @@ const components: PortableTextComponents = {
       </code>
     ),
     link: ({ value, children }: { value?: any; children?: React.ReactNode }) => {
-      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+      const raw = value?.href || ''
+      const href = /^(https?:|mailto:|tel:)/i.test(raw) ? raw : undefined
+      const external = href?.startsWith('http')
       return (
         <a
-          href={value?.href}
-          target={target}
-          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+          href={href}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
           className="text-primary hover:underline font-medium"
         >
           {children}
