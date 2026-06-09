@@ -1,42 +1,62 @@
 'use client'
 
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, Component, useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
+// Error boundary: si el chunk de Spline no carga o el componente lanza,
+// no rompe el hero — se muestra el degradado de respaldo.
+class SplineBoundary extends Component<
+  { children: ReactNode; fallback: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false }
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children
+  }
+}
+
 export function Hero() {
   const { t } = useLanguage()
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <section className="relative h-screen flex items-center overflow-hidden bg-background">
-      {/* Spline 3D Background */}
+      {/* Fondo 3D de Spline, con degradado de respaldo siempre detrás */}
       <div className="absolute inset-0" style={{ filter: 'hue-rotate(90deg)' }}>
-        <Suspense
-          fallback={
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
-          }
-        >
-          <div 
-            className="w-full h-full"
-            style={{ 
-              pointerEvents: 'auto',
-              touchAction: 'pan-y',
-            }}
-            onWheel={(e) => {
-              const target = e.currentTarget.parentElement?.parentElement
-              if (target) {
-                window.scrollBy(0, e.deltaY)
-              }
-            }}
-          >
-            <Spline
-              scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
-              className="w-full h-full"
-            />
-          </div>
-        </Suspense>
+        {/* Respaldo: visible mientras Spline carga o si falla */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
+
+        <SplineBoundary fallback={null}>
+          <Suspense fallback={null}>
+            <div
+              className="absolute inset-0 transition-opacity duration-700"
+              style={{
+                opacity: loaded ? 1 : 0,
+                pointerEvents: 'auto',
+                touchAction: 'pan-y',
+              }}
+              onWheel={(e) => {
+                const target = e.currentTarget.parentElement?.parentElement
+                if (target) {
+                  window.scrollBy(0, e.deltaY)
+                }
+              }}
+            >
+              <Spline
+                scene="https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecode"
+                className="w-full h-full"
+                onLoad={() => setLoaded(true)}
+              />
+            </div>
+          </Suspense>
+        </SplineBoundary>
       </div>
 
       {/* Dark Overlay */}
