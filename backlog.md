@@ -113,10 +113,25 @@ main (protegida)
 #### FASE 5 — Verificación y cierre (🤝 Conjunto)
 
 - [x] **S-01-T12** · `pnpm build` exitoso en `frontend/` ✅ 2026-06-03
-- [ ] **S-01-T13** · Smoke test en producción tras deploy (home, blog, servicios, formulario, ES/EN)
+- [x] **S-01-T13** · Smoke test en producción tras deploy ✅ 2026-06-10
+  - Home, servicios, about, case-studies: OK. Blog sin posts (esperado, CMS vacío). Headers de seguridad confirmados activos.
 - [x] **S-01-T14** · PR `security/remediacion → main` ✅ 2026-06-03
-- [ ] **S-01-T15** · (Opcional) Purgar token del historial git con `git filter-repo` / BFG
-  - Token ya inactivo; solo higiene del historial
+- [~] **S-01-T15** · Purgar token comprometido del historial git con `git filter-repo`
+  - Token ya inactivo; repo privado. **No prioritario** — aplazar hasta que el repo sea público o auditoría formal.
+
+---
+
+## Épica F-01 — Fix formulario de contacto Web3Forms (2026-06-10)
+
+**Origen:** error en producción `"Form must include a form_id or access_key field"` reportado en sesión 2026-06-10.
+**Rama de trabajo:** `fix/contact-form-web3forms-key`
+**Causa raíz:** `NEXT_PUBLIC_WEB3FORMS_KEY` es una variable que Next.js hornea en el bundle en tiempo de build. Al eliminar el fallback hardcodeado (S-01-T04) y mover la key fuera de `wrangler.jsonc` (S-01-T05), el archivo `frontend/.env.local` nunca fue creado, por lo que los builds posteriores compilaban `access_key: undefined`.
+
+### Tareas
+
+- [x] **F-01-T01** · Crear `frontend/.env.local` con `NEXT_PUBLIC_WEB3FORMS_KEY` y variables Sanity ✅ 2026-06-10
+- [x] **F-01-T02** · `pnpm build` exitoso — key horneada en bundle JS ✅ 2026-06-10
+- [x] **F-01-T03** · Deploy a producción (`asc-it-group.administrator-794.workers.dev`) ✅ 2026-06-10
 
 ---
 
@@ -136,4 +151,6 @@ main (protegida)
 |-------|--------------------|--------------------|-----|
 | 2026-06-01 | S-01 (análisis) | Auditoría OWASP completa, plan redactado | — |
 | 2026-06-03 | S-01 (remediación) | T01–T14 completadas, build OK | security/remediacion → main |
+| 2026-06-10 | S-01 (cierre) | T13 smoke test OK, T15 aplazada. **Épica S-01 CERRADA ✅** | — |
+| 2026-06-10 | F-01 (fix contacto) | T01–T03 completadas, formulario funcional en producción | fix/contact-form-web3forms-key → main |
 
