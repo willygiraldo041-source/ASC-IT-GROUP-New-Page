@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useForm } from 'react-hook-form'
@@ -38,6 +38,7 @@ const contactInfoData = [
 export function Contact() {
   const { t } = useLanguage()
   const { trackFormSubmit, trackContactClick } = useAnalytics()
+  const formRef = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -60,8 +61,12 @@ export function Contact() {
     if (data.honeypot) return
     setIsSubmitting(true)
     
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
-    
+    // Lee la key desde el HTML (horneada en build time) para evitar
+    // problemas con caché del bundle JS en móviles
+    const accessKey = formRef.current
+      ? String(new FormData(formRef.current).get('access_key') ?? '')
+      : process.env.NEXT_PUBLIC_WEB3FORMS_KEY
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -179,9 +184,15 @@ export function Contact() {
             animate={inView ? 'animate' : 'initial'}
           >
             <form
+              ref={formRef}
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-4 rounded-2xl border border-white/5 bg-gradient-to-b from-white/5 to-transparent p-8 backdrop-blur-sm"
             >
+              <input
+                type="hidden"
+                name="access_key"
+                value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''}
+              />
               <div>
                 <label
                   htmlFor="name"
