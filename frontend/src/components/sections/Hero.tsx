@@ -39,14 +39,7 @@ export function Hero() {
               className="absolute inset-0 transition-opacity duration-700"
               style={{
                 opacity: loaded ? 1 : 0,
-                pointerEvents: 'auto',
-                touchAction: 'pan-y',
-              }}
-              onWheel={(e) => {
-                const target = e.currentTarget.parentElement?.parentElement
-                if (target) {
-                  window.scrollBy(0, e.deltaY)
-                }
+                pointerEvents: 'none',
               }}
             >
               <Spline
