@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
 import {
   Shield,
@@ -99,20 +98,16 @@ export function Services({ services }: ServicesProps) {
     }
   })
   
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0,
-    rootMargin: isMobile ? '-50px' : '50px',
-  })
-
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       <Container>
+        {/* whileInView + margin grande: la animación dispara 350px antes de ser visible,
+            así el título nunca aparece en opacity:0 cuando el usuario llega a la sección */}
         <motion.div
-          ref={ref}
-          variants={isMobile ? undefined : staggerContainer}
-          initial={isMobile ? false : "initial"}
-          animate={isMobile ? false : (inView ? 'animate' : 'initial')}
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: '350px' }}
           className="text-center mb-16"
         >
           <motion.div
@@ -203,10 +198,10 @@ export function Services({ services }: ServicesProps) {
         </div>
 
         <motion.div
-          ref={ref}
           variants={fadeInUp}
           initial="initial"
-          animate={inView ? 'animate' : 'initial'}
+          whileInView="animate"
+          viewport={{ once: true, margin: '100px' }}
           className="mt-12 text-center"
         >
           <Link href="/#contact">
