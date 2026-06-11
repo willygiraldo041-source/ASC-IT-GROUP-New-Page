@@ -38,10 +38,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans text-foreground antialiased overflow-x-hidden">
         <PageLoader />
         
-        {/* Custom Cursor (solo desktop) - Deshabilitado temporalmente */}
-        {/* <div className="hidden lg:block">
-          <CustomCursor />
-        </div> */}
+        <CustomCursor />
         
         <LanguageProvider>
           {children}

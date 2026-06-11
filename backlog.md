@@ -137,11 +137,33 @@ main (protegida)
 
 ## Épicas futuras (backlog)
 
-> Sección para registrar trabajo futuro que surja en sesiones posteriores.
-
 | ID | Épica | Prioridad | Sesión estimada |
 |----|-------|-----------|-----------------|
-| — | *(por definir)* | — | — |
+| D-01 | Migración DNS: `ascitgroup.com` → Cloudflare Worker | 🔴 Alta | Semana 2026-06-10 |
+| M-01 | Botones y enlaces no funcionan en móvil (Hero, CTA, WhatsApp) | 🔴 Alta | 2026-06-11 — validar con el usuario |
+
+---
+
+## Épica D-01 — Migración DNS ascitgroup.com (pendiente)
+
+**Objetivo:** reemplazar WordPress por el nuevo sitio Next.js en el dominio de producción real.
+**Prerequisito:** confirmar panel/registrador del dominio (Hostinger, GoDaddy, etc.).
+
+### Contexto importante
+- `ascitgroup.com` apunta actualmente a hosting WordPress — se va a reemplazar completamente
+- El dominio tiene **Google Workspace** configurado (MX + SPF + DKIM) — no debe romperse
+- Cloudflare importa registros DNS automáticamente al agregar la zona — los de correo se preservan
+- Contenido WordPress existente: no interesa migrar
+
+### Tareas
+
+- [ ] **D-01-T01** · Identificar panel/registrador del dominio ⏳ pendiente dato del usuario
+- [ ] **D-01-T02** · Agregar `ascitgroup.com` como zona en Cloudflare (plan gratuito)
+- [ ] **D-01-T03** · Verificar que MX + SPF + DKIM de Google Workspace quedaron importados
+- [ ] **D-01-T04** · Cambiar nameservers en el panel actual a los de Cloudflare
+- [ ] **D-01-T05** · Agregar dominio custom al Worker (`asc-it-group`)
+- [ ] **D-01-T06** · Smoke test: sitio en `ascitgroup.com` + correo funcionando
+- [ ] **D-01-T07** · Cancelar hosting WordPress
 
 ---
 
