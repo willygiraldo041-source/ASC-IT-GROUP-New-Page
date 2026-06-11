@@ -1,6 +1,6 @@
 'use client'
 
-import { lazy, Suspense, Component, useState, type ReactNode } from 'react'
+import { lazy, Suspense, Component, useState, useRef, type ReactNode } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -25,9 +25,25 @@ class SplineBoundary extends Component<
 export function Hero() {
   const { t } = useLanguage()
   const [loaded, setLoaded] = useState(false)
+  const [spotlight, setSpotlight] = useState({ x: 0, y: 0, visible: false })
+  const sectionRef = useRef<HTMLElement>(null)
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    setSpotlight({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
+  }
+
+  function handleMouseLeave() {
+    setSpotlight(prev => ({ ...prev, visible: false }))
+  }
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden bg-background">
+    <section
+      ref={sectionRef}
+      className="relative h-screen flex items-center overflow-hidden bg-background"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Fondo 3D de Spline, con degradado de respaldo siempre detrás */}
       <div className="absolute inset-0" style={{ filter: 'hue-rotate(90deg)' }}>
         {/* Respaldo: visible mientras Spline carga o si falla */}
@@ -54,6 +70,18 @@ export function Hero() {
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/30 z-[1] pointer-events-none" />
+
+      {/* Spotlight overlay — sigue el cursor sobre los cubos 3D */}
+      <div
+        className="absolute inset-0 z-[2] pointer-events-none"
+        style={{
+          opacity: spotlight.visible ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+          background: spotlight.visible
+            ? `radial-gradient(400px circle at ${spotlight.x}px ${spotlight.y}px, rgba(120,180,255,0.10) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)`
+            : 'none',
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[95%] lg:max-w-5xl mx-auto px-6 md:px-10 pointer-events-auto">

@@ -38,7 +38,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans text-foreground antialiased overflow-x-hidden">
         <PageLoader />
         
-        <CustomCursor />
+        {/* CustomCursor deshabilitado — spotlight del hero reemplaza el efecto */}
         
         <LanguageProvider>
           {children}
