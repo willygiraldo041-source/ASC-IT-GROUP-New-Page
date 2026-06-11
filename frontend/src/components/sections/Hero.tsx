@@ -1,6 +1,6 @@
 'use client'
 
-import { lazy, Suspense, Component, useState, useRef, type ReactNode } from 'react'
+import { lazy, Suspense, Component, useState, useRef, useCallback, type ReactNode } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -25,21 +25,26 @@ class SplineBoundary extends Component<
 export function Hero() {
   const { t } = useLanguage()
   const [loaded, setLoaded] = useState(false)
-  const [spotlight, setSpotlight] = useState({ x: 0, y: 0, visible: false })
-  const sectionRef = useRef<HTMLElement>(null)
+  // Ref directo al div overlay — sin useState, sin re-renders en cada mousemove
+  const spotlightRef = useRef<HTMLDivElement>(null)
 
-  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const el = spotlightRef.current
+    if (!el) return
     const rect = e.currentTarget.getBoundingClientRect()
-    setSpotlight({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
-  }
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    el.style.opacity = '1'
+    el.style.background = `radial-gradient(circle 450px at ${x}px ${y}px, rgba(140,190,255,0.15) 0%, rgba(200,230,255,0.06) 45%, transparent 70%)`
+  }, [])
 
-  function handleMouseLeave() {
-    setSpotlight(prev => ({ ...prev, visible: false }))
-  }
+  const handleMouseLeave = useCallback(() => {
+    const el = spotlightRef.current
+    if (el) el.style.opacity = '0'
+  }, [])
 
   return (
     <section
-      ref={sectionRef}
       className="relative h-screen flex items-center overflow-hidden bg-background"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -71,16 +76,11 @@ export function Hero() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/30 z-[1] pointer-events-none" />
 
-      {/* Spotlight overlay — sigue el cursor sobre los cubos 3D */}
+      {/* Spotlight — manipulación directa del DOM, sin re-renders de React */}
       <div
+        ref={spotlightRef}
         className="absolute inset-0 z-[2] pointer-events-none"
-        style={{
-          opacity: spotlight.visible ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-          background: spotlight.visible
-            ? `radial-gradient(400px circle at ${spotlight.x}px ${spotlight.y}px, rgba(120,180,255,0.10) 0%, rgba(255,255,255,0.04) 40%, transparent 70%)`
-            : 'none',
-        }}
+        style={{ opacity: 0, transition: 'opacity 0.35s ease' }}
       />
 
       {/* Content */}
