@@ -1,6 +1,6 @@
 'use client'
 
-import { lazy, Suspense, Component, useState, useRef, useCallback, type ReactNode } from 'react'
+import { lazy, Suspense, Component, useState, useEffect, type ReactNode } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -25,30 +25,21 @@ class SplineBoundary extends Component<
 export function Hero() {
   const { t } = useLanguage()
   const [loaded, setLoaded] = useState(false)
-  // Ref directo al div overlay — sin useState, sin re-renders en cada mousemove
-  const spotlightRef = useRef<HTMLDivElement>(null)
+  // En desktop (pointer:fine) Spline recibe eventos de mouse → ripple azul nativo del scene.
+  // En móvil/touch (pointer:coarse) se bloquean para que los botones funcionen.
+  const [splinePointerEvents, setSplinePointerEvents] = useState<'auto' | 'none'>('none')
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    const el = spotlightRef.current
-    if (!el) return
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    el.style.opacity = '1'
-    el.style.background = `radial-gradient(circle 450px at ${x}px ${y}px, rgba(140,190,255,0.15) 0%, rgba(200,230,255,0.06) 45%, transparent 70%)`
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    const el = spotlightRef.current
-    if (el) el.style.opacity = '0'
+  useEffect(() => {
+    const mql = window.matchMedia('(pointer: fine)')
+    setSplinePointerEvents(mql.matches ? 'auto' : 'none')
+    const handler = (e: MediaQueryListEvent) =>
+      setSplinePointerEvents(e.matches ? 'auto' : 'none')
+    mql.addEventListener('change', handler)
+    return () => mql.removeEventListener('change', handler)
   }, [])
 
   return (
-    <section
-      className="relative h-screen flex items-center overflow-hidden bg-background"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
+    <section className="relative h-screen flex items-center overflow-hidden bg-background">
       {/* Fondo 3D de Spline, con degradado de respaldo siempre detrás */}
       <div className="absolute inset-0" style={{ filter: 'hue-rotate(90deg)' }}>
         {/* Respaldo: visible mientras Spline carga o si falla */}
@@ -60,7 +51,8 @@ export function Hero() {
               className="absolute inset-0 transition-opacity duration-700"
               style={{
                 opacity: loaded ? 1 : 0,
-                pointerEvents: 'none',
+                pointerEvents: splinePointerEvents,
+                touchAction: 'pan-y',
               }}
             >
               <Spline
@@ -75,13 +67,6 @@ export function Hero() {
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/30 z-[1] pointer-events-none" />
-
-      {/* Spotlight — manipulación directa del DOM, sin re-renders de React */}
-      <div
-        ref={spotlightRef}
-        className="absolute inset-0 z-[2] pointer-events-none"
-        style={{ opacity: 0, transition: 'opacity 0.35s ease' }}
-      />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[95%] lg:max-w-5xl mx-auto px-6 md:px-10 pointer-events-auto">
