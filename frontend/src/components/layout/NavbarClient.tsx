@@ -75,7 +75,6 @@ export function NavbarClient({ settings }: NavbarClientProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [expandedService, setExpandedService] = useState<number | null>(null)
   const [hoveredServiceIndex, setHoveredServiceIndex] = useState<number | null>(null)
-  const [mounted, setMounted] = useState(false)
 
   // Construir serviceLinks con traducciones dinámicas
   const serviceLinks = serviceLinksKeys.map(service => ({
@@ -91,7 +90,6 @@ export function NavbarClient({ settings }: NavbarClientProps) {
   const isServicesPage = pathname.startsWith('/services')
 
   useEffect(() => {
-    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
@@ -100,16 +98,13 @@ export function NavbarClient({ settings }: NavbarClientProps) {
   }, [])
 
   return (
-    <motion.header
+    <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-colors duration-200',
         isScrolled
           ? 'bg-background/80 backdrop-blur-lg border-b border-white/5 shadow-lg'
           : 'bg-transparent'
       )}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <Container>
         <nav className="flex items-center justify-between py-3">
@@ -413,6 +408,6 @@ export function NavbarClient({ settings }: NavbarClientProps) {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }
