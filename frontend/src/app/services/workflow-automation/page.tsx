@@ -1,27 +1,10 @@
 import { ServicePageClient } from '@/components/services/ServicePageClient'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { client } from '@/sanity/client'
-import { SETTINGS_QUERY } from '@/sanity/queries'
-import type { SiteSettings } from '@/types/sanity'
 
-export default async function Page() {
-  let settings: SiteSettings | null = null
-  
-  try {
-    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
-  } catch (error) {
-    console.log('Sanity fetch failed, using default data')
-  }
-
+export default function Page() {
   return (
-    <>
-      <Navbar settings={settings} />
-      <ServicePageClient 
-        slug="workflow-automation"
-        certifications={["Microsoft Power Automate Expert", "Automation Anywhere Certified", "UiPath Certified"]}
-      />
-      <Footer settings={settings} />
-    </>
+    <ServicePageClient
+      slug="workflow-automation"
+      certifications={["Microsoft Power Automate Expert", "Automation Anywhere Certified", "UiPath Certified"]}
+    />
   )
 }

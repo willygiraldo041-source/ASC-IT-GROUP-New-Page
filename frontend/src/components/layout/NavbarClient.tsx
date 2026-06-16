@@ -11,7 +11,6 @@ import { Container } from '@/components/ui/Container'
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { cn } from '@/lib/utils'
-import type { SiteSettings } from '@/types/sanity'
 
 // Keys para construir servicios dinámicamente
 const serviceLinksKeys = [
@@ -64,11 +63,7 @@ const serviceLinksKeys = [
   },
 ]
 
-interface NavbarClientProps {
-  settings: SiteSettings | null
-}
-
-export function NavbarClient({ settings }: NavbarClientProps) {
+export function NavbarClient() {
   const pathname = usePathname()
   const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -118,7 +113,7 @@ export function NavbarClient({ settings }: NavbarClientProps) {
               alt="ASC IT GROUP Logo"
               width={400}
               height={200}
-              className={`object-contain w-auto transition-all duration-300 ${
+              className={`object-contain w-auto transition-[height] duration-300 ${
                 isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
               }`}
               priority
@@ -324,13 +319,13 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                   className="group relative text-lg font-medium text-foreground/80 transition-all duration-300 hover:text-primary hover:translate-x-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <span className="relative z-10">Inicio</span>
+                  <span className="relative z-10">{t('navigation.home')}</span>
                   <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </Link>
                 
                 {/* Servicios en móvil - Expandibles */}
                 <div className="border-t border-white/5 pt-4 mt-2">
-                  <div className="text-sm font-semibold text-primary mb-3">Servicios</div>
+                  <div className="text-sm font-semibold text-primary mb-3">{t('navigation.services')}</div>
                   {serviceLinks.map((service, idx) => (
                     <div key={idx} className="mb-2">
                       <button
@@ -374,7 +369,7 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                   className="group relative text-lg font-medium text-foreground/80 transition-all duration-300 hover:text-primary hover:translate-x-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <span className="relative z-10">Quiénes Somos</span>
+                  <span className="relative z-10">{t('navigation.about')}</span>
                   <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </Link>
                 
@@ -384,7 +379,7 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                   className="group relative text-lg font-medium text-foreground/80 transition-all duration-300 hover:text-primary hover:translate-x-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <span className="relative z-10">Blog</span>
+                  <span className="relative z-10">{t('navigation.blog')}</span>
                   <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </Link>
                 
@@ -394,7 +389,7 @@ export function NavbarClient({ settings }: NavbarClientProps) {
                   className="group relative text-lg font-medium text-foreground/80 transition-all duration-300 hover:text-primary hover:translate-x-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <span className="relative z-10">Contacto</span>
+                  <span className="relative z-10">{t('navigation.contact')}</span>
                   <span className="absolute inset-0 -z-10 rounded-md bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </Link>
                 

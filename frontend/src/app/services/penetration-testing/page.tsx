@@ -1,6 +1,4 @@
 import { Metadata } from 'next'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import { PenetrationTestingIndexClient } from '@/components/services/PenetrationTestingIndexClient'
 import { client } from '@/sanity/client'
 import { SETTINGS_QUERY } from '@/sanity/queries'
@@ -21,10 +19,6 @@ export default async function PenetrationTestingPage() {
   }
 
   return (
-    <>
-      <Navbar settings={settings} />
-      <PenetrationTestingIndexClient settings={settings} />
-      <Footer settings={settings} />
-    </>
+    <PenetrationTestingIndexClient settings={settings} />
   )
 }

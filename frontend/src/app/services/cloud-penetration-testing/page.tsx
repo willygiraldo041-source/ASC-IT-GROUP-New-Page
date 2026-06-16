@@ -1,6 +1,4 @@
 import { Metadata } from 'next'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import { CloudPentestIndexClient } from '@/components/services/CloudPentestIndexClient'
 import { client } from '@/sanity/client'
 import { SETTINGS_QUERY } from '@/sanity/queries'
@@ -14,11 +12,5 @@ export const metadata: Metadata = {
 export default async function CloudPentestingPage() {
   const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
 
-  return (
-    <>
-      <Navbar settings={settings} />
-      <CloudPentestIndexClient settings={settings} />
-      <Footer settings={settings} />
-    </>
-  )
+  return <CloudPentestIndexClient settings={settings} />
 }

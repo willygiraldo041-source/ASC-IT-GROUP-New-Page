@@ -2,11 +2,7 @@ import { Metadata } from 'next'
 import { client } from '@/sanity/client'
 import { POST_BY_SLUG_QUERY } from '@/lib/sanity/queries'
 import type { BlogPost } from '@/types/blog'
-import { SETTINGS_QUERY } from '@/sanity/queries'
-import type { SiteSettings } from '@/types/sanity'
 import { getOgImageUrl } from '@/lib/sanity/image'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import { BlogPostClient } from '@/components/blog/BlogPostClient'
 
 export const dynamicParams = false
@@ -64,19 +60,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
-  let settings: SiteSettings | null = null
-  
-  try {
-    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
-  } catch (error) {
-    console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
-  }
 
-  return (
-    <>
-      <Navbar settings={settings} />
-      <BlogPostClient slug={slug} />
-      <Footer settings={settings} />
-    </>
-  )
+  return <BlogPostClient slug={slug} />
 }
