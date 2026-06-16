@@ -7,8 +7,13 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 import { PageLoader } from '@/components/ui/PageLoader'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
 import { generateMetadata as genMetadata } from '@/lib/seo/metadata'
 import { organizationSchema, websiteSchema } from '@/lib/seo/config'
+import { client } from '@/sanity/client'
+import { SETTINGS_QUERY } from '@/sanity/queries'
+import type { SiteSettings } from '@/types/sanity'
 import './globals.css'
 
 const sora = Sora({
@@ -21,11 +26,20 @@ const sora = Sora({
 // Generate metadata from SEO config
 export const metadata: Metadata = genMetadata({})
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Fetch settings once at build time; persists across all client navigations
+  let settings: SiteSettings | null = null
+
+  try {
+    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
+  } catch (error) {
+    console.log('Sanity fetch failed in layout, using default data:', error)
+  }
+
   return (
     <html lang="es" className={`${sora.variable} dark scroll-smooth`}>
       <head>
@@ -41,7 +55,9 @@ export default function RootLayout({
         {/* CustomCursor deshabilitado — spotlight del hero reemplaza el efecto */}
         
         <LanguageProvider>
+          <Navbar />
           {children}
+          <Footer settings={settings} />
         </LanguageProvider>
         
         {/* Vercel Analytics */}

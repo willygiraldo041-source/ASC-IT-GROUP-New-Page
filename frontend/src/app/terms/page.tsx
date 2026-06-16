@@ -2,30 +2,15 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, FileText, Scale, AlertTriangle, CheckCircle } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { client } from '@/sanity/client'
-import { SETTINGS_QUERY } from '@/sanity/queries'
-import type { SiteSettings } from '@/types/sanity'
 
 export const metadata: Metadata = {
   title: 'Términos de Servicio - ASC IT GROUP',
   description: 'Conoce los términos y condiciones de uso de los servicios de ASC IT GROUP.',
 }
 
-export default async function TermsPage() {
-  let settings: SiteSettings | null = null
-  
-  try {
-    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
-  } catch (error) {
-    console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
-  }
-  
+export default function TermsPage() {
   return (
-    <>
-      <Navbar settings={settings} />
-      <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
         <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 pt-32 pb-20">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(white,transparent_85%)] pointer-events-none" />
           
@@ -305,7 +290,5 @@ export default async function TermsPage() {
           </Container>
         </section>
       </div>
-      <Footer settings={settings} />
-    </>
   )
 }

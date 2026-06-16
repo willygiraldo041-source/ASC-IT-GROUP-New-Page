@@ -2,24 +2,15 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, Shield, Lock, Eye, FileText } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { client } from '@/sanity/client'
-import { SETTINGS_QUERY } from '@/sanity/queries'
-import type { SiteSettings } from '@/types/sanity'
 
 export const metadata: Metadata = {
   title: 'Política de Privacidad - ASC IT GROUP',
   description: 'Conoce cómo ASC IT GROUP protege y maneja tu información personal.',
 }
 
-export default async function PrivacyPage() {
-  const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
-  
+export default function PrivacyPage() {
   return (
-    <>
-      <Navbar settings={settings} />
-      <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
         <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 pt-32 pb-20">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(white,transparent_85%)] pointer-events-none" />
           
@@ -223,7 +214,5 @@ export default async function PrivacyPage() {
           </Container>
         </section>
       </div>
-      <Footer settings={settings} />
-    </>
   )
 }

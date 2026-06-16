@@ -1,11 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { client } from '@/sanity/client'
-import { SETTINGS_QUERY } from '@/sanity/queries'
-import type { SiteSettings } from '@/types/sanity'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle2 } from 'lucide-react'
 
@@ -110,18 +105,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     notFound()
   }
 
-  let settings: SiteSettings | null = null
-  
-  try {
-    settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
-  } catch (error) {
-    console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
-  }
-
   return (
-    <>
-      <Navbar settings={settings} />
-      <main className="min-h-screen pt-32 pb-24">
+    <main className="min-h-screen pt-32 pb-24">
       <Container>
         {/* Back Button */}
         <Link href="/#services" className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors mb-8">
@@ -186,7 +171,5 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </Container>
     </main>
-    <Footer settings={settings} />
-    </>
   )
 }

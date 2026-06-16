@@ -3,12 +3,8 @@
 import { useState, useEffect } from 'react'
 import { client } from '@/sanity/client'
 import { POSTS_QUERY } from '@/lib/sanity/queries'
-import { SETTINGS_QUERY } from '@/sanity/queries'
 import type { BlogPostPreview } from '@/types/blog'
-import type { SiteSettings } from '@/types/sanity'
 import { Container } from '@/components/ui/Container'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import { BlogHero } from '@/components/blog/BlogHero'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
@@ -28,27 +24,23 @@ function formatDate(dateString: string, locale: 'es' | 'en') {
 export function BlogPageClient() {
   const { locale, t } = useLanguage()
   const [posts, setPosts] = useState<BlogPostPreview[]>([])
-  const [settings, setSettings] = useState<SiteSettings | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true)
       try {
-        const [fetchedPosts, fetchedSettings] = await Promise.all([
-          client.fetch<BlogPostPreview[]>(POSTS_QUERY, { language: locale }).catch(() => []),
-          client.fetch<SiteSettings>(SETTINGS_QUERY).catch(() => null)
-        ])
-        
+        const fetchedPosts = await client
+          .fetch<BlogPostPreview[]>(POSTS_QUERY, { language: locale })
+          .catch(() => [])
+
         console.log(`📝 Posts obtenidos (${locale}):`, fetchedPosts)
         console.log('📊 Cantidad de posts:', fetchedPosts?.length || 0)
-        
+
         setPosts(fetchedPosts || [])
-        setSettings(fetchedSettings)
       } catch (error) {
         console.log('⚠️ Sanity CMS no disponible, usando datos por defecto')
         setPosts([])
-        setSettings(null)
       } finally {
         setLoading(false)
       }
@@ -58,9 +50,7 @@ export function BlogPageClient() {
   }, [locale])
 
   return (
-    <>
-      <Navbar settings={settings} />
-      <main className="relative">
+    <main className="relative">
         <BlogHero />
 
         {/* Posts Section */}
@@ -147,8 +137,6 @@ export function BlogPageClient() {
             )}
           </Container>
         </section>
-      </main>
-      <Footer settings={settings} />
-    </>
+    </main>
   )
 }

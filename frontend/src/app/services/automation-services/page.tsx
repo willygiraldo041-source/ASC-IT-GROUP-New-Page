@@ -1,6 +1,4 @@
 import { Metadata } from 'next'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import { AutomationIndexClient } from '@/components/services/AutomationIndexClient'
 import { client } from '@/sanity/client'
 import { SETTINGS_QUERY } from '@/sanity/queries'
@@ -14,11 +12,5 @@ export const metadata: Metadata = {
 export default async function AutomationPage() {
   const settings = await client.fetch<SiteSettings>(SETTINGS_QUERY)
 
-  return (
-    <>
-      <Navbar settings={settings} />
-      <AutomationIndexClient settings={settings} />
-      <Footer settings={settings} />
-    </>
-  )
+  return <AutomationIndexClient settings={settings} />
 }

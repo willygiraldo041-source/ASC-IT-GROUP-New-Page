@@ -1,5 +1,3 @@
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
 import { HomeClient } from '@/components/pages/HomeClient'
 import { FloatingButtons } from '@/components/ui/FloatingButtons'
 import { ScrollProgress } from '@/components/ui/ScrollProgress'
@@ -29,11 +27,9 @@ export default async function Home() {
     <>
       {/* Scroll Progress Bar */}
       <ScrollProgress />
-      
-      <Navbar settings={settings} />
+
       <HomeClient services={services} />
-      <Footer settings={settings} />
-      
+
       {/* Floating Buttons - WhatsApp + Scroll to Top */}
       <FloatingButtons settings={settings} showScrollTop={true} />
     </>
