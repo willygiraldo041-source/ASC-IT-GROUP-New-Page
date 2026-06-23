@@ -147,7 +147,8 @@ main (protegida)
 ## Épica D-01 — Migración DNS ascitgroup.com (pendiente)
 
 **Objetivo:** reemplazar WordPress por el nuevo sitio Next.js en el dominio de producción real.
-**Prerequisito:** confirmar panel/registrador del dominio (Hostinger, GoDaddy, etc.).
+**Registrador confirmado:** WordPress.com (los nameservers se cambian en Upgrades → Domains).
+**Método de conexión:** Custom Domains desde el panel de Cloudflare. Dominio canónico: `ascitgroup.com` (apex); `www` redirige al apex (el código ya canoniza a apex en `src/lib/seo.ts`).
 
 ### Contexto importante
 - `ascitgroup.com` apunta actualmente a hosting WordPress — se va a reemplazar completamente
@@ -157,13 +158,14 @@ main (protegida)
 
 ### Tareas
 
-- [ ] **D-01-T01** · Identificar panel/registrador del dominio ⏳ pendiente dato del usuario
-- [ ] **D-01-T02** · Agregar `ascitgroup.com` como zona en Cloudflare (plan gratuito)
-- [ ] **D-01-T03** · Verificar que MX + SPF + DKIM de Google Workspace quedaron importados
-- [ ] **D-01-T04** · Cambiar nameservers en el panel actual a los de Cloudflare
-- [ ] **D-01-T05** · Agregar dominio custom al Worker (`asc-it-group`)
-- [ ] **D-01-T06** · Smoke test: sitio en `ascitgroup.com` + correo funcionando
-- [ ] **D-01-T07** · Cancelar hosting WordPress
+- [x] **D-01-T01** · Identificar panel/registrador del dominio → **WordPress.com** ✅ (2026-06-22)
+- [x] **D-01-T02** · Agregar `ascitgroup.com` como zona en Cloudflare (plan Free) ✅ — NS asignados: `rosa.ns.cloudflare.com` / `ryan.ns.cloudflare.com`
+- [x] **D-01-T03** · Verificar MX + SPF + DKIM + site-verification en los NS de Cloudflare ✅ — correo intacto; A/www/wildcard de WordPress eliminados
+- [x] **D-01-T04** · Cambiar nameservers en WordPress.com a los de Cloudflare ✅ (2026-06-23) — NS activos: `rosa.ns.cloudflare.com` / `ryan.ns.cloudflare.com`
+- [x] **D-01-T05** · Conectar Custom Domains al Worker vía `wrangler.jsonc` (apex + www) ✅ — desplegado; activan al propagar los NS
+- [ ] **D-01-T06** · Smoke test: `https://ascitgroup.com` + `www` + correo funcionando
+- [ ] **D-01-T07** · Cancelar hosting WordPress (solo tras validar; **mantener el registro del dominio activo**)
+- [ ] **D-01-T08** · Endurecimiento post-cutover: quitar `workers_dev` de `wrangler.jsonc` + redirect 301 `www`→apex (opcional)
 
 ---
 
@@ -175,4 +177,5 @@ main (protegida)
 | 2026-06-03 | S-01 (remediación) | T01–T14 completadas, build OK | security/remediacion → main |
 | 2026-06-10 | S-01 (cierre) | T13 smoke test OK, T15 aplazada. **Épica S-01 CERRADA ✅** | — |
 | 2026-06-10 | F-01 (fix contacto) | T01–T03 completadas, formulario funcional en producción | fix/contact-form-web3forms-key → main |
+| 2026-06-23 | D-01 (migración DNS) | T01–T05 (backlog + wrangler.jsonc); T04 cutover NS completado por usuario | — |
 

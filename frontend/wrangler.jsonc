@@ -2,7 +2,12 @@
   "name": "asc-it-group",
   "account_id": "794a74dd49bb54eba2542771c92229cb",
   "compatibility_date": "2025-01-01",
+  "workers_dev": true,
   "assets": {
     "directory": "out"
-  }
+  },
+  "routes": [
+    { "pattern": "ascitgroup.com", "custom_domain": true },
+    { "pattern": "www.ascitgroup.com", "custom_domain": true }
+  ]
 }
