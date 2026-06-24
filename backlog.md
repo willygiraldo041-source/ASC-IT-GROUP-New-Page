@@ -208,4 +208,5 @@ main (protegida)
 | 2026-06-24 | CM-01 (migración Sanity) | T01–T05 completadas. **Épica CM-01 CERRADA ✅** Sanity bajo cuenta corporativa, token rotado | — |
 | 2026-06-24 | D-01 (DNS cutover) | T06 smoke test OK — `ascitgroup.com` y `www` resuelven al nuevo sitio. Cutover completo ✅ | — |
 | 2026-06-24 | CI-01 (webhook Sanity→GitHub) | Pipeline verde en push. Webhook 401→422 depurado. **Pendiente:** cambiar URL a `workflow_dispatch` y body a `{"ref":"main"}`, probar Redeliver | — |
+| 2026-06-24 | UI (footer) | Eliminar ícono de Telegram (`Footer.tsx`) — no se usa profesionalmente. Build + deploy OK. | — |
 
