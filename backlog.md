@@ -143,6 +143,8 @@ main (protegida)
 | D-01 | Migración DNS: `ascitgroup.com` → Cloudflare Worker | 🔴 Alta | Semana 2026-06-10 |
 | M-01 | Botones y enlaces no funcionan en móvil (Hero, CTA, WhatsApp) | ✅ Cerrado | Validado 2026-06-24 — botones funcionan correctamente en móvil |
 | CI-01 | CI/CD automático: Sanity webhook → GitHub Actions → Cloudflare Workers | ✅ Configurado 2026-06-24 |
+| SEO-01 | SEO completo para posicionamiento Colombia/LatAm | ✅ Cerrado 2026-06-24 |
+| UI-02 | Mejoras de diseño y profesionalismo (pendiente definir alcance) | 🟡 Media | Por definir |
 
 ---
 
@@ -209,4 +211,5 @@ main (protegida)
 | 2026-06-24 | D-01 (DNS cutover) | T06 smoke test OK — `ascitgroup.com` y `www` resuelven al nuevo sitio. Cutover completo ✅ | — |
 | 2026-06-24 | CI-01 (webhook Sanity→GitHub) | Pipeline verde en push. Webhook 401→422 depurado. **Pendiente:** cambiar URL a `workflow_dispatch` y body a `{"ref":"main"}`, probar Redeliver | — |
 | 2026-06-24 | UI (footer) | Eliminar ícono de Telegram (`Footer.tsx`) — no se usa profesionalmente. Build + deploy OK. | — |
+| 2026-06-24 | SEO-01 (SEO completo) | robots.txt + sitemap.xml (34 URLs, hreflang ES/EN); metadata + OG + canonical en 28 páginas; Schema.org ServiceSchema + BreadcrumbSchema en todos los servicios; keywords colombianas. Build 40 páginas OK, deploy Cloudflare OK. Sitemap enviado a Search Console. **Épica SEO-01 CERRADA ✅** | — |
 
