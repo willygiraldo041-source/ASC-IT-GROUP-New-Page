@@ -53,6 +53,7 @@ main (protegida)
 |--------|--------|
 | Frontend Next.js 16 (Cloudflare Pages) | ✅ Productivo |
 | Sanity Studio | ✅ Productivo |
+| Sanity CMS — titularidad | ✅ Migrado a cuenta corporativa (2026-06-24) |
 | old-react-app | ✅ Eliminado (sesión 2026-06-03) |
 | Seguridad web | ✅ Remediado — PR `security/remediacion` pendiente merge |
 
@@ -140,7 +141,7 @@ main (protegida)
 | ID | Épica | Prioridad | Sesión estimada |
 |----|-------|-----------|-----------------|
 | D-01 | Migración DNS: `ascitgroup.com` → Cloudflare Worker | 🔴 Alta | Semana 2026-06-10 |
-| M-01 | Botones y enlaces no funcionan en móvil (Hero, CTA, WhatsApp) | 🔴 Alta | 2026-06-11 — validar con el usuario |
+| M-01 | Botones y enlaces no funcionan en móvil (Hero, CTA, WhatsApp) | ✅ Cerrado | Validado 2026-06-24 — botones funcionan correctamente en móvil |
 
 ---
 
@@ -163,9 +164,34 @@ main (protegida)
 - [x] **D-01-T03** · Verificar MX + SPF + DKIM + site-verification en los NS de Cloudflare ✅ — correo intacto; A/www/wildcard de WordPress eliminados
 - [x] **D-01-T04** · Cambiar nameservers en WordPress.com a los de Cloudflare ✅ (2026-06-23) — NS activos: `rosa.ns.cloudflare.com` / `ryan.ns.cloudflare.com`
 - [x] **D-01-T05** · Conectar Custom Domains al Worker vía `wrangler.jsonc` (apex + www) ✅ — desplegado; activan al propagar los NS
-- [ ] **D-01-T06** · Smoke test: `https://ascitgroup.com` + `www` + correo funcionando
-- [ ] **D-01-T07** · Cancelar hosting WordPress (solo tras validar; **mantener el registro del dominio activo**)
+- [x] **D-01-T06** · Smoke test: `https://ascitgroup.com` + `www` + correo funcionando ✅ 2026-06-24
+  - Ambos dominios resuelven al nuevo sitio Next.js en Cloudflare Workers. **Épica D-01 CUTOVER COMPLETO ✅**
+- [~] **D-01-T07** · Cancelar hosting WordPress ⚠️ BLOQUEADO — dominio comprado en WordPress.com
+  - Riesgo: el dominio `ascitgroup.com` y el hosting pueden estar en el mismo plan; cancelar el plan podría perder el dominio
+  - **Antes de cancelar:** verificar en WordPress.com → Upgrades → Domains si el dominio tiene renovación anual independiente del hosting
+  - Si están separados: cancelar solo el hosting sin riesgo
+  - Si están atados: transferir el dominio primero a otro registrador (Cloudflare Registrar o Namecheap) antes de cancelar
 - [ ] **D-01-T08** · Endurecimiento post-cutover: quitar `workers_dev` de `wrangler.jsonc` + redirect 301 `www`→apex (opcional)
+
+---
+
+## Épica CM-01 — Migración Sanity CMS a cuenta corporativa ✅ CERRADA
+
+**Objetivo:** transferir la titularidad de los proyectos Sanity de la cuenta personal `willygiraldo041@gmail.com` a la organización corporativa `administrator@ascitgroup.com` (org ID `oWdA0nmBT`).
+**Fecha:** 2026-06-24
+**Resultado:** cero cambios en código ni variables de entorno — Project ID `4z0gk085` se mantuvo intacto.
+
+### Tareas
+
+- [x] **CM-01-T01** · Auditar Project IDs en código — identificar que el sitio usa `4z0gk085`, no `v7irj844` ✅ 2026-06-24
+- [x] **CM-01-T02** · Transferir proyecto `v7irj844` (ASC-IT-GROUP SAS) a org `oWdA0nmBT` ✅ 2026-06-24
+  - Realizado manualmente desde `manage.sanity.io` por el usuario
+- [x] **CM-01-T03** · Transferir proyecto `4z0gk085` (proyecto activo del código) a org `oWdA0nmBT` ✅ 2026-06-24
+  - Realizado manualmente desde `manage.sanity.io` por el usuario
+- [x] **CM-01-T04** · Verificar build post-migración — `pnpm build` en `frontend/` ✅ 2026-06-24
+  - 38 páginas generadas sin errores; conexión a Sanity dataset `production` confirmada
+- [x] **CM-01-T05** · Generar nuevo token de API en panel corporativo y actualizar `SANITY_API_TOKEN` en `.env.local` ✅ 2026-06-24
+  - Token generado desde `administrator@ascitgroup.com` en proyecto `4z0gk085`; rotado por exposición en chat y actualizado
 
 ---
 
@@ -178,4 +204,6 @@ main (protegida)
 | 2026-06-10 | S-01 (cierre) | T13 smoke test OK, T15 aplazada. **Épica S-01 CERRADA ✅** | — |
 | 2026-06-10 | F-01 (fix contacto) | T01–T03 completadas, formulario funcional en producción | fix/contact-form-web3forms-key → main |
 | 2026-06-23 | D-01 (migración DNS) | T01–T05 (backlog + wrangler.jsonc); T04 cutover NS completado por usuario | — |
+| 2026-06-24 | CM-01 (migración Sanity) | T01–T05 completadas. **Épica CM-01 CERRADA ✅** Sanity bajo cuenta corporativa, token rotado | — |
+| 2026-06-24 | D-01 (DNS cutover) | T06 smoke test OK — `ascitgroup.com` y `www` resuelven al nuevo sitio. Cutover completo ✅ | — |
 
