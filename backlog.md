@@ -142,6 +142,7 @@ main (protegida)
 |----|-------|-----------|-----------------|
 | D-01 | Migración DNS: `ascitgroup.com` → Cloudflare Worker | 🔴 Alta | Semana 2026-06-10 |
 | M-01 | Botones y enlaces no funcionan en móvil (Hero, CTA, WhatsApp) | ✅ Cerrado | Validado 2026-06-24 — botones funcionan correctamente en móvil |
+| CI-01 | CI/CD automático: Sanity webhook → GitHub Actions → Cloudflare Workers | ✅ Configurado 2026-06-24 |
 
 ---
 
