@@ -8,6 +8,9 @@ on:
   pull_request:
     branches:
       - main
+  repository_dispatch:
+    types: [sanity-deploy]
+  workflow_dispatch:
 
 # Permisos necesarios
 permissions:
