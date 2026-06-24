@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Crawl-delay recomendado para crawlers no-Google
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://ascitgroup.com/sitemap.xml

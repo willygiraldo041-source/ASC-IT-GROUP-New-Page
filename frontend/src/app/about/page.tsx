@@ -1,4 +1,37 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { generateMetadata as genMetadata } from '@/lib/seo/metadata'
+import { SITE_URL, DEFAULT_OG_IMAGE, SITE_NAME } from '@/lib/seo/config'
+
+export const metadata: Metadata = genMetadata({
+  title: 'Quiénes Somos | ASC IT GROUP — Empresa de Ciberseguridad Colombia',
+  description:
+    'Conoce al equipo de ASC IT GROUP, empresa colombiana de ciberseguridad con certificaciones OSCP, CRTO, CKS y más. Protegemos empresas en Colombia y Latinoamérica desde Bogotá.',
+  keywords: [
+    'ASC IT GROUP empresa',
+    'empresa ciberseguridad Colombia',
+    'equipo ciberseguridad Colombia',
+    'certificaciones OSCP Colombia',
+    'hackers éticos Colombia',
+    'quiénes somos ciberseguridad',
+    'Bogotá ciberseguridad',
+  ],
+  canonical: `${SITE_URL}/about`,
+  languages: {
+    'es': `${SITE_URL}/about`,
+    'en': `${SITE_URL}/en/about`,
+    'x-default': `${SITE_URL}/about`,
+  },
+  openGraph: {
+    type: 'website',
+    title: 'Quiénes Somos | ASC IT GROUP — Empresa de Ciberseguridad Colombia',
+    description:
+      'Equipo de expertos en ciberseguridad con certificaciones internacionales. Bogotá, Colombia.',
+    url: `${SITE_URL}/about`,
+    siteName: SITE_NAME,
+    images: [{ url: DEFAULT_OG_IMAGE, width: 800, height: 600, alt: 'ASC IT GROUP Team', type: 'image/png' }],
+  },
+})
 import { Shield, Target, Users, Award, CheckCircle2, Cloud, Swords, Bot, Lock, ArrowLeft } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 

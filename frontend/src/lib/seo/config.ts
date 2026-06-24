@@ -3,50 +3,52 @@ import type { SEOConfig, OrganizationSchema, WebSiteSchema } from '@/types/seo'
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://ascitgroup.com'
 export const SITE_NAME = 'ASC IT GROUP'
 export const SITE_DESCRIPTION =
-  'Expertos en Ciberseguridad y Pentesting. Ofrecemos servicios de Penetration Testing, Red Team, Auditorías de Seguridad y Consultoría en Cloud Security.'
+  'Empresa de ciberseguridad en Colombia. Servicios de Penetration Testing, Red Team, Auditorías de Seguridad y Cloud Security para empresas colombianas y latinoamericanas.'
 
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/LogoASCfinal.png`
 
 // SEO por defecto
 export const defaultSEO: SEOConfig = {
-  title: 'ASC IT GROUP | Cybersecurity & Penetration Testing Experts',
+  title: 'ASC IT GROUP | Empresa de Ciberseguridad en Colombia',
   description: SITE_DESCRIPTION,
   keywords: [
-    'cybersecurity',
-    'pentesting',
-    'penetration testing',
-    'red team',
-    'security audit',
-    'ethical hacking',
-    'ciberseguridad',
-    'hacking ético',
-    'seguridad informática',
-    'consultoría seguridad',
+    'ciberseguridad Colombia',
+    'empresa ciberseguridad Colombia',
+    'pentest Colombia',
+    'penetration testing Colombia',
+    'red team Colombia',
+    'seguridad informática Colombia',
+    'hacking ético Colombia',
+    'auditoría seguridad Colombia',
+    'seguridad en la nube Colombia',
+    'consultoría ciberseguridad',
+    'ciberseguridad empresarial',
+    'cybersecurity Latin America',
   ],
   canonical: SITE_URL,
   openGraph: {
     type: 'website',
-    title: SITE_NAME,
+    title: 'ASC IT GROUP | Empresa de Ciberseguridad en Colombia',
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
     images: [
       {
         url: DEFAULT_OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: 'ASC IT GROUP - Cybersecurity Experts',
-        type: 'image/jpeg',
+        width: 800,
+        height: 600,
+        alt: 'ASC IT GROUP - Empresa de Ciberseguridad en Colombia',
+        type: 'image/png',
       },
     ],
-    locale: 'es_ES',
+    locale: 'es_CO',
     alternateLocale: ['en_US'],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@ascitgroup',
     creator: '@ascitgroup',
-    title: SITE_NAME,
+    title: 'ASC IT GROUP | Empresa de Ciberseguridad en Colombia',
     description: SITE_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE],
   },

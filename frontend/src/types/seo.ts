@@ -3,6 +3,7 @@ export interface SEOConfig {
   description: string
   keywords?: string[]
   canonical?: string
+  languages?: Record<string, string>
   openGraph?: OpenGraphConfig
   twitter?: TwitterConfig
   jsonLd?: JsonLdSchema | JsonLdSchema[]

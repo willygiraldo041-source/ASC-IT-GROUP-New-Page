@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Páginas principales -->
+  <url>
+    <loc>https://ascitgroup.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/blog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/case-studies</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/case-studies"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Categorías de servicios -->
+  <url>
+    <loc>https://ascitgroup.com/services/penetration-testing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/penetration-testing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/penetration-testing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/penetration-testing"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/application-and-network-security</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/application-and-network-security"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/application-and-network-security"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/application-and-network-security"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/cloud-penetration-testing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/cloud-penetration-testing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/cloud-penetration-testing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/cloud-penetration-testing"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/advanced-attack-simulation</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/advanced-attack-simulation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/advanced-attack-simulation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/advanced-attack-simulation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/red-team-operations</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/red-team-operations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/red-team-operations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/red-team-operations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/automation-services</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/automation-services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/automation-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/automation-services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/devops-cloud-security-services</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/devops-cloud-security-services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/devops-cloud-security-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/devops-cloud-security-services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/security-audits-services</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/security-audits-services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/security-audits-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/security-audits-services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Application & Network Security — servicios específicos -->
+  <url>
+    <loc>https://ascitgroup.com/services/web-app-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/web-app-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/web-app-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/web-app-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/network-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/network-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/network-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/network-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/ad-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/ad-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/ad-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/ad-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/mobile-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/mobile-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/mobile-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/mobile-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cloud Penetration Testing — servicios específicos -->
+  <url>
+    <loc>https://ascitgroup.com/services/aws-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/aws-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/aws-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/aws-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/azure-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/azure-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/azure-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/azure-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/gcp-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/gcp-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/gcp-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/gcp-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Advanced Attack Simulation — servicios específicos -->
+  <url>
+    <loc>https://ascitgroup.com/services/ai-pentest</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/ai-pentest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/ai-pentest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/ai-pentest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/red-team</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/red-team"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/red-team"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/red-team"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/ransomware-sim</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/ransomware-sim"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/ransomware-sim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/ransomware-sim"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/phishing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/phishing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/phishing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/phishing"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/vishing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/vishing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/vishing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/vishing"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Intelligent Process Automation — servicios específicos -->
+  <url>
+    <loc>https://ascitgroup.com/services/workflow-automation</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/workflow-automation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/workflow-automation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/workflow-automation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/bot-automation</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/bot-automation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/bot-automation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/bot-automation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- DevOps & Cloud Security — servicios específicos -->
+  <url>
+    <loc>https://ascitgroup.com/services/cicd-infrastructure</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/cicd-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/cicd-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/cicd-infrastructure"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/devsecops</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/devsecops"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/devsecops"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/devsecops"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/services/k8s-security</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/k8s-security"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/k8s-security"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/k8s-security"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Security Audits — servicios específicos -->
+  <url>
+    <loc>https://ascitgroup.com/services/security-audits</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ascitgroup.com/services/security-audits"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ascitgroup.com/en/services/security-audits"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ascitgroup.com/services/security-audits"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Páginas legales -->
+  <url>
+    <loc>https://ascitgroup.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://ascitgroup.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
